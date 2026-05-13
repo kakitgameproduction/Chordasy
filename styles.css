@@ -50,6 +50,12 @@ a {
   backdrop-filter: blur(18px);
 }
 
+.header-controls {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
 .brand img {
   display: block;
   width: min(220px, 48vw);
@@ -75,6 +81,32 @@ a {
   color: var(--ink);
   border-color: var(--line);
   background: rgba(255, 255, 255, 0.06);
+}
+
+.lang-switch {
+  display: inline-flex;
+  padding: 4px;
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.05);
+}
+
+.lang-button {
+  min-width: 58px;
+  border: 0;
+  border-radius: 999px;
+  background: transparent;
+  color: var(--muted);
+  padding: 9px 12px;
+  font: inherit;
+  font-weight: 800;
+  cursor: pointer;
+}
+
+.lang-button.active {
+  background: linear-gradient(180deg, rgba(123, 202, 255, 0.96), rgba(50, 124, 194, 0.96));
+  color: white;
+  box-shadow: 0 10px 22px rgba(51, 141, 214, 0.28);
 }
 
 main {
@@ -346,6 +378,10 @@ li {
   margin-bottom: 12px;
 }
 
+.faq-mini p:last-child {
+  margin-bottom: 0;
+}
+
 .privacy-section {
   border-top: 1px solid var(--line);
   border-bottom: 1px solid var(--line);
@@ -387,6 +423,12 @@ li {
     flex-direction: column;
   }
 
+  .header-controls {
+    width: 100%;
+    align-items: flex-start;
+    flex-direction: column;
+  }
+
   .nav-links {
     justify-content: flex-start;
   }
@@ -419,6 +461,11 @@ li {
   .nav-links a {
     padding: 8px 10px;
     font-size: 0.9rem;
+  }
+
+  .lang-button {
+    min-width: 52px;
+    padding: 8px 10px;
   }
 
   .hero {

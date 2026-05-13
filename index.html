@@ -9,39 +9,45 @@
       content="ChordLab helps musicians manage PDF chord charts, build setlists, transpose songs, and send charts to band members over the same local network."
     />
     <meta property="og:title" content="ChordLab" />
-    <meta property="og:description" content="Band-ready PDF chord sheets, setlists, transposition, and LAN sharing for rehearsals and live worship." />
+    <meta
+      property="og:description"
+      content="Band-ready PDF chord sheets, setlists, transposition, and LAN sharing for rehearsals and live worship."
+    />
     <meta property="og:type" content="website" />
-    <meta property="og:image" content="assets/chordlab_app_icon.png" />
-    <link rel="icon" href="assets/chordlab_app_icon.png" />
+    <meta property="og:image" content="chordlab_app_icon.png" />
+    <link rel="icon" href="chordlab_app_icon.png" />
     <link rel="stylesheet" href="styles.css" />
   </head>
   <body>
     <header class="site-header">
       <a class="brand" href="#top" aria-label="ChordLab home">
-        <img src="assets/chordlab_logo.png" alt="ChordLab" />
+        <img src="chordlab_logo.png" alt="ChordLab" />
       </a>
-      <nav class="nav-links" aria-label="Main navigation">
-        <a href="#features">Features 功能</a>
-        <a href="#help">Help 幫助</a>
-        <a href="privacy.html">Privacy 私隱</a>
-        <a href="#support">Support 支援</a>
-      </nav>
+      <div class="header-controls">
+        <nav class="nav-links" aria-label="Main navigation">
+          <a href="#features" data-i18n="navFeatures">Features</a>
+          <a href="#help" data-i18n="navHelp">Help</a>
+          <a href="privacy.html" data-i18n="navPrivacy">Privacy</a>
+          <a href="#support" data-i18n="navSupport">Support</a>
+        </nav>
+        <div class="lang-switch" aria-label="Language switcher">
+          <button type="button" class="lang-button" data-lang-button="en">Eng</button>
+          <button type="button" class="lang-button" data-lang-button="zh">Chi</button>
+        </div>
+      </div>
     </header>
 
     <main id="top">
       <section class="hero section-grid">
         <div class="hero-copy">
-          <p class="eyebrow">For rehearsals, worship teams, and live bands</p>
-          <h1>Chord charts that move with your band.</h1>
-          <p class="lead">
+          <p class="eyebrow" data-i18n="heroEyebrow">For rehearsals, worship teams, and live bands</p>
+          <h1 data-i18n="heroTitle">Chord charts that move with your band.</h1>
+          <p class="lead" data-i18n="heroLead">
             ChordLab keeps your PDF chord sheets, setlists, transposition, annotations, and Band Mode sharing in one tablet-friendly workspace.
           </p>
-          <p class="lead zh">
-            ChordLab 幫你管理 PDF 樂譜、Setlist、移調、手寫標記，並用 Band Mode 喺同一個網絡即時傳送歌曲俾其他樂手。
-          </p>
           <div class="hero-actions">
-            <a class="button primary" href="#help">Get started 開始使用</a>
-            <a class="button secondary" href="https://github.com/kakitgameproduction/ChordLab">View on GitHub</a>
+            <a class="button primary" href="#help" data-i18n="heroPrimary">Get started</a>
+            <a class="button secondary" href="https://github.com/kakitgameproduction/ChordLab" data-i18n="heroSecondary">View on GitHub</a>
           </div>
         </div>
         <div class="video-card" aria-label="ChordLab introduction video">
@@ -58,24 +64,24 @@
       <section class="showcase">
         <div class="tablet-frame">
           <div class="app-topbar">
-            <img src="assets/chordlab_app_icon.png" alt="" />
-            <span>ChordLab Live Set</span>
-            <strong>Band On</strong>
+            <img src="chordlab_app_icon.png" alt="" />
+            <span data-i18n="previewTitle">ChordLab Live Set</span>
+            <strong data-i18n="previewBadge">Band On</strong>
           </div>
           <div class="app-body">
             <aside>
-              <button>Library</button>
-              <button class="active">Setlist</button>
-              <button>Band Mode</button>
-              <button>Live Mode</button>
+              <button data-i18n="previewLibrary">Library</button>
+              <button class="active" data-i18n="previewSetlist">Setlist</button>
+              <button data-i18n="previewBandMode">Band Mode</button>
+              <button data-i18n="previewLiveMode">Live Mode</button>
             </aside>
             <div class="sheet-preview">
               <div class="chord-line">G____D____Em____C</div>
-              <div>Verse 1</div>
-              <div class="lyric-line">Amazing grace, how sweet the sound</div>
+              <div data-i18n="previewVerse">Verse 1</div>
+              <div class="lyric-line" data-i18n="previewLyric1">Amazing grace, how sweet the sound</div>
               <div class="chord-line">C____G____D____G</div>
-              <div>Chorus</div>
-              <div class="lyric-line">We sing together, one song in time</div>
+              <div data-i18n="previewChorus">Chorus</div>
+              <div class="lyric-line" data-i18n="previewLyric2">We sing together, one song in time</div>
             </div>
           </div>
         </div>
@@ -83,169 +89,294 @@
 
       <section id="features" class="content-section">
         <div class="section-heading">
-          <p class="eyebrow">What ChordLab does</p>
-          <h2>Built for musicians who need charts fast.</h2>
-          <p>為現場演奏、敬拜隊、Band rehearsal 而設，重點係快、清楚、可靠。</p>
+          <p class="eyebrow" data-i18n="featuresEyebrow">What ChordLab does</p>
+          <h2 data-i18n="featuresTitle">Built for musicians who need charts fast.</h2>
+          <p data-i18n="featuresLead">Made for live performance, worship teams, and band rehearsals with a focus on speed, clarity, and reliability.</p>
         </div>
 
         <div class="feature-grid">
           <article class="feature-card">
             <span class="feature-icon">PDF</span>
-            <h3>PDF song library</h3>
-            <p>Import local PDFs or sync a Dropbox folder, then browse and search your charts quickly.</p>
-            <p class="zh">支援 Local PDF import 同 Dropbox 同步，方便建立自己嘅樂譜庫。</p>
+            <h3 data-i18n="feature1Title">PDF song library</h3>
+            <p data-i18n="feature1Body">Import local PDFs or sync a Dropbox folder, then browse and search your charts quickly.</p>
           </article>
           <article class="feature-card">
             <span class="feature-icon">Set</span>
-            <h3>Setlists for performance</h3>
-            <p>Create setlists, reorder songs by dragging, and keep your live set ready for the next rehearsal.</p>
-            <p class="zh">建立 Setlist、拖放調整歌曲次序，演出前快速整理流程。</p>
+            <h3 data-i18n="feature2Title">Setlists for performance</h3>
+            <p data-i18n="feature2Body">Create setlists, reorder songs by dragging, and keep your live set ready for the next rehearsal.</p>
           </article>
           <article class="feature-card">
             <span class="feature-icon">Key</span>
-            <h3>Transpose chords</h3>
-            <p>Move charts up or down by semitone, including common slash chords.</p>
-            <p class="zh">一鍵升降 key，支援常見 slash chords，方便配合唔同歌手。</p>
+            <h3 data-i18n="feature3Title">Transpose chords</h3>
+            <p data-i18n="feature3Body">Move charts up or down by semitone, including common slash chords.</p>
           </article>
           <article class="feature-card">
             <span class="feature-icon">Pen</span>
-            <h3>Annotations</h3>
-            <p>Use pen and eraser tools to mark charts directly during practice or performance.</p>
-            <p class="zh">可以用 pen tool 喺譜上做記號，排練同 live mode 都適合。</p>
+            <h3 data-i18n="feature4Title">Annotations</h3>
+            <p data-i18n="feature4Body">Use pen and eraser tools to mark charts directly during practice or performance.</p>
           </article>
           <article class="feature-card">
             <span class="feature-icon">LAN</span>
-            <h3>Band Mode sharing</h3>
-            <p>Send the current chart to online band members on the same local network.</p>
-            <p class="zh">Band Mode 可以喺同一 Wi-Fi/LAN 傳送當前歌曲俾其他樂手。</p>
+            <h3 data-i18n="feature5Title">Band Mode sharing</h3>
+            <p data-i18n="feature5Body">Send the current chart to online band members on the same local network.</p>
           </article>
           <article class="feature-card">
             <span class="feature-icon">Msg</span>
-            <h3>Broadcast messages</h3>
-            <p>Send short notes to remote members, such as “repeat chorus” or “go to bridge”.</p>
-            <p class="zh">可以發送簡短訊息，例如「repeat chorus」或者「去 bridge」。</p>
+            <h3 data-i18n="feature6Title">Broadcast messages</h3>
+            <p data-i18n="feature6Body">Send short notes to remote members, such as repeat chorus or go to bridge.</p>
           </article>
         </div>
       </section>
 
       <section id="help" class="content-section split-section">
         <div>
-          <p class="eyebrow">Help</p>
-          <h2>Quick start</h2>
+          <p class="eyebrow" data-i18n="helpEyebrow">Help</p>
+          <h2 data-i18n="helpTitle">Quick start</h2>
           <ol class="steps">
-            <li><strong>Add charts.</strong> Open Library, choose Local Import PDF or connect Dropbox.</li>
-            <li><strong>Create a setlist.</strong> Add songs to a setlist and drag the left handle to reorder.</li>
-            <li><strong>Open Live Mode.</strong> Use large navigation controls for performance.</li>
-            <li><strong>Use Band Mode.</strong> Turn Visible on, enter your musician name, then add or scan members on the same network.</li>
-            <li><strong>Send a chart.</strong> Open a song, select a remote member, and press Send in Band Mode.</li>
+            <li data-i18n="helpStep1">Add charts. Open Library, choose Local Import PDF or connect Dropbox.</li>
+            <li data-i18n="helpStep2">Create a setlist. Add songs to a setlist and drag the left handle to reorder.</li>
+            <li data-i18n="helpStep3">Open Live Mode. Use large navigation controls for performance.</li>
+            <li data-i18n="helpStep4">Use Band Mode. Turn Visible on, enter your musician name, then add or scan members on the same network.</li>
+            <li data-i18n="helpStep5">Send a chart. Open a song, select a remote member, and press Send in Band Mode.</li>
           </ol>
         </div>
         <div class="zh-panel">
-          <p class="eyebrow">使用幫助</p>
-          <h2>快速開始</h2>
-          <ol class="steps">
-            <li><strong>加入樂譜。</strong> 到 Library，選擇 Local Import PDF，或者連接 Dropbox。</li>
-            <li><strong>建立 Setlist。</strong> 將歌曲加入 Setlist，用左邊三條線拖動排序。</li>
-            <li><strong>開 Live Mode。</strong> 用大按鈕翻頁，適合演出時使用。</li>
-            <li><strong>使用 Band Mode。</strong> 開啟 Visible，輸入名字，然後掃描或手動加入同網絡成員。</li>
-            <li><strong>傳送歌曲。</strong> 打開歌曲後，在 Band Mode 選擇 remote member，按 Send。</li>
-          </ol>
+          <p class="eyebrow" data-i18n="faqEyebrow">FAQ</p>
+          <h2 data-i18n="faqTitle">Common questions</h2>
+          <div class="faq-mini">
+            <p><strong data-i18n="faq1Q">Do all tablets need the same Dropbox account?</strong></p>
+            <p data-i18n="faq1A">No. If the receiving tablet does not have the PDF, ChordLab can receive the sent PDF and store it locally.</p>
+            <p><strong data-i18n="faq2Q">Does Band Mode use the internet?</strong></p>
+            <p data-i18n="faq2A">Band Mode is designed for devices on the same local network. It does not require a ChordLab cloud server.</p>
+          </div>
         </div>
       </section>
 
       <section class="content-section">
         <div class="section-heading">
-          <p class="eyebrow">FAQ 常見問題</p>
-          <h2>Practical answers for rehearsals.</h2>
+          <p class="eyebrow" data-i18n="faqSectionEyebrow">FAQ</p>
+          <h2 data-i18n="faqSectionTitle">Practical answers for rehearsals.</h2>
         </div>
         <div class="faq-grid">
           <article>
-            <h3>Do all tablets need the same Dropbox account?</h3>
-            <p>No. If the receiving tablet does not have the PDF, ChordLab can receive the sent PDF and store it locally.</p>
-            <p class="zh">唔一定需要同一個 Dropbox。如果對方冇嗰份 PDF，ChordLab 可以接收 PDF 並儲存在本機。</p>
+            <h3 data-i18n="faq1Q">Do all tablets need the same Dropbox account?</h3>
+            <p data-i18n="faq1A">No. If the receiving tablet does not have the PDF, ChordLab can receive the sent PDF and store it locally.</p>
           </article>
           <article>
-            <h3>Does Band Mode use the internet?</h3>
-            <p>Band Mode is designed for devices on the same local network. It does not require a ChordLab cloud server.</p>
-            <p class="zh">Band Mode 主要用同一個 LAN/Wi-Fi，唔需要 ChordLab 雲端 server。</p>
+            <h3 data-i18n="faq2Q">Does Band Mode use the internet?</h3>
+            <p data-i18n="faq2A">Band Mode is designed for devices on the same local network. It does not require a ChordLab cloud server.</p>
           </article>
           <article>
-            <h3>Why can a device not be found?</h3>
-            <p>Check that both devices are on the same network, Visible is on, and the network allows devices to reach each other.</p>
-            <p class="zh">請確認兩部機在同一網絡、Visible 已開啟，而且 Wi-Fi 沒有啟用 client isolation。</p>
+            <h3 data-i18n="faq3Q">Why can a device not be found?</h3>
+            <p data-i18n="faq3A">Check that both devices are on the same network, Visible is on, and the network allows devices to reach each other.</p>
           </article>
           <article>
-            <h3>Can I remove local PDFs?</h3>
-            <p>Yes. Local library songs can be removed from the app without affecting Dropbox files.</p>
-            <p class="zh">可以。Local Library 的歌曲可以移除，而且唔會影響 Dropbox 原檔。</p>
-          </article>
-        </div>
-      </section>
-
-      <section id="privacy" class="content-section privacy-section">
-        <div class="section-heading">
-          <p class="eyebrow">Privacy Policy 私隱政策</p>
-          <h2>ChordLab is designed to keep your charts close to you.</h2>
-          <p>Last updated: 14 May 2026</p>
-        </div>
-
-        <div class="policy-grid">
-          <article>
-            <h3>English</h3>
-            <p>
-              ChordLab is a music chart and setlist app. The app stores imported PDFs, parsed song information, setlists, annotations, and settings on your device.
-            </p>
-            <p>
-              If you connect Dropbox, ChordLab accesses the Dropbox folder you choose so it can read PDF files and sync them into the app. Dropbox authentication is handled through Dropbox.
-            </p>
-            <p>
-              Band Mode communicates with other ChordLab devices on the same local network. When you send a chart, the app may send chart metadata and, when needed, the PDF file to the receiving device.
-            </p>
-            <p>
-              ChordLab does not operate a separate cloud server for your songs and does not sell personal data. Network and file permissions are used only to provide the app features described here.
-            </p>
-            <p>
-              To request support or data removal guidance, contact the developer using the support details below.
-            </p>
-          </article>
-          <article>
-            <h3>中文</h3>
-            <p>
-              ChordLab 是一個樂譜及 Setlist 管理 App。App 會將匯入的 PDF、歌曲資料、Setlist、手寫標記及設定儲存在你的裝置上。
-            </p>
-            <p>
-              如果你連接 Dropbox，ChordLab 會讀取你指定的 Dropbox 資料夾，用作同步 PDF 樂譜。Dropbox 登入及授權由 Dropbox 處理。
-            </p>
-            <p>
-              Band Mode 會與同一個本地網絡上的 ChordLab 裝置通訊。當你傳送歌曲時，App 可能會傳送歌曲資料；如對方沒有該 PDF，亦可能會傳送 PDF 檔案到對方裝置。
-            </p>
-            <p>
-              ChordLab 不營運額外雲端伺服器儲存你的歌曲，亦不會出售個人資料。網絡及檔案權限只會用作提供上述功能。
-            </p>
-            <p>
-              如需支援或資料移除指引，請使用下方支援方式聯絡開發者。
-            </p>
+            <h3 data-i18n="faq4Q">Can I remove local PDFs?</h3>
+            <p data-i18n="faq4A">Yes. Local library songs can be removed from the app without affecting Dropbox files.</p>
           </article>
         </div>
       </section>
 
       <section id="support" class="content-section support-section">
         <div>
-          <p class="eyebrow">Support 支援</p>
-          <h2>Need help with ChordLab?</h2>
-          <p>
-            For app support, bug reports, or Play Store privacy questions, please contact the developer through GitHub.
-          </p>
-          <p class="zh">如果需要 App 支援、回報問題，或者查詢私隱政策，可以透過 GitHub 聯絡開發者。</p>
+          <p class="eyebrow" data-i18n="supportEyebrow">Support</p>
+          <h2 data-i18n="supportTitle">Need help with ChordLab?</h2>
+          <p data-i18n="supportBody">For app support, bug reports, or Play Store privacy questions, please contact the developer through GitHub.</p>
         </div>
-        <a class="button primary" href="https://github.com/kakitgameproduction/ChordLab/issues">Open a support issue</a>
+        <a class="button primary" href="https://github.com/kakitgameproduction/ChordLab/issues" data-i18n="supportButton">Open a support issue</a>
       </section>
     </main>
 
     <footer class="site-footer">
-      <span>© 2026 ChordLab</span>
-      <a href="privacy.html">Privacy Policy</a>
+      <span data-i18n="footerCopy">© 2026 ChordLab</span>
+      <a href="privacy.html" data-i18n="footerPrivacy">Privacy Policy</a>
       <a href="https://github.com/kakitgameproduction/ChordLab">GitHub</a>
     </footer>
+
+    <script>
+      const translations = {
+        en: {
+          navFeatures: "Features",
+          navHelp: "Help",
+          navPrivacy: "Privacy",
+          navSupport: "Support",
+          heroEyebrow: "For rehearsals, worship teams, and live bands",
+          heroTitle: "Chord charts that move with your band.",
+          heroLead:
+            "ChordLab keeps your PDF chord sheets, setlists, transposition, annotations, and Band Mode sharing in one tablet-friendly workspace.",
+          heroPrimary: "Get started",
+          heroSecondary: "View on GitHub",
+          previewTitle: "ChordLab Live Set",
+          previewBadge: "Band On",
+          previewLibrary: "Library",
+          previewSetlist: "Setlist",
+          previewBandMode: "Band Mode",
+          previewLiveMode: "Live Mode",
+          previewVerse: "Verse 1",
+          previewLyric1: "Amazing grace, how sweet the sound",
+          previewChorus: "Chorus",
+          previewLyric2: "We sing together, one song in time",
+          featuresEyebrow: "What ChordLab does",
+          featuresTitle: "Built for musicians who need charts fast.",
+          featuresLead:
+            "Made for live performance, worship teams, and band rehearsals with a focus on speed, clarity, and reliability.",
+          feature1Title: "PDF song library",
+          feature1Body:
+            "Import local PDFs or sync a Dropbox folder, then browse and search your charts quickly.",
+          feature2Title: "Setlists for performance",
+          feature2Body:
+            "Create setlists, reorder songs by dragging, and keep your live set ready for the next rehearsal.",
+          feature3Title: "Transpose chords",
+          feature3Body:
+            "Move charts up or down by semitone, including common slash chords.",
+          feature4Title: "Annotations",
+          feature4Body:
+            "Use pen and eraser tools to mark charts directly during practice or performance.",
+          feature5Title: "Band Mode sharing",
+          feature5Body:
+            "Send the current chart to online band members on the same local network.",
+          feature6Title: "Broadcast messages",
+          feature6Body:
+            "Send short notes to remote members, such as repeat chorus or go to bridge.",
+          helpEyebrow: "Help",
+          helpTitle: "Quick start",
+          helpStep1:
+            "Add charts. Open Library, choose Local Import PDF or connect Dropbox.",
+          helpStep2:
+            "Create a setlist. Add songs to a setlist and drag the left handle to reorder.",
+          helpStep3:
+            "Open Live Mode. Use large navigation controls for performance.",
+          helpStep4:
+            "Use Band Mode. Turn Visible on, enter your musician name, then add or scan members on the same network.",
+          helpStep5:
+            "Send a chart. Open a song, select a remote member, and press Send in Band Mode.",
+          faqEyebrow: "FAQ",
+          faqTitle: "Common questions",
+          faqSectionEyebrow: "FAQ",
+          faqSectionTitle: "Practical answers for rehearsals.",
+          faq1Q: "Do all tablets need the same Dropbox account?",
+          faq1A:
+            "No. If the receiving tablet does not have the PDF, ChordLab can receive the sent PDF and store it locally.",
+          faq2Q: "Does Band Mode use the internet?",
+          faq2A:
+            "Band Mode is designed for devices on the same local network. It does not require a ChordLab cloud server.",
+          faq3Q: "Why can a device not be found?",
+          faq3A:
+            "Check that both devices are on the same network, Visible is on, and the network allows devices to reach each other.",
+          faq4Q: "Can I remove local PDFs?",
+          faq4A:
+            "Yes. Local library songs can be removed from the app without affecting Dropbox files.",
+          supportEyebrow: "Support",
+          supportTitle: "Need help with ChordLab?",
+          supportBody:
+            "For app support, bug reports, or Play Store privacy questions, please contact the developer through GitHub.",
+          supportButton: "Open a support issue",
+          footerCopy: "© 2026 ChordLab",
+          footerPrivacy: "Privacy Policy"
+        },
+        zh: {
+          navFeatures: "功能",
+          navHelp: "幫助",
+          navPrivacy: "私隱",
+          navSupport: "支援",
+          heroEyebrow: "適合 rehearsal、敬拜隊同 live band",
+          heroTitle: "讓樂譜跟住你整隊 band 一齊走。",
+          heroLead:
+            "ChordLab 將 PDF 樂譜、Setlist、移調、手寫標記同 Band Mode 分享整合到一個平板友善嘅工作空間。",
+          heroPrimary: "開始使用",
+          heroSecondary: "GitHub 頁面",
+          previewTitle: "ChordLab 現場 Set",
+          previewBadge: "Band On",
+          previewLibrary: "樂譜庫",
+          previewSetlist: "歌單",
+          previewBandMode: "Band Mode",
+          previewLiveMode: "Live Mode",
+          previewVerse: "主歌 1",
+          previewLyric1: "Amazing grace, how sweet the sound",
+          previewChorus: "副歌",
+          previewLyric2: "We sing together, one song in time",
+          featuresEyebrow: "ChordLab 可以做乜",
+          featuresTitle: "為需要快速處理樂譜嘅樂手而設。",
+          featuresLead:
+            "專為現場演奏、敬拜隊同 band rehearsal 而設，重點係快、清楚、可靠。",
+          feature1Title: "PDF 樂譜庫",
+          feature1Body:
+            "支援匯入本地 PDF 或同步 Dropbox 資料夾，快速瀏覽同搜尋樂譜。",
+          feature2Title: "演出用 Setlist",
+          feature2Body:
+            "建立 Setlist，用拖放重新排序歌曲，為下一次排練或演出準備好流程。",
+          feature3Title: "和弦移調",
+          feature3Body:
+            "可以按半音升降 key，支援常見 slash chords。",
+          feature4Title: "手寫標記",
+          feature4Body:
+            "排練或演出時可以直接喺譜上用筆同擦膠做記號。",
+          feature5Title: "Band Mode 分享",
+          feature5Body:
+            "可以將當前歌曲透過同一個本地網絡傳送俾在線成員。",
+          feature6Title: "廣播訊息",
+          feature6Body:
+            "可以傳送簡短訊息俾 remote 成員，例如 repeat chorus 或去 bridge。",
+          helpEyebrow: "幫助",
+          helpTitle: "快速開始",
+          helpStep1:
+            "加入樂譜：打開 Library，選擇 Local Import PDF，或者連接 Dropbox。",
+          helpStep2:
+            "建立 Setlist：將歌曲加入 Setlist，用左邊手柄拖動重新排序。",
+          helpStep3:
+            "開啟 Live Mode：用大按鈕翻頁，方便演出時使用。",
+          helpStep4:
+            "使用 Band Mode：開啟 Visible，輸入你嘅名字，然後加入或掃描同一網絡成員。",
+          helpStep5:
+            "傳送歌曲：打開歌曲後，選擇 remote member，再喺 Band Mode 按 Send。",
+          faqEyebrow: "常見問題",
+          faqTitle: "快速解答",
+          faqSectionEyebrow: "常見問題",
+          faqSectionTitle: "排練同現場最常見嘅實用答案。",
+          faq1Q: "所有平板都需要同一個 Dropbox account 嗎？",
+          faq1A:
+            "唔需要。如果接收方冇該 PDF，ChordLab 可以接收傳送過去嘅 PDF 並儲存在本機。",
+          faq2Q: "Band Mode 需要用互聯網嗎？",
+          faq2A:
+            "Band Mode 主要設計俾同一個本地網絡裝置使用，唔需要 ChordLab 雲端 server。",
+          faq3Q: "點解搵唔到對方裝置？",
+          faq3A:
+            "請確認兩部機喺同一網絡、Visible 已開啟，而且網絡允許裝置互相連接。",
+          faq4Q: "我可唔可以刪除本地 PDF？",
+          faq4A:
+            "可以。本地樂譜庫嘅歌曲可以移除，而唔會影響 Dropbox 原檔。",
+          supportEyebrow: "支援",
+          supportTitle: "需要 ChordLab 幫忙？",
+          supportBody:
+            "如果你需要 app 支援、回報問題，或者查詢 Play Store 私隱政策，可以透過 GitHub 聯絡開發者。",
+          supportButton: "開啟支援問題",
+          footerCopy: "© 2026 ChordLab",
+          footerPrivacy: "私隱政策"
+        }
+      };
+
+      function applyLanguage(language) {
+        const lang = translations[language] ? language : "en";
+        document.documentElement.lang = lang;
+        localStorage.setItem("chordlab-language", lang);
+        document.querySelectorAll("[data-i18n]").forEach((node) => {
+          const key = node.getAttribute("data-i18n");
+          if (translations[lang][key]) {
+            node.textContent = translations[lang][key];
+          }
+        });
+        document.querySelectorAll("[data-lang-button]").forEach((button) => {
+          button.classList.toggle("active", button.getAttribute("data-lang-button") === lang);
+        });
+      }
+
+      const savedLanguage = localStorage.getItem("chordlab-language");
+      const detectedLanguage = navigator.language && navigator.language.toLowerCase().startsWith("zh") ? "zh" : "en";
+      applyLanguage(savedLanguage || detectedLanguage);
+
+      document.querySelectorAll("[data-lang-button]").forEach((button) => {
+        button.addEventListener("click", () => applyLanguage(button.getAttribute("data-lang-button")));
+      });
+    </script>
   </body>
 </html>

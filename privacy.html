@@ -5,76 +5,156 @@
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>Privacy Policy | ChordLab</title>
     <meta name="description" content="ChordLab privacy policy in English and Chinese." />
-    <link rel="icon" href="assets/chordlab_app_icon.png" />
+    <link rel="icon" href="chordlab_app_icon.png" />
     <link rel="stylesheet" href="styles.css" />
   </head>
   <body>
     <header class="site-header">
       <a class="brand" href="index.html" aria-label="ChordLab home">
-        <img src="assets/chordlab_logo.png" alt="ChordLab" />
+        <img src="chordlab_logo.png" alt="ChordLab" />
       </a>
-      <nav class="nav-links" aria-label="Main navigation">
-        <a href="index.html#features">Features 功能</a>
-        <a href="index.html#help">Help 幫助</a>
-        <a href="privacy.html">Privacy 私隱</a>
-        <a href="index.html#support">Support 支援</a>
-      </nav>
+      <div class="header-controls">
+        <nav class="nav-links" aria-label="Main navigation">
+          <a href="index.html#features" data-i18n="navFeatures">Features</a>
+          <a href="index.html#help" data-i18n="navHelp">Help</a>
+          <a href="privacy.html" data-i18n="navPrivacy">Privacy</a>
+          <a href="index.html#support" data-i18n="navSupport">Support</a>
+        </nav>
+        <div class="lang-switch" aria-label="Language switcher">
+          <button type="button" class="lang-button" data-lang-button="en">Eng</button>
+          <button type="button" class="lang-button" data-lang-button="zh">Chi</button>
+        </div>
+      </div>
     </header>
 
     <main>
       <section class="content-section privacy-section standalone-policy">
         <div class="section-heading">
-          <p class="eyebrow">Privacy Policy 私隱政策</p>
-          <h1>ChordLab Privacy Policy</h1>
-          <p>Last updated: 14 May 2026</p>
+          <p class="eyebrow" data-i18n="privacyEyebrow">Privacy Policy</p>
+          <h1 data-i18n="privacyTitle">ChordLab Privacy Policy</h1>
+          <p data-i18n="privacyUpdated">Last updated: 14 May 2026</p>
         </div>
 
         <div class="policy-grid">
           <article>
-            <h3>English</h3>
-            <p>
-              ChordLab is a music chart and setlist app. The app stores imported PDFs, parsed song information, setlists, annotations, and settings on your device.
-            </p>
-            <p>
-              If you connect Dropbox, ChordLab accesses the Dropbox folder you choose so it can read PDF files and sync them into the app. Dropbox authentication is handled through Dropbox.
-            </p>
-            <p>
-              Band Mode communicates with other ChordLab devices on the same local network. When you send a chart, the app may send chart metadata and, when needed, the PDF file to the receiving device.
-            </p>
-            <p>
-              ChordLab does not operate a separate cloud server for your songs and does not sell personal data. Network and file permissions are used only to provide the app features described here.
-            </p>
-            <p>
-              To request support or data removal guidance, contact the developer using the support details on the ChordLab website or GitHub repository.
-            </p>
+            <h3 data-i18n="privacyEnglishHeading">English</h3>
+            <p data-i18n="privacyEn1">ChordLab is a music chart and setlist app. The app stores imported PDFs, parsed song information, setlists, annotations, and settings on your device.</p>
+            <p data-i18n="privacyEn2">If you connect Dropbox, ChordLab accesses the Dropbox folder you choose so it can read PDF files and sync them into the app. Dropbox authentication is handled through Dropbox.</p>
+            <p data-i18n="privacyEn3">Band Mode communicates with other ChordLab devices on the same local network. When you send a chart, the app may send chart metadata and, when needed, the PDF file to the receiving device.</p>
+            <p data-i18n="privacyEn4">ChordLab does not operate a separate cloud server for your songs and does not sell personal data. Network and file permissions are used only to provide the app features described here.</p>
+            <p data-i18n="privacyEn5">To request support or data removal guidance, contact the developer using the support details on the ChordLab website or GitHub repository.</p>
           </article>
 
           <article>
-            <h3>中文</h3>
-            <p>
-              ChordLab 是一個樂譜及 Setlist 管理 App。App 會將匯入的 PDF、歌曲資料、Setlist、手寫標記及設定儲存在你的裝置上。
-            </p>
-            <p>
-              如果你連接 Dropbox，ChordLab 會讀取你指定的 Dropbox 資料夾，用作同步 PDF 樂譜。Dropbox 登入及授權由 Dropbox 處理。
-            </p>
-            <p>
-              Band Mode 會與同一個本地網絡上的 ChordLab 裝置通訊。當你傳送歌曲時，App 可能會傳送歌曲資料；如對方沒有該 PDF，亦可能會傳送 PDF 檔案到對方裝置。
-            </p>
-            <p>
-              ChordLab 不營運額外雲端伺服器儲存你的歌曲，亦不會出售個人資料。網絡及檔案權限只會用作提供上述功能。
-            </p>
-            <p>
-              如需支援或資料移除指引，請透過 ChordLab 網站或 GitHub repository 上的支援方式聯絡開發者。
-            </p>
+            <h3 data-i18n="privacyChineseHeading">中文</h3>
+            <p data-i18n="privacyZh1">ChordLab 是一個樂譜及 Setlist 管理 App。App 會將匯入的 PDF、歌曲資料、Setlist、手寫標記及設定儲存在你的裝置上。</p>
+            <p data-i18n="privacyZh2">如果你連接 Dropbox，ChordLab 會讀取你指定的 Dropbox 資料夾，用作同步 PDF 樂譜。Dropbox 登入及授權由 Dropbox 處理。</p>
+            <p data-i18n="privacyZh3">Band Mode 會與同一個本地網絡上的 ChordLab 裝置通訊。當你傳送歌曲時，App 可能會傳送歌曲資料；如對方沒有該 PDF，亦可能會傳送 PDF 檔案到對方裝置。</p>
+            <p data-i18n="privacyZh4">ChordLab 不營運額外雲端伺服器儲存你的歌曲，亦不會出售個人資料。網絡及檔案權限只會用作提供上述功能。</p>
+            <p data-i18n="privacyZh5">如需支援或資料移除指引，請透過 ChordLab 網站或 GitHub repository 上的支援方式聯絡開發者。</p>
           </article>
         </div>
       </section>
     </main>
 
     <footer class="site-footer">
-      <span>© 2026 ChordLab</span>
-      <a href="index.html">Home</a>
+      <span data-i18n="footerCopy">© 2026 ChordLab</span>
+      <a href="index.html" data-i18n="footerHome">Home</a>
       <a href="https://github.com/kakitgameproduction/ChordLab">GitHub</a>
     </footer>
+
+    <script>
+      const translations = {
+        en: {
+          navFeatures: "Features",
+          navHelp: "Help",
+          navPrivacy: "Privacy",
+          navSupport: "Support",
+          privacyEyebrow: "Privacy Policy",
+          privacyTitle: "ChordLab Privacy Policy",
+          privacyUpdated: "Last updated: 14 May 2026",
+          privacyEnglishHeading: "English",
+          privacyChineseHeading: "Chinese",
+          privacyEn1:
+            "ChordLab is a music chart and setlist app. The app stores imported PDFs, parsed song information, setlists, annotations, and settings on your device.",
+          privacyEn2:
+            "If you connect Dropbox, ChordLab accesses the Dropbox folder you choose so it can read PDF files and sync them into the app. Dropbox authentication is handled through Dropbox.",
+          privacyEn3:
+            "Band Mode communicates with other ChordLab devices on the same local network. When you send a chart, the app may send chart metadata and, when needed, the PDF file to the receiving device.",
+          privacyEn4:
+            "ChordLab does not operate a separate cloud server for your songs and does not sell personal data. Network and file permissions are used only to provide the app features described here.",
+          privacyEn5:
+            "To request support or data removal guidance, contact the developer using the support details on the ChordLab website or GitHub repository.",
+          privacyZh1:
+            "ChordLab 是一個樂譜及 Setlist 管理 App。App 會將匯入的 PDF、歌曲資料、Setlist、手寫標記及設定儲存在你的裝置上。",
+          privacyZh2:
+            "如果你連接 Dropbox，ChordLab 會讀取你指定的 Dropbox 資料夾，用作同步 PDF 樂譜。Dropbox 登入及授權由 Dropbox 處理。",
+          privacyZh3:
+            "Band Mode 會與同一個本地網絡上的 ChordLab 裝置通訊。當你傳送歌曲時，App 可能會傳送歌曲資料；如對方沒有該 PDF，亦可能會傳送 PDF 檔案到對方裝置。",
+          privacyZh4:
+            "ChordLab 不營運額外雲端伺服器儲存你的歌曲，亦不會出售個人資料。網絡及檔案權限只會用作提供上述功能。",
+          privacyZh5:
+            "如需支援或資料移除指引，請透過 ChordLab 網站或 GitHub repository 上的支援方式聯絡開發者。",
+          footerCopy: "© 2026 ChordLab",
+          footerHome: "Home"
+        },
+        zh: {
+          navFeatures: "功能",
+          navHelp: "幫助",
+          navPrivacy: "私隱",
+          navSupport: "支援",
+          privacyEyebrow: "私隱政策",
+          privacyTitle: "ChordLab 私隱政策",
+          privacyUpdated: "最後更新：2026 年 5 月 14 日",
+          privacyEnglishHeading: "English",
+          privacyChineseHeading: "中文",
+          privacyEn1:
+            "ChordLab 是一個樂譜及 Setlist 管理 App。App 會將匯入的 PDF、歌曲資料、Setlist、手寫標記及設定儲存在你的裝置上。",
+          privacyEn2:
+            "如果你連接 Dropbox，ChordLab 會讀取你指定的 Dropbox 資料夾，用作同步 PDF 樂譜。Dropbox 登入及授權由 Dropbox 處理。",
+          privacyEn3:
+            "Band Mode 會與同一個本地網絡上的 ChordLab 裝置通訊。當你傳送歌曲時，App 可能會傳送歌曲資料；如對方沒有該 PDF，亦可能會傳送 PDF 檔案到對方裝置。",
+          privacyEn4:
+            "ChordLab 不營運額外雲端伺服器儲存你的歌曲，亦不會出售個人資料。網絡及檔案權限只會用作提供上述功能。",
+          privacyEn5:
+            "如需支援或資料移除指引，請透過 ChordLab 網站或 GitHub repository 上的支援方式聯絡開發者。",
+          privacyZh1:
+            "ChordLab 是一個樂譜及 Setlist 管理 App。App 會將匯入的 PDF、歌曲資料、Setlist、手寫標記及設定儲存在你的裝置上。",
+          privacyZh2:
+            "如果你連接 Dropbox，ChordLab 會讀取你指定的 Dropbox 資料夾，用作同步 PDF 樂譜。Dropbox 登入及授權由 Dropbox 處理。",
+          privacyZh3:
+            "Band Mode 會與同一個本地網絡上的 ChordLab 裝置通訊。當你傳送歌曲時，App 可能會傳送歌曲資料；如對方沒有該 PDF，亦可能會傳送 PDF 檔案到對方裝置。",
+          privacyZh4:
+            "ChordLab 不營運額外雲端伺服器儲存你的歌曲，亦不會出售個人資料。網絡及檔案權限只會用作提供上述功能。",
+          privacyZh5:
+            "如需支援或資料移除指引，請透過 ChordLab 網站或 GitHub repository 上的支援方式聯絡開發者。",
+          footerCopy: "© 2026 ChordLab",
+          footerHome: "主頁"
+        }
+      };
+
+      function applyLanguage(language) {
+        const lang = translations[language] ? language : "en";
+        document.documentElement.lang = lang;
+        localStorage.setItem("chordlab-language", lang);
+        document.querySelectorAll("[data-i18n]").forEach((node) => {
+          const key = node.getAttribute("data-i18n");
+          if (translations[lang][key]) {
+            node.textContent = translations[lang][key];
+          }
+        });
+        document.querySelectorAll("[data-lang-button]").forEach((button) => {
+          button.classList.toggle("active", button.getAttribute("data-lang-button") === lang);
+        });
+      }
+
+      const savedLanguage = localStorage.getItem("chordlab-language");
+      const detectedLanguage = navigator.language && navigator.language.toLowerCase().startsWith("zh") ? "zh" : "en";
+      applyLanguage(savedLanguage || detectedLanguage);
+
+      document.querySelectorAll("[data-lang-button]").forEach((button) => {
+        button.addEventListener("click", () => applyLanguage(button.getAttribute("data-lang-button")));
+      });
+    </script>
   </body>
 </html>
