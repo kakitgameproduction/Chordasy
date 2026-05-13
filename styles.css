@@ -56,6 +56,14 @@ a {
   gap: 16px;
 }
 
+.header-controls .lang-switch {
+  order: 0;
+}
+
+.header-controls .nav-links {
+  order: 1;
+}
+
 .brand img {
   display: block;
   width: min(220px, 48vw);
@@ -220,6 +228,16 @@ li {
   content: "";
   display: block;
   padding-top: 56.25%;
+}
+
+.video-card-vertical {
+  width: min(100%, 430px);
+  margin-inline: auto;
+  border-radius: 38px;
+}
+
+.video-card-vertical::before {
+  padding-top: 177.78%;
 }
 
 .video-card iframe {
@@ -429,6 +447,11 @@ li {
     flex-direction: column;
   }
 
+  .header-controls .lang-switch,
+  .header-controls .nav-links {
+    order: initial;
+  }
+
   .nav-links {
     justify-content: flex-start;
   }
@@ -440,6 +463,10 @@ li {
   .policy-grid,
   .app-body {
     grid-template-columns: 1fr;
+  }
+
+  .video-card-vertical {
+    width: min(100%, 360px);
   }
 
   .app-body aside {
