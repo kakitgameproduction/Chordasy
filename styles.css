@@ -265,9 +265,9 @@ li {
 }
 
 .video-card-vertical {
-  width: min(100%, 430px);
+  width: min(390px, 82vw);
   margin-inline: auto;
-  border-radius: 38px;
+  border-radius: 34px;
 }
 
 .video-card-vertical::before {
@@ -305,35 +305,15 @@ li {
 
 .video-popover {
   position: fixed;
-  top: 120px;
-  right: 32px;
-  z-index: 60;
-  width: min(420px, calc(100vw - 32px));
-  padding: 14px;
-  border: 1px solid rgba(127, 228, 255, 0.16);
-  border-radius: 28px;
-  background: linear-gradient(160deg, rgba(18, 28, 42, 0.98), rgba(10, 18, 29, 0.98));
-  box-shadow: 0 28px 54px rgba(8, 14, 22, 0.34);
-}
-
-.video-popover-head {
+  inset: 0;
+  z-index: 80;
   display: flex;
   align-items: center;
-  justify-content: space-between;
-  gap: 16px;
-  padding: 4px 4px 12px;
-}
-
-.video-popover-close {
-  width: 40px;
-  height: 40px;
-  border: 1px solid rgba(255, 255, 255, 0.1);
-  border-radius: 999px;
-  background: rgba(255, 255, 255, 0.05);
-  color: #ffffff;
-  font-size: 1.5rem;
-  line-height: 1;
-  cursor: pointer;
+  justify-content: center;
+  padding: 24px;
+  background: rgba(8, 14, 22, 0.5);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
 }
 
 .video-popover[hidden] {
@@ -354,10 +334,10 @@ li {
 
 .showcase-shell {
   display: grid;
-  grid-template-columns: 250px minmax(0, 1fr);
+  grid-template-columns: 210px minmax(0, 1fr);
   gap: 0;
   align-items: start;
-  width: min(100%, 1040px);
+  width: min(100%, 960px);
   margin: 0 auto;
   overflow: hidden;
   border: 1px solid rgba(127, 228, 255, 0.14);
@@ -370,14 +350,17 @@ li {
 
 .demo-nav {
   display: grid;
-  gap: 12px;
-  padding: 20px 16px;
+  gap: 10px;
+  padding: 16px;
   background: linear-gradient(180deg, rgba(13, 22, 34, 0.96), rgba(10, 18, 29, 0.98));
   border-right: 1px solid rgba(127, 228, 255, 0.12);
 }
 
 .demo-button {
-  padding: 14px 14px 14px;
+  display: flex;
+  align-items: center;
+  min-height: 64px;
+  padding: 12px 14px;
   border: 1px solid rgba(127, 228, 255, 0.12);
   border-radius: 18px;
   background: linear-gradient(180deg, rgba(255, 255, 255, 0.04), rgba(255, 255, 255, 0.02));
@@ -418,16 +401,16 @@ li {
 .demo-button strong {
   display: block;
   color: #f4fbff;
-  font-size: 1.08rem;
-  line-height: 1.18;
-  letter-spacing: -0.02em;
+  font-size: clamp(1.05rem, 1.3vw, 1.28rem);
+  line-height: 1.08;
+  letter-spacing: 0;
   font-family: Avenir Next, Nunito, Verdana, sans-serif;
 }
 
 .demo-stage {
   position: relative;
   min-width: 0;
-  padding: 22px;
+  padding: 18px;
   background:
     radial-gradient(circle at top right, rgba(127, 228, 255, 0.08), transparent 30rem),
     linear-gradient(180deg, rgba(17, 26, 40, 0.94), rgba(11, 18, 28, 0.98));
@@ -435,12 +418,12 @@ li {
 
 .demo-panel {
   display: grid;
-  gap: 16px;
+  gap: 12px;
 }
 
 .demo-panel-copy {
   max-width: 760px;
-  padding-bottom: 4px;
+  padding-bottom: 0;
 }
 
 .demo-panel.active {
@@ -461,7 +444,8 @@ li {
 .demo-screen {
   position: relative;
   overflow: hidden;
-  min-height: 340px;
+  height: clamp(245px, 27vw, 330px);
+  min-height: 0;
   border: 1px solid rgba(127, 228, 255, 0.16);
   border-radius: 26px;
   background: linear-gradient(160deg, rgba(255, 255, 255, 0.96), rgba(244, 250, 255, 0.96));
@@ -479,32 +463,33 @@ li {
 }
 
 .demo-screen-setlist img {
-  object-position: 78% 8%;
-  transform: scale(1.08);
+  object-position: 76% 18%;
+  transform: scale(1.03);
 }
 
 .demo-screen-band img {
-  object-position: 50% 9%;
-  transform: scale(0.84);
+  object-position: 50% 52%;
+  transform: scale(1.08);
 }
 
 .demo-screen-library img {
-  object-position: 16% 8%;
-  transform: scale(0.98);
+  object-position: 15% 16%;
+  transform: scale(1.02);
 }
 
 .demo-screen-markup img {
-  object-position: 50% 10%;
-  transform: scale(0.98);
+  object-position: 50% 18%;
+  transform: scale(1.04);
 }
 
 .demo-screen-import {
-  min-height: 240px;
+  height: clamp(220px, 23vw, 290px);
+  min-height: 0;
 }
 
 .demo-screen-import img {
   object-position: 50% 45%;
-  transform: scale(0.9);
+  transform: scale(0.98);
 }
 
 .capture-kicker {
@@ -523,14 +508,14 @@ li {
 
 .demo-panel-copy h3 {
   margin-bottom: 8px;
-  font-size: 1.1rem;
+  font-size: clamp(1.05rem, 1.4vw, 1.28rem);
   color: #f4fbff;
 }
 
 .demo-panel-copy p:last-child {
   margin-bottom: 0;
   color: rgba(223, 236, 248, 0.78);
-  font-size: 0.95rem;
+  font-size: 0.92rem;
   line-height: 1.45;
 }
 
@@ -681,9 +666,7 @@ li {
   }
 
   .video-popover {
-    top: 96px;
-    right: 16px;
-    width: min(400px, calc(100vw - 24px));
+    padding: 18px;
   }
 
   .demo-nav {
@@ -727,10 +710,12 @@ li {
   }
 
   .demo-button {
-    padding: 16px;
+    min-height: 58px;
+    padding: 14px 16px;
   }
 
   .demo-screen {
-    min-height: 260px;
+    height: 250px;
+    min-height: 0;
   }
 }

@@ -54,10 +54,6 @@
             <img src="youtube_logo.png" alt="Open YouTube video" />
           </button>
           <div class="video-popover" id="video-popover" hidden>
-            <div class="video-popover-head">
-              <p class="capture-kicker">YouTube</p>
-              <button class="video-popover-close" type="button" id="video-popover-close" aria-label="Close video">×</button>
-            </div>
             <div class="video-card video-card-vertical" aria-label="ChordLab introduction video">
               <iframe
                 id="hero-video-frame"
@@ -81,24 +77,19 @@
         <div class="showcase-shell">
           <div class="demo-nav" role="tablist" aria-label="ChordLab demos">
             <button class="demo-button active" type="button" data-demo-target="setlist" aria-pressed="true">
-              <span class="demo-button-kicker" data-i18n="capture1Kicker">Setlists</span>
-              <strong data-i18n="capture1Title">Drag songs into the right running order.</strong>
+              <strong data-i18n="demoNavSetlists">Setlists</strong>
             </button>
             <button class="demo-button" type="button" data-demo-target="band-mode" aria-pressed="false">
-              <span class="demo-button-kicker" data-i18n="capture2Kicker">Band Mode</span>
-              <strong data-i18n="capture2Title">See members online and send in one tap.</strong>
+              <strong data-i18n="demoNavBandMode">Band Mode</strong>
             </button>
             <button class="demo-button" type="button" data-demo-target="library" aria-pressed="false">
-              <span class="demo-button-kicker" data-i18n="capture3Kicker">Library</span>
-              <strong data-i18n="capture3Title">Find songs fast with Local, Dropbox, and Import PDF.</strong>
+              <strong data-i18n="demoNavLibrary">Library</strong>
             </button>
             <button class="demo-button" type="button" data-demo-target="markup" aria-pressed="false">
-              <span class="demo-button-kicker" data-i18n="capture4Kicker">Markup tools</span>
-              <strong data-i18n="capture4Title">Write directly on charts during practice or live play.</strong>
+              <strong data-i18n="demoNavMarkup">Markup Tools</strong>
             </button>
             <button class="demo-button" type="button" data-demo-target="import" aria-pressed="false">
-              <span class="demo-button-kicker" data-i18n="capture5Kicker">Import</span>
-              <strong data-i18n="capture5Title">Bring a PDF into your local library in seconds.</strong>
+              <strong data-i18n="demoNavImport">Import PDF</strong>
             </button>
           </div>
 
@@ -255,7 +246,7 @@
         <div>
           <p class="eyebrow" data-i18n="supportEyebrow">Support</p>
           <h2 data-i18n="supportTitle">Need help with ChordLab?</h2>
-          <p data-i18n="supportBody">For app support, bug reports, or Play Store privacy questions, please contact the developer through GitHub.</p>
+          <p data-i18n="supportBody">Feedback and support contact options are coming soon.</p>
         </div>
         <span class="button primary" data-i18n="supportButton">Feedback</span>
       </section>
@@ -264,7 +255,6 @@
     <footer class="site-footer">
       <span data-i18n="footerCopy">© 2026 ChordLab</span>
       <a href="privacy.html" data-i18n="footerPrivacy">Privacy Policy</a>
-      <a href="https://github.com/kakitgameproduction/ChordLab">GitHub</a>
     </footer>
 
     <script>
@@ -283,6 +273,11 @@
           showcaseTitle: "Real screens from the app.",
           showcaseLead:
             "Browse your library, reorder a live set, share charts across the band, and annotate on the fly with a workspace designed for performance.",
+          demoNavSetlists: "Setlists",
+          demoNavBandMode: "Band Mode",
+          demoNavLibrary: "Library",
+          demoNavMarkup: "Markup Tools",
+          demoNavImport: "Import PDF",
           capture1Kicker: "Setlists",
           capture1Title: "Drag songs into the right running order.",
           capture1Body:
@@ -353,7 +348,7 @@
           supportEyebrow: "Support",
           supportTitle: "Need help with ChordLab?",
           supportBody:
-            "For app support, bug reports, or Play Store privacy questions, please contact the developer through GitHub.",
+            "Feedback and support contact options are coming soon.",
           supportButton: "Feedback",
           footerCopy: "© 2026 ChordLab",
           footerPrivacy: "Privacy Policy"
@@ -372,6 +367,11 @@
           showcaseTitle: "用真實畫面睇清楚點樣操作。",
           showcaseLead:
             "由樂譜庫、Setlist 排序，到 Band Mode 傳歌同手寫標記，全部都係為演出流程而設計。",
+          demoNavSetlists: "Setlist",
+          demoNavBandMode: "Band Mode",
+          demoNavLibrary: "樂譜庫",
+          demoNavMarkup: "標記工具",
+          demoNavImport: "匯入 PDF",
           capture1Kicker: "Setlist",
           capture1Title: "拖動歌曲，排好你現場要用嘅次序。",
           capture1Body:
@@ -442,7 +442,7 @@
           supportEyebrow: "支援",
           supportTitle: "需要 ChordLab 幫忙？",
           supportBody:
-            "如果你需要 app 支援、回報問題，或者查詢 Play Store 私隱政策，可以透過 GitHub 聯絡開發者。",
+            "意見回饋同支援聯絡方式即將推出。",
           supportButton: "Feedback",
           footerCopy: "© 2026 ChordLab",
           footerPrivacy: "私隱政策"
@@ -497,7 +497,6 @@
 
       const videoTrigger = document.getElementById("video-trigger");
       const videoPopover = document.getElementById("video-popover");
-      const videoPopoverClose = document.getElementById("video-popover-close");
       const heroVideoFrame = document.getElementById("hero-video-frame");
       const heroVideoUrl = "https://www.youtube.com/embed/0Dk6mGXuKqs?autoplay=1";
 
@@ -523,13 +522,11 @@
         }
       });
 
-      videoPopoverClose.addEventListener("click", closeHeroVideo);
-
       document.addEventListener("click", (event) => {
         if (videoPopover.hidden) {
           return;
         }
-        if (!videoPopover.contains(event.target) && !videoTrigger.contains(event.target)) {
+        if (event.target === videoPopover) {
           closeHeroVideo();
         }
       });
