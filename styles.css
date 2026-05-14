@@ -553,15 +553,6 @@ li {
   transform: scale(0.98);
 }
 
-.capture-kicker {
-  margin-bottom: 8px;
-  color: #1b74d8;
-  font-size: 0.82rem;
-  font-weight: 900;
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
-}
-
 .demo-panel-copy h3,
 .demo-panel-copy p {
   color: var(--ink);
@@ -692,11 +683,6 @@ li {
 
 .download-coffee {
   justify-content: center;
-}
-
-.download-divider {
-  color: #9fb0c3;
-  font-weight: 900;
 }
 
 .download-note {
