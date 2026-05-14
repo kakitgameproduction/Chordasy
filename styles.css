@@ -680,10 +680,32 @@ li {
   filter: drop-shadow(0 26px 44px rgba(34, 168, 255, 0.16));
 }
 
-.download-disabled {
-  justify-self: start;
-  grid-column: 1 / -1;
-  pointer-events: none;
+.download-actions {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 14px;
+  margin-top: 28px;
+}
+
+.coffee-button {
+  background: linear-gradient(135deg, #ffdd00, #ff813f);
+  border-color: rgba(0, 0, 0, 0.08);
+  color: #111827;
+  box-shadow:
+    0 16px 34px rgba(255, 129, 63, 0.22),
+    0 0 22px rgba(255, 221, 0, 0.18);
+}
+
+.download-divider {
+  color: #9fb0c3;
+  font-weight: 900;
+}
+
+.download-note {
+  margin: 18px 0 0;
+  color: #61758a;
+  font-size: 0.96rem;
 }
 
 .feature-icon {
