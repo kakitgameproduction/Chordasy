@@ -49,15 +49,18 @@
             <a class="button primary" href="#help" data-i18n="heroPrimary">Get started</a>
           </div>
         </div>
-        <div class="video-card video-card-vertical" aria-label="ChordLab introduction video">
-          <iframe
-            src="https://www.youtube.com/embed/0Dk6mGXuKqs"
-            title="ChordLab introduction video"
-            loading="lazy"
-            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-            allowfullscreen
-          ></iframe>
-        </div>
+        <button class="video-launch video-card video-card-vertical" type="button" id="video-launch" aria-label="Open ChordLab introduction video">
+          <span class="video-launch-bg"></span>
+          <span class="video-launch-content">
+            <span class="video-launch-badge">YouTube</span>
+            <span class="video-launch-title" data-i18n="videoLaunchTitle">Watch the intro video</span>
+            <span class="video-launch-body" data-i18n="videoLaunchBody">Tap to open the product walkthrough without leaving this page.</span>
+            <span class="video-launch-play">
+              <span class="video-launch-play-icon"></span>
+              <span data-i18n="videoLaunchButton">Play video</span>
+            </span>
+          </span>
+        </button>
       </section>
 
       <section class="showcase">
@@ -66,44 +69,83 @@
           <h2 data-i18n="showcaseTitle">Real screens from the app.</h2>
           <p data-i18n="showcaseLead">Browse your library, reorder a live set, share charts across the band, and annotate on the fly with a workspace designed for performance.</p>
         </div>
-        <div class="showcase-grid">
-          <article class="capture-card capture-card-wide">
-            <div class="capture-copy">
-              <p class="capture-kicker" data-i18n="capture1Kicker">Setlists</p>
-              <h3 data-i18n="capture1Title">Drag songs into the right running order.</h3>
-              <p data-i18n="capture1Body">Build the exact flow for rehearsal or stage, then make changes quickly without losing momentum.</p>
-            </div>
-            <img src="capture-setlist.png" alt="ChordLab setlist and drag reorder screen" />
-          </article>
-          <article class="capture-card capture-card-tall">
-            <div class="capture-copy">
-              <p class="capture-kicker" data-i18n="capture2Kicker">Band Mode</p>
-              <h3 data-i18n="capture2Title">See members online and send in one tap.</h3>
-              <p data-i18n="capture2Body">Keep the whole team aligned on the same local network with chart sharing and quick broadcast tools.</p>
-            </div>
-            <img src="capture-band-mode.png" alt="ChordLab Band Mode screen" />
-          </article>
-          <article class="capture-card capture-card-medium">
-            <div class="capture-copy">
-              <p class="capture-kicker" data-i18n="capture3Kicker">Library</p>
-              <h3 data-i18n="capture3Title">Find songs fast with Local, Dropbox, and Import PDF.</h3>
-            </div>
-            <img src="capture-library.png" alt="ChordLab song library screen" />
-          </article>
-          <article class="capture-card capture-card-medium capture-card-dark">
-            <div class="capture-copy">
-              <p class="capture-kicker" data-i18n="capture4Kicker">Markup tools</p>
-              <h3 data-i18n="capture4Title">Write directly on charts during practice or live play.</h3>
-            </div>
-            <img src="capture-annotate.png" alt="ChordLab annotation toolbar on top of a chart" />
-          </article>
-          <article class="capture-card capture-card-small">
-            <div class="capture-copy">
-              <p class="capture-kicker" data-i18n="capture5Kicker">Import</p>
-              <h3 data-i18n="capture5Title">Bring a PDF into your local library in seconds.</h3>
-            </div>
-            <img src="capture-import.png" alt="ChordLab import PDF confirmation dialog" />
-          </article>
+        <div class="showcase-shell">
+          <div class="demo-nav" role="tablist" aria-label="ChordLab demos">
+            <button class="demo-button active" type="button" data-demo-target="setlist" aria-pressed="true">
+              <span class="demo-button-kicker" data-i18n="capture1Kicker">Setlists</span>
+              <strong data-i18n="capture1Title">Drag songs into the right running order.</strong>
+            </button>
+            <button class="demo-button" type="button" data-demo-target="band-mode" aria-pressed="false">
+              <span class="demo-button-kicker" data-i18n="capture2Kicker">Band Mode</span>
+              <strong data-i18n="capture2Title">See members online and send in one tap.</strong>
+            </button>
+            <button class="demo-button" type="button" data-demo-target="library" aria-pressed="false">
+              <span class="demo-button-kicker" data-i18n="capture3Kicker">Library</span>
+              <strong data-i18n="capture3Title">Find songs fast with Local, Dropbox, and Import PDF.</strong>
+            </button>
+            <button class="demo-button" type="button" data-demo-target="markup" aria-pressed="false">
+              <span class="demo-button-kicker" data-i18n="capture4Kicker">Markup tools</span>
+              <strong data-i18n="capture4Title">Write directly on charts during practice or live play.</strong>
+            </button>
+            <button class="demo-button" type="button" data-demo-target="import" aria-pressed="false">
+              <span class="demo-button-kicker" data-i18n="capture5Kicker">Import</span>
+              <strong data-i18n="capture5Title">Bring a PDF into your local library in seconds.</strong>
+            </button>
+          </div>
+
+          <div class="demo-stage">
+            <article class="demo-panel active" data-demo-panel="setlist">
+              <div class="demo-panel-copy">
+                <p class="capture-kicker" data-i18n="capture1Kicker">Setlists</p>
+                <h3 data-i18n="capture1Title">Drag songs into the right running order.</h3>
+                <p data-i18n="capture1Body">Build the exact flow for rehearsal or stage, then make changes quickly without losing momentum.</p>
+              </div>
+              <div class="demo-screen demo-screen-setlist">
+                <img src="capture-setlist.png" alt="ChordLab setlist and drag reorder screen" />
+              </div>
+            </article>
+
+            <article class="demo-panel" data-demo-panel="band-mode" hidden>
+              <div class="demo-panel-copy">
+                <p class="capture-kicker" data-i18n="capture2Kicker">Band Mode</p>
+                <h3 data-i18n="capture2Title">See members online and send in one tap.</h3>
+                <p data-i18n="capture2Body">Keep the whole team aligned on the same local network with chart sharing and quick broadcast tools.</p>
+              </div>
+              <div class="demo-screen demo-screen-band">
+                <img src="capture-band-mode.png" alt="ChordLab Band Mode screen showing two users online" />
+              </div>
+            </article>
+
+            <article class="demo-panel" data-demo-panel="library" hidden>
+              <div class="demo-panel-copy">
+                <p class="capture-kicker" data-i18n="capture3Kicker">Library</p>
+                <h3 data-i18n="capture3Title">Find songs fast with Local, Dropbox, and Import PDF.</h3>
+              </div>
+              <div class="demo-screen demo-screen-library">
+                <img src="capture-library.png" alt="ChordLab song library screen" />
+              </div>
+            </article>
+
+            <article class="demo-panel" data-demo-panel="markup" hidden>
+              <div class="demo-panel-copy">
+                <p class="capture-kicker" data-i18n="capture4Kicker">Markup tools</p>
+                <h3 data-i18n="capture4Title">Write directly on charts during practice or live play.</h3>
+              </div>
+              <div class="demo-screen demo-screen-markup">
+                <img src="capture-annotate.png" alt="ChordLab annotation toolbar on top of a chart" />
+              </div>
+            </article>
+
+            <article class="demo-panel" data-demo-panel="import" hidden>
+              <div class="demo-panel-copy">
+                <p class="capture-kicker" data-i18n="capture5Kicker">Import</p>
+                <h3 data-i18n="capture5Title">Bring a PDF into your local library in seconds.</h3>
+              </div>
+              <div class="demo-screen demo-screen-import">
+                <img src="capture-import.png" alt="ChordLab import PDF confirmation dialog" />
+              </div>
+            </article>
+          </div>
         </div>
       </section>
 
@@ -207,6 +249,29 @@
       </section>
     </main>
 
+    <div class="video-modal" id="video-modal" hidden>
+      <div class="video-modal-backdrop" data-video-close="true"></div>
+      <div class="video-modal-dialog" role="dialog" aria-modal="true" aria-labelledby="video-modal-title">
+        <div class="video-modal-header">
+          <div>
+            <p class="capture-kicker">YouTube</p>
+            <h3 id="video-modal-title" data-i18n="videoModalTitle">ChordLab introduction video</h3>
+          </div>
+          <button class="video-modal-close" type="button" id="video-modal-close" aria-label="Close video">×</button>
+        </div>
+        <div class="video-modal-frame">
+          <iframe
+            id="video-modal-iframe"
+            src=""
+            title="ChordLab introduction video"
+            loading="lazy"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+            allowfullscreen
+          ></iframe>
+        </div>
+      </div>
+    </div>
+
     <footer class="site-footer">
       <span data-i18n="footerCopy">© 2026 ChordLab</span>
       <a href="privacy.html" data-i18n="footerPrivacy">Privacy Policy</a>
@@ -225,6 +290,10 @@
           heroLead:
             "ChordLab keeps your PDF chord sheets, setlists, transposition, annotations, and Band Mode sharing in one tablet-friendly workspace.",
           heroPrimary: "Get started",
+          videoLaunchTitle: "Watch the intro video",
+          videoLaunchBody: "Tap to open the product walkthrough without leaving this page.",
+          videoLaunchButton: "Play video",
+          videoModalTitle: "ChordLab introduction video",
           showcaseEyebrow: "Inside ChordLab",
           showcaseTitle: "Real screens from the app.",
           showcaseLead:
@@ -311,6 +380,10 @@
           heroLead:
             "ChordLab 將 PDF 樂譜、Setlist、移調、手寫標記同 Band Mode 分享整合到一個平板友善嘅工作空間。",
           heroPrimary: "開始使用",
+          videoLaunchTitle: "觀看介紹影片",
+          videoLaunchBody: "撳一下就可以喺本頁打開產品示範，唔使跳去新頁面。",
+          videoLaunchButton: "播放影片",
+          videoModalTitle: "ChordLab 介紹影片",
           showcaseEyebrow: "ChordLab 介面",
           showcaseTitle: "用真實畫面睇清楚點樣操作。",
           showcaseLead:
@@ -410,6 +483,59 @@
 
       document.querySelectorAll("[data-lang-button]").forEach((button) => {
         button.addEventListener("click", () => applyLanguage(button.getAttribute("data-lang-button")));
+      });
+
+      const videoModal = document.getElementById("video-modal");
+      const videoLaunch = document.getElementById("video-launch");
+      const videoModalClose = document.getElementById("video-modal-close");
+      const videoModalFrame = document.getElementById("video-modal-iframe");
+      const videoEmbedUrl = "https://www.youtube.com/embed/0Dk6mGXuKqs?autoplay=1";
+
+      function openVideoModal() {
+        videoModal.hidden = false;
+        document.body.classList.add("video-modal-open");
+        videoModalFrame.src = videoEmbedUrl;
+      }
+
+      function closeVideoModal() {
+        videoModal.hidden = true;
+        document.body.classList.remove("video-modal-open");
+        videoModalFrame.src = "";
+      }
+
+      videoLaunch.addEventListener("click", openVideoModal);
+      videoModalClose.addEventListener("click", closeVideoModal);
+      videoModal.addEventListener("click", (event) => {
+        if (event.target instanceof HTMLElement && event.target.dataset.videoClose === "true") {
+          closeVideoModal();
+        }
+      });
+
+      document.addEventListener("keydown", (event) => {
+        if (event.key === "Escape" && !videoModal.hidden) {
+          closeVideoModal();
+        }
+      });
+
+      const demoButtons = document.querySelectorAll("[data-demo-target]");
+      const demoPanels = document.querySelectorAll("[data-demo-panel]");
+
+      function activateDemo(target) {
+        demoButtons.forEach((button) => {
+          const active = button.getAttribute("data-demo-target") === target;
+          button.classList.toggle("active", active);
+          button.setAttribute("aria-pressed", active ? "true" : "false");
+        });
+
+        demoPanels.forEach((panel) => {
+          const active = panel.getAttribute("data-demo-panel") === target;
+          panel.classList.toggle("active", active);
+          panel.hidden = !active;
+        });
+      }
+
+      demoButtons.forEach((button) => {
+        button.addEventListener("click", () => activateDemo(button.getAttribute("data-demo-target")));
       });
     </script>
   </body>
