@@ -1,0 +1,114 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Download | ChordLab</title>
+    <meta name="description" content="Download information for ChordLab." />
+    <link rel="icon" href="chordlab_app_icon.png" />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <header class="site-header">
+      <a class="brand" href="index.html" aria-label="ChordLab home">
+        <img src="chordlab_logo.png" alt="ChordLab" />
+      </a>
+      <div class="header-controls">
+        <nav class="nav-links" aria-label="Main navigation">
+          <a href="index.html#features" data-i18n="navFeatures">Features</a>
+          <a href="index.html#how-to" data-i18n="navHowTo">How to</a>
+          <a href="download.html" data-i18n="navDownload">Download</a>
+          <a href="index.html#help" data-i18n="navHelp">Help</a>
+          <a href="privacy.html" data-i18n="navPrivacy">Privacy</a>
+          <a href="index.html#support" data-i18n="navSupport">Support</a>
+        </nav>
+        <div class="lang-switch" aria-label="Language switcher">
+          <button type="button" class="lang-button" data-lang-button="en">Eng</button>
+          <button type="button" class="lang-button" data-lang-button="zh">Chi</button>
+        </div>
+      </div>
+    </header>
+
+    <main>
+      <section class="content-section download-hero standalone-policy">
+        <div class="download-card">
+          <div>
+            <p class="eyebrow" data-i18n="downloadEyebrow">Download</p>
+            <h1 data-i18n="downloadTitle">ChordLab for Android tablets.</h1>
+            <p class="lead" data-i18n="downloadLead">
+              The public download page is being prepared. Google Play and APK release information will appear here when ready.
+            </p>
+          </div>
+          <img src="hero-feature.png" alt="ChordLab preview" />
+          <span class="button primary download-disabled" data-i18n="downloadButton">Coming soon</span>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <span data-i18n="footerCopy">© 2026 ChordLab</span>
+      <a href="index.html" data-i18n="footerHome">Home</a>
+      <a href="privacy.html" data-i18n="footerPrivacy">Privacy Policy</a>
+    </footer>
+
+    <script>
+      const translations = {
+        en: {
+          navFeatures: "Features",
+          navHowTo: "How to",
+          navDownload: "Download",
+          navHelp: "Help",
+          navPrivacy: "Privacy",
+          navSupport: "Support",
+          downloadEyebrow: "Download",
+          downloadTitle: "ChordLab for Android tablets.",
+          downloadLead:
+            "The public download page is being prepared. Google Play and APK release information will appear here when ready.",
+          downloadButton: "Coming soon",
+          footerCopy: "© 2026 ChordLab",
+          footerHome: "Home",
+          footerPrivacy: "Privacy Policy"
+        },
+        zh: {
+          navFeatures: "功能",
+          navHowTo: "教學",
+          navDownload: "下載",
+          navHelp: "幫助",
+          navPrivacy: "私隱",
+          navSupport: "支援",
+          downloadEyebrow: "下載",
+          downloadTitle: "ChordLab Android 平板版本。",
+          downloadLead:
+            "公開下載頁面正在準備中。Google Play 同 APK release 資訊準備好之後會放喺呢度。",
+          downloadButton: "即將推出",
+          footerCopy: "© 2026 ChordLab",
+          footerHome: "主頁",
+          footerPrivacy: "私隱政策"
+        }
+      };
+
+      function applyLanguage(language) {
+        const lang = translations[language] ? language : "en";
+        document.documentElement.lang = lang;
+        localStorage.setItem("chordlab-language", lang);
+        document.querySelectorAll("[data-i18n]").forEach((node) => {
+          const key = node.getAttribute("data-i18n");
+          if (translations[lang][key]) {
+            node.textContent = translations[lang][key];
+          }
+        });
+        document.querySelectorAll("[data-lang-button]").forEach((button) => {
+          button.classList.toggle("active", button.getAttribute("data-lang-button") === lang);
+        });
+      }
+
+      const savedLanguage = localStorage.getItem("chordlab-language");
+      const detectedLanguage = navigator.language && navigator.language.toLowerCase().startsWith("zh") ? "zh" : "en";
+      applyLanguage(savedLanguage || detectedLanguage);
+
+      document.querySelectorAll("[data-lang-button]").forEach((button) => {
+        button.addEventListener("click", () => applyLanguage(button.getAttribute("data-lang-button")));
+      });
+    </script>
+  </body>
+</html>
