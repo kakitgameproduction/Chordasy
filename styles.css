@@ -684,6 +684,7 @@ li {
   display: flex;
   flex-wrap: wrap;
   align-items: center;
+  justify-content: center;
   gap: 14px;
   margin-top: 28px;
 }
