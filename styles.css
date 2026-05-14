@@ -69,6 +69,19 @@ a {
   order: 1;
 }
 
+.brand {
+  display: inline-flex;
+  align-items: center;
+  padding: 14px 22px;
+  border-radius: 24px;
+  background:
+    linear-gradient(135deg, rgba(127, 228, 255, 0.22), rgba(255, 116, 212, 0.12) 55%, rgba(255, 232, 108, 0.16)),
+    rgba(255, 255, 255, 0.92);
+  box-shadow:
+    0 16px 34px rgba(65, 118, 169, 0.12),
+    inset 0 0 0 1px rgba(127, 228, 255, 0.16);
+}
+
 .brand img {
   display: block;
   width: min(220px, 48vw);
