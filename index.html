@@ -71,22 +71,27 @@
             <button class="demo-button active" type="button" data-demo-target="setlist" aria-pressed="true">
               <span class="demo-button-kicker" data-i18n="capture1Kicker">Setlists</span>
               <strong data-i18n="capture1Title">Drag songs into the right running order.</strong>
+              <span class="demo-button-body" data-i18n="capture1Body">Build the exact flow for rehearsal or stage, then make changes quickly without losing momentum.</span>
             </button>
             <button class="demo-button" type="button" data-demo-target="band-mode" aria-pressed="false">
               <span class="demo-button-kicker" data-i18n="capture2Kicker">Band Mode</span>
               <strong data-i18n="capture2Title">See members online and send in one tap.</strong>
+              <span class="demo-button-body" data-i18n="capture2Body">Keep the whole team aligned on the same local network with chart sharing and quick broadcast tools.</span>
             </button>
             <button class="demo-button" type="button" data-demo-target="library" aria-pressed="false">
               <span class="demo-button-kicker" data-i18n="capture3Kicker">Library</span>
               <strong data-i18n="capture3Title">Find songs fast with Local, Dropbox, and Import PDF.</strong>
+              <span class="demo-button-body" data-i18n="capture3Body">Keep your full chart collection searchable and ready in one place.</span>
             </button>
             <button class="demo-button" type="button" data-demo-target="markup" aria-pressed="false">
               <span class="demo-button-kicker" data-i18n="capture4Kicker">Markup tools</span>
               <strong data-i18n="capture4Title">Write directly on charts during practice or live play.</strong>
+              <span class="demo-button-body" data-i18n="capture4Body">Pin, write, erase, and move through pages without breaking your flow.</span>
             </button>
             <button class="demo-button" type="button" data-demo-target="import" aria-pressed="false">
               <span class="demo-button-kicker" data-i18n="capture5Kicker">Import</span>
               <strong data-i18n="capture5Title">Bring a PDF into your local library in seconds.</strong>
+              <span class="demo-button-body" data-i18n="capture5Body">A clean import step makes adding new songs simple on tablet or desktop.</span>
             </button>
           </div>
 
@@ -117,6 +122,7 @@
               <div class="demo-panel-copy">
                 <p class="capture-kicker" data-i18n="capture3Kicker">Library</p>
                 <h3 data-i18n="capture3Title">Find songs fast with Local, Dropbox, and Import PDF.</h3>
+                <p data-i18n="capture3Body">Keep your full chart collection searchable and ready in one place.</p>
               </div>
               <div class="demo-screen demo-screen-library">
                 <img src="capture-library.png" alt="ChordLab song library screen" />
@@ -127,6 +133,7 @@
               <div class="demo-panel-copy">
                 <p class="capture-kicker" data-i18n="capture4Kicker">Markup tools</p>
                 <h3 data-i18n="capture4Title">Write directly on charts during practice or live play.</h3>
+                <p data-i18n="capture4Body">Pin, write, erase, and move through pages without breaking your flow.</p>
               </div>
               <div class="demo-screen demo-screen-markup">
                 <img src="capture-annotate.png" alt="ChordLab annotation toolbar on top of a chart" />
@@ -137,6 +144,7 @@
               <div class="demo-panel-copy">
                 <p class="capture-kicker" data-i18n="capture5Kicker">Import</p>
                 <h3 data-i18n="capture5Title">Bring a PDF into your local library in seconds.</h3>
+                <p data-i18n="capture5Body">A clean import step makes adding new songs simple on tablet or desktop.</p>
               </div>
               <div class="demo-screen demo-screen-import">
                 <img src="capture-import.png" alt="ChordLab import PDF confirmation dialog" />
@@ -278,10 +286,13 @@
             "Keep the whole team aligned on the same local network with chart sharing and quick broadcast tools.",
           capture3Kicker: "Library",
           capture3Title: "Find songs fast with Local, Dropbox, and Import PDF.",
+          capture3Body: "Keep your full chart collection searchable and ready in one place.",
           capture4Kicker: "Markup tools",
           capture4Title: "Write directly on charts during practice or live play.",
+          capture4Body: "Pin, write, erase, and move through pages without breaking your flow.",
           capture5Kicker: "Import",
           capture5Title: "Bring a PDF into your local library in seconds.",
+          capture5Body: "A clean import step makes adding new songs simple on tablet or desktop.",
           featuresEyebrow: "What ChordLab does",
           featuresTitle: "Built for musicians who need charts fast.",
           featuresLead:
@@ -364,10 +375,13 @@
             "喺同一個本地網絡入面同步 chart 同訊息，令成隊 band 更易配合。",
           capture3Kicker: "樂譜庫",
           capture3Title: "Local、Dropbox 同 Import PDF 都可以快速切換搜尋。",
+          capture3Body: "將成個樂譜收藏集中喺一個地方，搜尋同揀歌都會快好多。",
           capture4Kicker: "標記工具",
           capture4Title: "排練或者現場都可以直接喺譜上寫低重點。",
+          capture4Body: "可以 pin、書寫、擦除同翻頁，保持演奏流程唔會被打斷。",
           capture5Kicker: "匯入",
           capture5Title: "幾秒內將 PDF 加入你嘅本地樂譜庫。",
+          capture5Body: "平板同 desktop 都可以用簡單步驟加入新歌。",
           featuresEyebrow: "ChordLab 可以做乜",
           featuresTitle: "為需要快速處理樂譜嘅樂手而設。",
           featuresLead:
@@ -471,6 +485,8 @@
       demoButtons.forEach((button) => {
         button.addEventListener("click", () => activateDemo(button.getAttribute("data-demo-target")));
       });
+
+      activateDemo("setlist");
     </script>
   </body>
 </html>

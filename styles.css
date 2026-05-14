@@ -18,6 +18,10 @@
   box-sizing: border-box;
 }
 
+[hidden] {
+  display: none !important;
+}
+
 html {
   scroll-behavior: smooth;
 }
@@ -299,15 +303,15 @@ li {
 .demo-nav {
   display: grid;
   gap: 14px;
-  padding: 24px;
+  padding: 26px 22px;
   background: linear-gradient(180deg, rgba(13, 22, 34, 0.96), rgba(10, 18, 29, 0.98));
   border-right: 1px solid rgba(127, 228, 255, 0.12);
 }
 
 .demo-button {
-  padding: 18px 18px 20px;
+  padding: 18px 18px 18px;
   border: 1px solid rgba(127, 228, 255, 0.12);
-  border-radius: 24px;
+  border-radius: 22px;
   background: linear-gradient(180deg, rgba(255, 255, 255, 0.04), rgba(255, 255, 255, 0.02));
   color: #f4fbff;
   text-align: left;
@@ -335,19 +339,28 @@ li {
 
 .demo-button-kicker {
   display: block;
-  margin-bottom: 8px;
+  margin-bottom: 9px;
   color: #90d7ff;
-  font-size: 0.82rem;
+  font-size: 0.76rem;
   font-weight: 900;
-  letter-spacing: 0.08em;
+  letter-spacing: 0.11em;
   text-transform: uppercase;
 }
 
 .demo-button strong {
   display: block;
   color: #f4fbff;
-  font-size: 1rem;
-  line-height: 1.4;
+  font-size: 1.08rem;
+  line-height: 1.32;
+  font-family: Avenir Next, Nunito, Verdana, sans-serif;
+}
+
+.demo-button-body {
+  display: block;
+  margin-top: 10px;
+  color: rgba(210, 224, 238, 0.76);
+  font-size: 0.93rem;
+  line-height: 1.5;
 }
 
 .demo-stage {
@@ -361,7 +374,7 @@ li {
 
 .demo-panel {
   display: grid;
-  gap: 18px;
+  gap: 20px;
 }
 
 .demo-panel-copy {
@@ -387,7 +400,7 @@ li {
 .demo-screen {
   position: relative;
   overflow: hidden;
-  min-height: 560px;
+  min-height: 520px;
   border: 1px solid rgba(127, 228, 255, 0.16);
   border-radius: 34px;
   background: linear-gradient(160deg, rgba(255, 255, 255, 0.96), rgba(244, 250, 255, 0.96));
@@ -401,30 +414,36 @@ li {
   width: 100%;
   height: 100%;
   object-fit: cover;
+  transition: transform 220ms ease;
 }
 
 .demo-screen-setlist img {
-  object-position: center top;
+  object-position: 82% 5%;
+  transform: scale(1.34);
 }
 
 .demo-screen-band img {
-  object-position: center top;
+  object-position: 50% 10%;
+  transform: scale(1.14);
 }
 
 .demo-screen-library img {
-  object-position: left top;
+  object-position: 12% 4%;
+  transform: scale(1.18);
 }
 
 .demo-screen-markup img {
-  object-position: center top;
+  object-position: 50% 8%;
+  transform: scale(1.3);
 }
 
 .demo-screen-import {
-  min-height: 420px;
+  min-height: 360px;
 }
 
 .demo-screen-import img {
-  object-position: center center;
+  object-position: 50% 45%;
+  transform: scale(1.15);
 }
 
 .capture-kicker {
@@ -636,6 +655,6 @@ li {
   }
 
   .demo-screen {
-    min-height: 380px;
+    min-height: 360px;
   }
 }
