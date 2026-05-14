@@ -49,14 +49,26 @@
             <a class="button primary" href="#help" data-i18n="heroPrimary">Get started</a>
           </div>
         </div>
-        <div class="video-card video-card-vertical" aria-label="ChordLab introduction video">
-          <iframe
-            src="https://www.youtube.com/embed/0Dk6mGXuKqs"
-            title="ChordLab introduction video"
-            loading="lazy"
-            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-            allowfullscreen
-          ></iframe>
+        <div class="video-spot">
+          <button class="video-trigger" type="button" id="video-trigger" aria-expanded="false" aria-controls="video-popover">
+            <img src="youtube_logo.png" alt="Open YouTube video" />
+          </button>
+          <div class="video-popover" id="video-popover" hidden>
+            <div class="video-popover-head">
+              <p class="capture-kicker">YouTube</p>
+              <button class="video-popover-close" type="button" id="video-popover-close" aria-label="Close video">×</button>
+            </div>
+            <div class="video-card video-card-vertical" aria-label="ChordLab introduction video">
+              <iframe
+                id="hero-video-frame"
+                src=""
+                title="ChordLab introduction video"
+                loading="lazy"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                allowfullscreen
+              ></iframe>
+            </div>
+          </div>
         </div>
       </section>
 
@@ -487,6 +499,51 @@
       });
 
       activateDemo("setlist");
+
+      const videoTrigger = document.getElementById("video-trigger");
+      const videoPopover = document.getElementById("video-popover");
+      const videoPopoverClose = document.getElementById("video-popover-close");
+      const heroVideoFrame = document.getElementById("hero-video-frame");
+      const heroVideoUrl = "https://www.youtube.com/embed/0Dk6mGXuKqs?autoplay=1";
+
+      function openHeroVideo() {
+        videoPopover.hidden = false;
+        videoTrigger.setAttribute("aria-expanded", "true");
+        if (!heroVideoFrame.src) {
+          heroVideoFrame.src = heroVideoUrl;
+        }
+      }
+
+      function closeHeroVideo() {
+        videoPopover.hidden = true;
+        videoTrigger.setAttribute("aria-expanded", "false");
+        heroVideoFrame.src = "";
+      }
+
+      videoTrigger.addEventListener("click", () => {
+        if (videoPopover.hidden) {
+          openHeroVideo();
+        } else {
+          closeHeroVideo();
+        }
+      });
+
+      videoPopoverClose.addEventListener("click", closeHeroVideo);
+
+      document.addEventListener("click", (event) => {
+        if (videoPopover.hidden) {
+          return;
+        }
+        if (!videoPopover.contains(event.target) && !videoTrigger.contains(event.target)) {
+          closeHeroVideo();
+        }
+      });
+
+      document.addEventListener("keydown", (event) => {
+        if (event.key === "Escape" && !videoPopover.hidden) {
+          closeHeroVideo();
+        }
+      });
     </script>
   </body>
 </html>
