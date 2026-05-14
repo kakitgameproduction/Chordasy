@@ -685,8 +685,9 @@ li {
   flex-wrap: wrap;
   align-items: center;
   justify-content: center;
+  grid-column: 1 / -1;
   gap: 14px;
-  margin-top: 28px;
+  margin-top: 4px;
 }
 
 .download-coffee {
