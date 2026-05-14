@@ -16,7 +16,7 @@
     <meta property="og:type" content="website" />
     <meta property="og:image" content="chordlab_app_icon.png" />
     <link rel="icon" href="chordlab_app_icon.png" />
-    <link rel="stylesheet" href="styles.css" />
+    <link rel="stylesheet" href="styles.css?v=20260514-1438" />
   </head>
   <body>
     <header class="site-header">
@@ -63,7 +63,7 @@
             <div class="video-card video-card-vertical" aria-label="ChordLab introduction video">
               <iframe
                 id="hero-video-frame"
-                src=""
+                src="https://www.youtube.com/embed/0Dk6mGXuKqs?rel=0&playsinline=1"
                 title="ChordLab introduction video"
                 loading="lazy"
                 allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
@@ -584,9 +584,7 @@
       function openHeroVideo() {
         videoPopover.hidden = false;
         videoTrigger.setAttribute("aria-expanded", "true");
-        if (!heroVideoFrame.src) {
-          heroVideoFrame.src = heroVideoUrl;
-        }
+        heroVideoFrame.src = heroVideoUrl;
       }
 
       function closeHeroVideo() {
