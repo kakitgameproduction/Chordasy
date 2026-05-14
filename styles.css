@@ -689,13 +689,8 @@ li {
   margin-top: 28px;
 }
 
-.coffee-button {
-  background: linear-gradient(135deg, #ffdd00, #ff813f);
-  border-color: rgba(0, 0, 0, 0.08);
-  color: #111827;
-  box-shadow:
-    0 16px 34px rgba(255, 129, 63, 0.22),
-    0 0 22px rgba(255, 221, 0, 0.18);
+.download-coffee {
+  justify-content: center;
 }
 
 .download-divider {
