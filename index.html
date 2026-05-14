@@ -26,6 +26,8 @@
       <div class="header-controls">
         <nav class="nav-links" aria-label="Main navigation">
           <a href="#features" data-i18n="navFeatures">Features</a>
+          <a href="#how-to" data-i18n="navHowTo">How to</a>
+          <a href="download.html" data-i18n="navDownload">Download</a>
           <a href="#help" data-i18n="navHelp">Help</a>
           <a href="privacy.html" data-i18n="navPrivacy">Privacy</a>
           <a href="#support" data-i18n="navSupport">Support</a>
@@ -49,11 +51,15 @@
             <a class="button primary" href="#help" data-i18n="heroPrimary">Get started</a>
           </div>
         </div>
-        <div class="video-spot">
+        <div class="hero-visual">
+          <figure class="feature-art">
+            <img src="hero-feature.png" alt="ChordLab tablet feature preview" />
+          </figure>
           <button class="video-trigger" type="button" id="video-trigger" aria-expanded="false" aria-controls="video-popover">
             <img src="youtube_logo.png" alt="Open YouTube video" />
+            <span data-i18n="watchVideo">Watch demo</span>
           </button>
-          <div class="video-popover" id="video-popover" hidden>
+          <div class="video-popover" id="video-popover" role="dialog" aria-modal="true" aria-label="ChordLab video" hidden>
             <div class="video-card video-card-vertical" aria-label="ChordLab introduction video">
               <iframe
                 id="hero-video-frame"
@@ -76,76 +82,76 @@
         </div>
         <div class="showcase-shell">
           <div class="demo-nav" role="tablist" aria-label="ChordLab demos">
-            <button class="demo-button active" type="button" data-demo-target="setlist" aria-pressed="true">
-              <strong data-i18n="demoNavSetlists">Setlists</strong>
+            <button class="demo-button active" type="button" data-demo-target="transpose" aria-pressed="true">
+              <strong data-i18n="demoNavTranspose">Transpose</strong>
             </button>
-            <button class="demo-button" type="button" data-demo-target="band-mode" aria-pressed="false">
-              <strong data-i18n="demoNavBandMode">Band Mode</strong>
+            <button class="demo-button" type="button" data-demo-target="setlist" aria-pressed="false">
+              <strong data-i18n="demoNavSetlists">Setlist</strong>
             </button>
             <button class="demo-button" type="button" data-demo-target="library" aria-pressed="false">
               <strong data-i18n="demoNavLibrary">Library</strong>
             </button>
-            <button class="demo-button" type="button" data-demo-target="markup" aria-pressed="false">
-              <strong data-i18n="demoNavMarkup">Markup Tools</strong>
+            <button class="demo-button" type="button" data-demo-target="band-mode" aria-pressed="false">
+              <strong data-i18n="demoNavBandMode">Band Mode</strong>
             </button>
-            <button class="demo-button" type="button" data-demo-target="import" aria-pressed="false">
-              <strong data-i18n="demoNavImport">Import PDF</strong>
+            <button class="demo-button" type="button" data-demo-target="annotation" aria-pressed="false">
+              <strong data-i18n="demoNavAnnotation">Annotation</strong>
             </button>
           </div>
 
           <div class="demo-stage">
-            <article class="demo-panel active" data-demo-panel="setlist">
+            <article class="demo-panel active" data-demo-panel="transpose">
               <div class="demo-panel-copy">
-                <p class="capture-kicker" data-i18n="capture1Kicker">Setlists</p>
-                <h3 data-i18n="capture1Title">Drag songs into the right running order.</h3>
-                <p data-i18n="capture1Body">Build the exact flow for rehearsal or stage, then make changes quickly without losing momentum.</p>
+                <p class="capture-kicker" data-i18n="capture1Kicker">Transpose</p>
+                <h3 data-i18n="capture1Title">Transpose on the fly, even in Live Mode.</h3>
+                <p data-i18n="capture1Body">Change key quickly during rehearsal or worship without leaving the chart.</p>
               </div>
-              <div class="demo-screen demo-screen-setlist">
-                <img src="capture-setlist.png" alt="ChordLab setlist and drag reorder screen" />
+              <div class="demo-screen demo-screen-transpose">
+                <img src="capture-transpose.png" alt="ChordLab transpose controls in live chart view" />
               </div>
             </article>
 
-            <article class="demo-panel" data-demo-panel="band-mode" hidden>
+            <article class="demo-panel" data-demo-panel="setlist" hidden>
               <div class="demo-panel-copy">
-                <p class="capture-kicker" data-i18n="capture2Kicker">Band Mode</p>
-                <h3 data-i18n="capture2Title">See members online and send in one tap.</h3>
-                <p data-i18n="capture2Body">Keep the whole team aligned on the same local network with chart sharing and quick broadcast tools.</p>
+                <p class="capture-kicker" data-i18n="capture2Kicker">Setlists</p>
+                <h3 data-i18n="capture2Title">Reorder the setlist into the exact running order.</h3>
+                <p data-i18n="capture2Body">Drag songs into place so everyone follows the same flow on stage.</p>
               </div>
-              <div class="demo-screen demo-screen-band">
-                <img src="capture-band-mode.png" alt="ChordLab Band Mode screen showing two users online" />
+              <div class="demo-screen demo-screen-setlist">
+                <img src="capture-setlist-order.png" alt="ChordLab setlist reorder drawer" />
               </div>
             </article>
 
             <article class="demo-panel" data-demo-panel="library" hidden>
               <div class="demo-panel-copy">
                 <p class="capture-kicker" data-i18n="capture3Kicker">Library</p>
-                <h3 data-i18n="capture3Title">Find songs fast with Local, Dropbox, and Import PDF.</h3>
-                <p data-i18n="capture3Body">Keep your full chart collection searchable and ready in one place.</p>
+                <h3 data-i18n="capture3Title">Find songs fast across Local, Dropbox, and imported PDFs.</h3>
+                <p data-i18n="capture3Body">Search and open the right chart quickly from a tablet-friendly library.</p>
               </div>
               <div class="demo-screen demo-screen-library">
-                <img src="capture-library.png" alt="ChordLab song library screen" />
+                <img src="capture-library-search.png" alt="ChordLab library search drawer" />
               </div>
             </article>
 
-            <article class="demo-panel" data-demo-panel="markup" hidden>
+            <article class="demo-panel" data-demo-panel="band-mode" hidden>
               <div class="demo-panel-copy">
-                <p class="capture-kicker" data-i18n="capture4Kicker">Markup tools</p>
-                <h3 data-i18n="capture4Title">Write directly on charts during practice or live play.</h3>
-                <p data-i18n="capture4Body">Pin, write, erase, and move through pages without breaking your flow.</p>
+                <p class="capture-kicker" data-i18n="capture4Kicker">Band Mode</p>
+                <h3 data-i18n="capture4Title">Share charts, PDFs, and short band messages.</h3>
+                <p data-i18n="capture4Body">Send the current chart to another member, even when the PDF is not already in their Dropbox or local library.</p>
               </div>
-              <div class="demo-screen demo-screen-markup">
-                <img src="capture-annotate.png" alt="ChordLab annotation toolbar on top of a chart" />
+              <div class="demo-screen demo-screen-band">
+                <img src="capture-band-share.png" alt="ChordLab Band Mode members and broadcast tools" />
               </div>
             </article>
 
-            <article class="demo-panel" data-demo-panel="import" hidden>
+            <article class="demo-panel" data-demo-panel="annotation" hidden>
               <div class="demo-panel-copy">
-                <p class="capture-kicker" data-i18n="capture5Kicker">Import</p>
-                <h3 data-i18n="capture5Title">Bring a PDF into your local library in seconds.</h3>
-                <p data-i18n="capture5Body">A clean import step makes adding new songs simple on tablet or desktop.</p>
+                <p class="capture-kicker" data-i18n="capture5Kicker">Annotation</p>
+                <h3 data-i18n="capture5Title">Mark charts directly during practice or performance.</h3>
+                <p data-i18n="capture5Body">Use pen and eraser tools without breaking the flow of rehearsal or live play.</p>
               </div>
-              <div class="demo-screen demo-screen-import">
-                <img src="capture-import.png" alt="ChordLab import PDF confirmation dialog" />
+              <div class="demo-screen demo-screen-annotation">
+                <img src="capture-annotation-live.png" alt="ChordLab annotation toolbar in live mode" />
               </div>
             </article>
           </div>
@@ -173,7 +179,7 @@
           <article class="feature-card">
             <span class="feature-icon">Key</span>
             <h3 data-i18n="feature3Title">Transpose chords</h3>
-            <p data-i18n="feature3Body">Move charts up or down by semitone, including common slash chords.</p>
+            <p data-i18n="feature3Body">Transpose on the fly, even in Live Mode, including common slash chords.</p>
           </article>
           <article class="feature-card">
             <span class="feature-icon">Pen</span>
@@ -183,12 +189,49 @@
           <article class="feature-card">
             <span class="feature-icon">LAN</span>
             <h3 data-i18n="feature5Title">Band Mode sharing</h3>
-            <p data-i18n="feature5Body">Send the current chart to online band members on the same local network.</p>
+            <p data-i18n="feature5Body">Send charts, messages, and the PDF itself when the other device does not already have the file.</p>
           </article>
           <article class="feature-card">
             <span class="feature-icon">Msg</span>
             <h3 data-i18n="feature6Title">Broadcast messages</h3>
             <p data-i18n="feature6Body">Send short notes to remote members, such as repeat chorus or go to bridge.</p>
+          </article>
+        </div>
+      </section>
+
+      <section id="how-to" class="content-section how-to-section">
+        <div class="section-heading">
+          <p class="eyebrow" data-i18n="howToEyebrow">How to</p>
+          <h2 data-i18n="howToTitle">Connect Dropbox to ChordLab.</h2>
+          <p data-i18n="howToLead">Follow these steps before you connect Dropbox inside the app.</p>
+        </div>
+        <div class="how-to-grid">
+          <article class="how-to-card">
+            <span class="step-number">01</span>
+            <h3 data-i18n="dropboxStep1Title">Create your Dropbox app</h3>
+            <ol>
+              <li data-i18n="dropboxStep1A">Go to the Dropbox App Console and sign in with your Dropbox account.</li>
+              <li data-i18n="dropboxStep1B">Click Create app, choose Scoped access, then choose Full Dropbox or App folder.</li>
+              <li data-i18n="dropboxStep1C">Give the app a name, open its Settings tab, then copy the App key.</li>
+            </ol>
+          </article>
+          <article class="how-to-card">
+            <span class="step-number">02</span>
+            <h3 data-i18n="dropboxStep2Title">Enable permissions</h3>
+            <ol>
+              <li data-i18n="dropboxStep2A">Open the Permissions tab in the Dropbox App Console.</li>
+              <li data-i18n="dropboxStep2B">Enable file and folder read permissions, including metadata read access.</li>
+              <li data-i18n="dropboxStep2C">Save or submit the permission changes before returning to ChordLab.</li>
+            </ol>
+          </article>
+          <article class="how-to-card">
+            <span class="step-number">03</span>
+            <h3 data-i18n="dropboxStep3Title">Authorize in ChordLab</h3>
+            <ol>
+              <li data-i18n="dropboxStep3A">Paste the App key into ChordLab Settings, then tap Start OAuth.</li>
+              <li data-i18n="dropboxStep3B">Approve access in Dropbox and copy the authorization code.</li>
+              <li data-i18n="dropboxStep3C">Paste the code into ChordLab, tap Finish OAuth, then Validate Connection.</li>
+            </ol>
           </article>
         </div>
       </section>
@@ -261,6 +304,8 @@
       const translations = {
         en: {
           navFeatures: "Features",
+          navHowTo: "How to",
+          navDownload: "Download",
           navHelp: "Help",
           navPrivacy: "Privacy",
           navSupport: "Support",
@@ -269,32 +314,34 @@
           heroLead:
             "ChordLab keeps your PDF chord sheets, setlists, transposition, annotations, and Band Mode sharing in one tablet-friendly workspace.",
           heroPrimary: "Get started",
+          watchVideo: "Watch demo",
           showcaseEyebrow: "Inside ChordLab",
           showcaseTitle: "Real screens from the app.",
           showcaseLead:
             "Browse your library, reorder a live set, share charts across the band, and annotate on the fly with a workspace designed for performance.",
+          demoNavTranspose: "Transpose",
           demoNavSetlists: "Setlists",
           demoNavBandMode: "Band Mode",
           demoNavLibrary: "Library",
-          demoNavMarkup: "Markup Tools",
-          demoNavImport: "Import PDF",
-          capture1Kicker: "Setlists",
-          capture1Title: "Drag songs into the right running order.",
+          demoNavAnnotation: "Annotation",
+          capture1Kicker: "Transpose",
+          capture1Title: "Transpose on the fly, even in Live Mode.",
           capture1Body:
-            "Build the exact flow for rehearsal or stage, then make changes quickly without losing momentum.",
-          capture2Kicker: "Band Mode",
-          capture2Title: "See members online and send in one tap.",
+            "Change key quickly during rehearsal or worship without leaving the chart.",
+          capture2Kicker: "Setlists",
+          capture2Title: "Reorder the setlist into the exact running order.",
           capture2Body:
-            "Keep the whole team aligned on the same local network with chart sharing and quick broadcast tools.",
+            "Drag songs into place so everyone follows the same flow on stage.",
           capture3Kicker: "Library",
-          capture3Title: "Find songs fast with Local, Dropbox, and Import PDF.",
-          capture3Body: "Keep your full chart collection searchable and ready in one place.",
-          capture4Kicker: "Markup tools",
-          capture4Title: "Write directly on charts during practice or live play.",
-          capture4Body: "Pin, write, erase, and move through pages without breaking your flow.",
-          capture5Kicker: "Import",
-          capture5Title: "Bring a PDF into your local library in seconds.",
-          capture5Body: "A clean import step makes adding new songs simple on tablet or desktop.",
+          capture3Title: "Find songs fast across Local, Dropbox, and imported PDFs.",
+          capture3Body: "Search and open the right chart quickly from a tablet-friendly library.",
+          capture4Kicker: "Band Mode",
+          capture4Title: "Share charts, PDFs, and short band messages.",
+          capture4Body:
+            "Send the current chart to another member, even when the PDF is not already in their Dropbox or local library.",
+          capture5Kicker: "Annotation",
+          capture5Title: "Mark charts directly during practice or performance.",
+          capture5Body: "Use pen and eraser tools without breaking the flow of rehearsal or live play.",
           featuresEyebrow: "What ChordLab does",
           featuresTitle: "Built for musicians who need charts fast.",
           featuresLead:
@@ -307,16 +354,31 @@
             "Create setlists, reorder songs by dragging, and keep your live set ready for the next rehearsal.",
           feature3Title: "Transpose chords",
           feature3Body:
-            "Move charts up or down by semitone, including common slash chords.",
+            "Transpose on the fly, even in Live Mode, including common slash chords.",
           feature4Title: "Annotations",
           feature4Body:
             "Use pen and eraser tools to mark charts directly during practice or performance.",
           feature5Title: "Band Mode sharing",
           feature5Body:
-            "Send the current chart to online band members on the same local network.",
+            "Send charts, messages, and the PDF itself when the other device does not already have the file.",
           feature6Title: "Broadcast messages",
           feature6Body:
             "Send short notes to remote members, such as repeat chorus or go to bridge.",
+          howToEyebrow: "How to",
+          howToTitle: "Connect Dropbox to ChordLab.",
+          howToLead: "Follow these steps before you connect Dropbox inside the app.",
+          dropboxStep1Title: "Create your Dropbox app",
+          dropboxStep1A: "Go to the Dropbox App Console and sign in with your Dropbox account.",
+          dropboxStep1B: "Click Create app, choose Scoped access, then choose Full Dropbox or App folder.",
+          dropboxStep1C: "Give the app a name, open its Settings tab, then copy the App key.",
+          dropboxStep2Title: "Enable permissions",
+          dropboxStep2A: "Open the Permissions tab in the Dropbox App Console.",
+          dropboxStep2B: "Enable file and folder read permissions, including metadata read access.",
+          dropboxStep2C: "Save or submit the permission changes before returning to ChordLab.",
+          dropboxStep3Title: "Authorize in ChordLab",
+          dropboxStep3A: "Paste the App key into ChordLab Settings, then tap Start OAuth.",
+          dropboxStep3B: "Approve access in Dropbox and copy the authorization code.",
+          dropboxStep3C: "Paste the code into ChordLab, tap Finish OAuth, then Validate Connection.",
           helpEyebrow: "Help",
           helpTitle: "Quick start",
           helpStep1:
@@ -355,6 +417,8 @@
         },
         zh: {
           navFeatures: "功能",
+          navHowTo: "教學",
+          navDownload: "下載",
           navHelp: "幫助",
           navPrivacy: "私隱",
           navSupport: "支援",
@@ -363,32 +427,34 @@
           heroLead:
             "ChordLab 將 PDF 樂譜、Setlist、移調、手寫標記同 Band Mode 分享整合到一個平板友善嘅工作空間。",
           heroPrimary: "開始使用",
+          watchVideo: "觀看示範",
           showcaseEyebrow: "ChordLab 介面",
           showcaseTitle: "用真實畫面睇清楚點樣操作。",
           showcaseLead:
             "由樂譜庫、Setlist 排序，到 Band Mode 傳歌同手寫標記，全部都係為演出流程而設計。",
+          demoNavTranspose: "移調",
           demoNavSetlists: "Setlist",
           demoNavBandMode: "Band Mode",
           demoNavLibrary: "樂譜庫",
-          demoNavMarkup: "標記工具",
-          demoNavImport: "匯入 PDF",
-          capture1Kicker: "Setlist",
-          capture1Title: "拖動歌曲，排好你現場要用嘅次序。",
+          demoNavAnnotation: "標記",
+          capture1Kicker: "移調",
+          capture1Title: "即場移調，Live Mode 入面都可以。",
           capture1Body:
-            "無論排練定上台前臨時改歌序，都可以快手完成而唔打斷流程。",
-          capture2Kicker: "Band Mode",
-          capture2Title: "睇到邊個在線，揀完就可以即時傳送。",
+            "排練或敬拜現場需要轉 key，都可以唔離開樂譜直接處理。",
+          capture2Kicker: "Setlist",
+          capture2Title: "拖動歌曲，排好你現場要用嘅次序。",
           capture2Body:
-            "喺同一個本地網絡入面同步 chart 同訊息，令成隊 band 更易配合。",
+            "無論排練定上台前臨時改歌序，都可以快手完成而唔打斷流程。",
           capture3Kicker: "樂譜庫",
-          capture3Title: "Local、Dropbox 同 Import PDF 都可以快速切換搜尋。",
+          capture3Title: "Local、Dropbox 同匯入 PDF 都可以快速搜尋。",
           capture3Body: "將成個樂譜收藏集中喺一個地方，搜尋同揀歌都會快好多。",
-          capture4Kicker: "標記工具",
-          capture4Title: "排練或者現場都可以直接喺譜上寫低重點。",
-          capture4Body: "可以 pin、書寫、擦除同翻頁，保持演奏流程唔會被打斷。",
-          capture5Kicker: "匯入",
-          capture5Title: "幾秒內將 PDF 加入你嘅本地樂譜庫。",
-          capture5Body: "平板同 desktop 都可以用簡單步驟加入新歌。",
+          capture4Kicker: "Band Mode",
+          capture4Title: "分享樂譜、PDF 同簡短 band message。",
+          capture4Body:
+            "就算對方 Dropbox 或本地庫未有同一份 PDF，都可以將當前樂譜傳送過去。",
+          capture5Kicker: "標記",
+          capture5Title: "排練或者現場都可以直接喺譜上寫低重點。",
+          capture5Body: "用筆同擦膠直接標記，唔會打斷演奏流程。",
           featuresEyebrow: "ChordLab 可以做乜",
           featuresTitle: "為需要快速處理樂譜嘅樂手而設。",
           featuresLead:
@@ -401,16 +467,31 @@
             "建立 Setlist，用拖放重新排序歌曲，為下一次排練或演出準備好流程。",
           feature3Title: "和弦移調",
           feature3Body:
-            "可以按半音升降 key，支援常見 slash chords。",
+            "Live Mode 入面都可以即場移調，並支援常見 slash chords。",
           feature4Title: "手寫標記",
           feature4Body:
             "排練或演出時可以直接喺譜上用筆同擦膠做記號。",
           feature5Title: "Band Mode 分享",
           feature5Body:
-            "可以將當前歌曲透過同一個本地網絡傳送俾在線成員。",
+            "可以傳送樂譜、訊息；如果對方冇該 PDF，亦可以直接傳送 PDF 檔。",
           feature6Title: "廣播訊息",
           feature6Body:
             "可以傳送簡短訊息俾 remote 成員，例如 repeat chorus 或去 bridge。",
+          howToEyebrow: "教學",
+          howToTitle: "連接 Dropbox 到 ChordLab。",
+          howToLead: "喺 App 入面連接 Dropbox 之前，可以先跟住以下步驟設定。",
+          dropboxStep1Title: "建立 Dropbox app",
+          dropboxStep1A: "前往 Dropbox App Console，並用你嘅 Dropbox 帳戶登入。",
+          dropboxStep1B: "按 Create app，選擇 Scoped access，然後選 Full Dropbox 或 App folder。",
+          dropboxStep1C: "為 app 命名，開啟 Settings 分頁，然後複製 App key。",
+          dropboxStep2Title: "開啟權限",
+          dropboxStep2A: "喺 Dropbox App Console 打開 Permissions 分頁。",
+          dropboxStep2B: "開啟 file / folder read 權限，並確認 metadata read access 已啟用。",
+          dropboxStep2C: "返回 ChordLab 前，先儲存或提交 Dropbox 權限更改。",
+          dropboxStep3Title: "喺 ChordLab 授權",
+          dropboxStep3A: "將 App key 貼到 ChordLab Settings，然後按 Start OAuth。",
+          dropboxStep3B: "喺 Dropbox 批准存取，然後複製 authorization code。",
+          dropboxStep3C: "將 code 貼回 ChordLab，按 Finish OAuth，再用 Validate Connection 確認。",
           helpEyebrow: "幫助",
           helpTitle: "快速開始",
           helpStep1:
@@ -493,12 +574,12 @@
         button.addEventListener("click", () => activateDemo(button.getAttribute("data-demo-target")));
       });
 
-      activateDemo("setlist");
+      activateDemo("transpose");
 
       const videoTrigger = document.getElementById("video-trigger");
       const videoPopover = document.getElementById("video-popover");
       const heroVideoFrame = document.getElementById("hero-video-frame");
-      const heroVideoUrl = "https://www.youtube.com/embed/0Dk6mGXuKqs?autoplay=1";
+      const heroVideoUrl = "https://www.youtube-nocookie.com/embed/0Dk6mGXuKqs?autoplay=1&playsinline=1&rel=0";
 
       function openHeroVideo() {
         videoPopover.hidden = false;
