@@ -371,7 +371,7 @@ li {
   gap: 22px;
   align-items: start;
   width: min(100%, 1040px);
-  margin: 0 auto;
+  margin: 0;
   overflow: visible;
   border: 0;
   border-radius: 0;
