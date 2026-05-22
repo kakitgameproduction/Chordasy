@@ -16,7 +16,7 @@
     <meta property="og:type" content="website" />
     <meta property="og:image" content="chordlab_app_icon.png" />
     <link rel="icon" href="chordlab_app_icon.png" />
-    <link rel="stylesheet" href="styles.css?v=20260522-1840" />
+    <link rel="stylesheet" href="styles.css?v=20260522-1847" />
   </head>
   <body>
     <header class="site-header">
@@ -97,6 +97,9 @@
             <button class="demo-button" type="button" data-demo-target="annotation" aria-pressed="false">
               <strong data-i18n="demoNavAnnotation">Annotation</strong>
             </button>
+            <button class="demo-button" type="button" data-demo-target="metronome" aria-pressed="false">
+              <strong data-i18n="demoNavMetronome">BPM</strong>
+            </button>
           </div>
 
           <div class="demo-stage">
@@ -149,6 +152,16 @@
                 <img src="capture-annotation-live.png" alt="ChordLab annotation toolbar in live mode" />
               </div>
             </article>
+
+            <article class="demo-panel" data-demo-panel="metronome" hidden>
+              <div class="demo-panel-copy">
+                <h3 data-i18n="capture6Title">Keep the band locked in without leaving the chart.</h3>
+                <p data-i18n="capture6Body">Use BPM controls, click support, and an enhanced visual pulse while the chord chart stays on screen.</p>
+              </div>
+              <div class="demo-screen demo-screen-metronome">
+                <img src="capture-metronome-live.png" alt="ChordLab Live Mode BPM controls with visual pulse around the chord chart" />
+              </div>
+            </article>
           </div>
         </div>
       </section>
@@ -159,18 +172,6 @@
           <h2 data-i18n="featuresTitle">Built for musicians who need charts fast.</h2>
           <p data-i18n="featuresLead">Made for live performance, worship teams, and band rehearsals with a focus on speed, clarity, and reliability.</p>
         </div>
-
-        <article class="feature-spotlight">
-          <div class="feature-spotlight-copy">
-            <span class="feature-icon">BPM</span>
-            <p class="eyebrow" data-i18n="metronomeEyebrow">Live tempo tools</p>
-            <h3 data-i18n="metronomeTitle">Keep the band locked in without leaving the chart.</h3>
-            <p data-i18n="metronomeBody">Live Mode includes BPM controls, click support, and an enhanced visual pulse around the chart so musicians can follow the tempo while still reading the PDF.</p>
-          </div>
-          <figure class="feature-spotlight-media">
-            <img src="capture-metronome-live.png" alt="ChordLab Live Mode BPM controls with visual pulse around the chord chart" />
-          </figure>
-        </article>
 
         <div class="feature-grid">
           <article class="feature-card">
@@ -344,6 +345,7 @@
           demoNavBandMode: "Band Mode",
           demoNavLibrary: "Library",
           demoNavAnnotation: "Annotation",
+          demoNavMetronome: "BPM",
           capture1Title: "Transpose on the fly, even in Live Mode.",
           capture1Body:
             "Change key quickly during rehearsal or worship without leaving the chart.",
@@ -357,14 +359,13 @@
             "Send the current chart to another member, even when the PDF is not already in their Dropbox or local library.",
           capture5Title: "Mark charts directly during practice or performance.",
           capture5Body: "Use pen and eraser tools without breaking the flow of rehearsal or live play.",
+          capture6Title: "Keep the band locked in without leaving the chart.",
+          capture6Body:
+            "Use BPM controls, click support, and an enhanced visual pulse while the chord chart stays on screen.",
           featuresEyebrow: "What ChordLab does",
           featuresTitle: "Built for musicians who need charts fast.",
           featuresLead:
             "Made for live performance, worship teams, and band rehearsals with a focus on speed, clarity, and reliability.",
-          metronomeEyebrow: "Live tempo tools",
-          metronomeTitle: "Keep the band locked in without leaving the chart.",
-          metronomeBody:
-            "Live Mode includes BPM controls, click support, and an enhanced visual pulse around the chart so musicians can follow the tempo while still reading the PDF.",
           feature1Title: "PDF song library",
           feature1Body:
             "Import local PDFs or sync a Dropbox folder, then browse and search your charts quickly.",
@@ -456,6 +457,7 @@
           demoNavBandMode: "Band Mode",
           demoNavLibrary: "樂譜庫",
           demoNavAnnotation: "標記",
+          demoNavMetronome: "BPM",
           capture1Title: "即時移調，Live Mode 亦可使用。",
           capture1Body:
             "在排練或敬拜現場需要轉調時，可直接在樂譜畫面中完成操作。",
@@ -469,14 +471,13 @@
             "即使對方的 Dropbox 或本地樂譜庫沒有相同 PDF，也能直接傳送目前的樂譜檔案。",
           capture5Title: "排練或演出時可直接在樂譜上標記重點。",
           capture5Body: "使用筆與橡皮擦工具直接標記，不會中斷演奏流程。",
+          capture6Title: "不用離開樂譜畫面，也能讓全隊跟穩節奏。",
+          capture6Body:
+            "可在樂譜仍然顯示時使用 BPM 控制、Click 支援與加強版視覺節奏提示。",
           featuresEyebrow: "ChordLab 功能",
           featuresTitle: "為需要高效處理樂譜的樂手而設。",
           featuresLead:
             "專為現場演奏、敬拜團隊與樂隊排練而設，重點在於快速、清晰與可靠。",
-          metronomeEyebrow: "Live 節奏工具",
-          metronomeTitle: "不用離開樂譜畫面，也能讓全隊跟穩節奏。",
-          metronomeBody:
-            "Live Mode 內置 BPM 控制、Click 支援與加強版視覺節奏提示，樂手可以一邊看 PDF 樂譜，一邊清楚掌握速度。",
           feature1Title: "PDF 樂譜庫",
           feature1Body:
             "支援匯入本地 PDF 或同步 Dropbox 資料夾，快速瀏覽與搜尋樂譜。",
