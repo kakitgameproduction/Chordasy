@@ -650,7 +650,24 @@ li {
   flex-wrap: wrap;
   align-items: center;
   justify-content: center;
+  gap: 14px;
   margin-top: 6px;
+}
+
+.download-actions-stacked {
+  flex-direction: column;
+}
+
+.coffee-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.coffee-button img {
+  display: block;
+  height: 56px;
+  max-width: min(100%, 280px);
 }
 
 .download-pitch {
