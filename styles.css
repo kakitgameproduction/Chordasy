@@ -177,11 +177,16 @@ li {
   border: 1px solid transparent;
   color: #ecf4ff;
   font: inherit;
-  font-weight: 700;
+  font-weight: 600;
 }
 
 .nav-links a {
-  padding: 10px 13px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 150px;
+  padding: 10px 16px;
+  text-align: center;
 }
 
 .nav-links a:hover {
@@ -198,7 +203,7 @@ li {
 }
 
 .lang-button {
-  min-width: 58px;
+  min-width: 72px;
   padding: 8px 12px;
   background: transparent;
   cursor: pointer;
@@ -874,7 +879,8 @@ main {
   }
 
   .nav-links a {
-    padding: 8px 10px;
+    min-width: 140px;
+    padding: 8px 12px;
     font-size: 0.88rem;
   }
 
