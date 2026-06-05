@@ -157,7 +157,7 @@ li {
 .header-controls {
   display: flex;
   align-items: center;
-  gap: 16px;
+  gap: 10px;
   flex: 1 1 auto;
   justify-content: flex-end;
 }
@@ -166,7 +166,7 @@ li {
   display: flex;
   flex-wrap: wrap;
   justify-content: flex-end;
-  gap: 10px;
+  gap: 4px;
   align-items: center;
 }
 
@@ -183,8 +183,8 @@ li {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  min-width: 150px;
-  padding: 10px 16px;
+  min-width: 124px;
+  padding: 8px 12px;
   text-align: center;
 }
 
@@ -195,15 +195,16 @@ li {
 
 .lang-switch {
   display: inline-flex;
-  padding: 4px;
+  padding: 1px;
   border: 1px solid var(--line);
   border-radius: 999px;
   background: rgba(255, 255, 255, 0.08);
 }
 
 .lang-button {
-  min-width: 72px;
-  padding: 8px 12px;
+  min-width: 38px;
+  padding: 3px 7px;
+  font-size: 0.78rem;
   background: transparent;
   cursor: pointer;
 }
@@ -257,6 +258,15 @@ main {
   flex-wrap: wrap;
   gap: 14px;
   margin-top: 28px;
+}
+
+.hero-actions .button {
+  min-width: 320px;
+}
+
+.support-actions .button,
+.download-actions-stacked .button {
+  min-width: 320px;
 }
 
 .button {
