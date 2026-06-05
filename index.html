@@ -52,14 +52,10 @@
           <div class="hero-actions">
             <a class="button primary" href="download.html" data-i18n="heroPrimary">Get ChordLab</a>
             <a class="button ghost" href="ChordLab_User_Manual_v1.pdf" download data-i18n="heroManual">Download user manual</a>
-            <button class="button secondary video-trigger" type="button" id="video-trigger" aria-expanded="false" aria-controls="video-popover">
-              <span data-i18n="watchVideo">Watch demo</span>
-            </button>
-            <a class="button ghost" href="#stories" data-i18n="heroSecondary">See real screens</a>
           </div>
           <ul class="hero-points">
             <li data-i18n="heroPoint1">Import PDF, JPG, JPEG, and PNG charts</li>
-            <li data-i18n="heroPoint2">Connect Dropbox or Google Drive inside the app</li>
+            <li class="hero-point-cloud" data-i18n-html="heroPoint2Html">Connect <img class="hero-inline-provider hero-inline-provider-dropbox" src="dropbox_logo_20260605.png" alt="Dropbox" /> or <img class="hero-inline-provider hero-inline-provider-google-drive" src="google_drive_logo_20260605.png" alt="Google Drive" /> inside the app</li>
             <li data-i18n="heroPoint3">Share charts and messages across the band on the same network</li>
           </ul>
           <div class="provider-strip" aria-label="Supported cloud providers">
@@ -77,6 +73,9 @@
             <img class="poster poster-main" src="store-page-2.png" alt="ChordLab Organise Your Song Library poster" />
             <img class="poster poster-right" src="store-page-1.png" alt="ChordLab Share Chart With The Band poster" />
           </div>
+          <button class="button secondary video-trigger hero-stage-trigger" type="button" id="video-trigger" aria-expanded="false" aria-controls="video-popover">
+            <span data-i18n="watchVideo">Watch demo</span>
+          </button>
         </div>
 
         <div class="video-popover" id="video-popover" role="dialog" aria-modal="true" aria-label="ChordLab video" hidden>
@@ -90,21 +89,6 @@
               allowfullscreen
             ></iframe>
           </div>
-        </div>
-      </section>
-
-      <section class="signal-band">
-        <div class="signal-pill">
-          <span class="signal-label" data-i18n="signal1Label">Library</span>
-          <strong data-i18n="signal1Value">Cloud + local charts in one place</strong>
-        </div>
-        <div class="signal-pill">
-          <span class="signal-label" data-i18n="signal2Label">Live</span>
-          <strong data-i18n="signal2Value">Transpose, annotate, and move fast on stage</strong>
-        </div>
-        <div class="signal-pill">
-          <span class="signal-label" data-i18n="signal3Label">Band Mode</span>
-          <strong data-i18n="signal3Value">Share songs and messages across your team</strong>
         </div>
       </section>
 
@@ -253,15 +237,9 @@
           heroSecondary: "See real screens",
           watchVideo: "Watch demo",
           heroPoint1: "Import PDF, JPG, JPEG, and PNG charts",
-          heroPoint2: "Connect Dropbox or Google Drive inside the app",
+          heroPoint2Html: "Connect <img class=\"hero-inline-provider hero-inline-provider-dropbox\" src=\"dropbox_logo_20260605.png\" alt=\"Dropbox\"> or <img class=\"hero-inline-provider hero-inline-provider-google-drive\" src=\"google_drive_logo_20260605.png\" alt=\"Google Drive\"> inside the app",
           heroPoint3: "Share charts and messages across your team on the same network",
           providerLabel: "Supports cloud library sync with",
-          signal1Label: "Library",
-          signal1Value: "Cloud + local charts in one place",
-          signal2Label: "Live",
-          signal2Value: "Transpose, annotate, and move fast on stage",
-          signal3Label: "Band Mode",
-          signal3Value: "Share songs and messages across the band",
           storiesEyebrow: "Feature storyboards",
           storiesTitle: "Six real workflows, built from your actual app screens.",
           storiesLead:
@@ -327,15 +305,9 @@
           heroSecondary: "看真實畫面",
           watchVideo: "觀看示範",
           heroPoint1: "支援匯入 PDF、JPG、JPEG、PNG 樂譜",
-          heroPoint2: "可直接在 app 內連接 Dropbox 或 Google Drive",
+          heroPoint2Html: "可直接在 app 內連接 <img class=\"hero-inline-provider hero-inline-provider-dropbox\" src=\"dropbox_logo_20260605.png\" alt=\"Dropbox\"> 或 <img class=\"hero-inline-provider hero-inline-provider-google-drive\" src=\"google_drive_logo_20260605.png\" alt=\"Google Drive\">",
           heroPoint3: "可在同一網絡內向團隊成員分享樂譜與訊息",
           providerLabel: "支援以下雲端樂譜服務",
-          signal1Label: "Library",
-          signal1Value: "雲端與本機樂譜集中管理",
-          signal2Label: "Live",
-          signal2Value: "在台上快速移調、標記、翻歌",
-          signal3Label: "Band Mode",
-          signal3Value: "跨團隊分享歌曲與訊息",
           storiesEyebrow: "功能故事版",
           storiesTitle: "六個真實工作流程，直接來自你實際的 app 畫面。",
           storiesLead:
@@ -388,6 +360,12 @@
         const lang = translations[language] ? language : "en";
         document.documentElement.lang = lang;
         localStorage.setItem("chordlab-language", lang);
+        document.querySelectorAll("[data-i18n-html]").forEach((node) => {
+          const key = node.getAttribute("data-i18n-html");
+          if (translations[lang][key]) {
+            node.innerHTML = translations[lang][key];
+          }
+        });
         document.querySelectorAll("[data-i18n]").forEach((node) => {
           const key = node.getAttribute("data-i18n");
           if (translations[lang][key]) {

@@ -115,7 +115,6 @@ li {
 
 .site-header,
 .hero,
-.signal-band,
 .content-section {
   width: min(1180px, calc(100% - 48px));
   margin: 0 auto;
@@ -304,42 +303,44 @@ main {
 
 .provider-strip {
   display: flex;
-  flex-wrap: wrap;
+  flex-wrap: nowrap;
   align-items: center;
-  gap: 16px 18px;
-  margin-top: 24px;
-  padding: 18px 20px;
-  border: 1px solid rgba(255, 255, 255, 0.08);
-  border-radius: 24px;
-  background: rgba(8, 13, 24, 0.34);
+  justify-content: flex-start;
+  gap: 12px;
+  margin-top: 18px;
+  padding: 10px 14px;
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  border-radius: 18px;
+  background: rgba(8, 13, 24, 0.18);
 }
 
 .provider-strip-label {
   color: #eef5ff;
-  font-size: 0.98rem;
-  font-weight: 700;
+  font-size: 0.92rem;
+  font-weight: 600;
+  white-space: nowrap;
 }
 
 .provider-logos {
   display: flex;
-  flex-wrap: wrap;
+  flex-wrap: nowrap;
   align-items: center;
-  gap: 14px;
+  gap: 10px;
 }
 
 .provider-logo {
   display: block;
-  height: 44px;
+  height: 28px;
   width: auto;
   object-fit: contain;
 }
 
 .provider-logo-dropbox {
-  height: 40px;
+  height: 26px;
 }
 
 .provider-logo-google-drive {
-  height: 42px;
+  height: 27px;
 }
 
 .hero-points li {
@@ -360,9 +361,36 @@ main {
   transform: translateY(-50%);
 }
 
+.hero-point-cloud {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 10px;
+}
+
+.hero-inline-provider {
+  display: inline-block;
+  width: auto;
+  height: 24px;
+  vertical-align: middle;
+  object-fit: contain;
+}
+
+.hero-inline-provider-dropbox {
+  height: 22px;
+}
+
+.hero-inline-provider-google-drive {
+  height: 23px;
+}
+
 .hero-stage {
   position: relative;
   min-height: 680px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
 }
 
 .poster-stack {
@@ -370,6 +398,7 @@ main {
   width: min(660px, 100%);
   height: min(760px, 74vh);
   margin-left: auto;
+  margin-top: -34px;
 }
 
 .poster {
@@ -404,14 +433,10 @@ main {
   transform: rotate(8deg);
 }
 
-.signal-band {
-  display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
-  gap: 16px;
-  padding: 8px 0 42px;
+.hero-stage-trigger {
+  margin-top: 14px;
 }
 
-.signal-pill,
 .story-card,
 .workflow-card,
 .panel-block,
@@ -420,11 +445,6 @@ main {
   border: 1px solid var(--line);
   background: linear-gradient(180deg, rgba(8, 13, 24, 0.86), rgba(11, 18, 33, 0.9));
   box-shadow: var(--shadow);
-}
-
-.signal-pill {
-  padding: 18px 20px;
-  border-radius: 22px;
 }
 
 .signal-label,
@@ -436,12 +456,6 @@ main {
   font-weight: 900;
   letter-spacing: 0.1em;
   text-transform: uppercase;
-}
-
-.signal-pill strong {
-  display: block;
-  font-size: 1rem;
-  line-height: 1.5;
 }
 
 .content-section {
@@ -710,8 +724,7 @@ main {
   .feature-grid,
   .faq-grid,
   .policy-grid,
-  .how-to-grid,
-  .signal-band {
+  .how-to-grid {
     grid-template-columns: 1fr;
   }
 
@@ -819,11 +832,12 @@ main {
   }
 
   .provider-strip {
-    padding: 16px 18px;
+    flex-wrap: wrap;
+    padding: 12px 14px;
   }
 
   .provider-logo {
-    height: 38px;
+    height: 26px;
   }
 
   .hero-stage {
@@ -833,7 +847,7 @@ main {
   .poster-stack {
     width: min(100%, 360px);
     height: 360px;
-    margin: 0 auto;
+    margin: -18px auto 0;
   }
 
   .poster-left,
@@ -856,7 +870,6 @@ main {
 @media (max-width: 560px) {
   .site-header,
   .hero,
-  .signal-band,
   .content-section {
     width: min(100%, calc(100% - 24px));
   }
@@ -902,6 +915,10 @@ main {
     height: 310px;
   }
 
+  .hero-stage-trigger {
+    margin-top: 10px;
+  }
+
   .content-section {
     padding: 54px 0;
   }
@@ -935,6 +952,18 @@ main {
     font-size: 0.96rem;
   }
 
+  .hero-inline-provider {
+    height: 20px;
+  }
+
+  .hero-inline-provider-dropbox {
+    height: 18px;
+  }
+
+  .hero-inline-provider-google-drive {
+    height: 19px;
+  }
+
   .provider-strip {
     align-items: flex-start;
     gap: 12px;
@@ -942,10 +971,11 @@ main {
 
   .provider-strip-label {
     width: 100%;
+    white-space: normal;
   }
 
   .provider-logo {
-    height: 34px;
+    height: 24px;
   }
 
   .video-popover {
