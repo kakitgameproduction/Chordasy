@@ -3,20 +3,20 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>ChordLab | Cloud-ready chart manager for bands</title>
+    <title>ChordLab | Build your chart flow for the stage</title>
     <meta
       name="description"
-      content="ChordLab helps musicians manage PDF and image charts, connect Dropbox or Google Drive, build setlists, annotate music, and share songs with band members."
+      content="ChordLab helps bands organize chart libraries, build setlists, transpose keys, annotate on stage, connect Dropbox or Google Drive, and share songs in Band Mode."
     />
     <meta property="og:title" content="ChordLab" />
     <meta
       property="og:description"
-      content="Cloud-ready chart library, setlists, annotations, image support, and Band Mode sharing for rehearsals and live worship."
+      content="Organize your chart library, build setlists fast, transpose instantly, and share charts across the band."
     />
     <meta property="og:type" content="website" />
-    <meta property="og:image" content="chordlab_app_icon.png" />
+    <meta property="og:image" content="store-page-2.png" />
     <link rel="icon" href="chordlab_app_icon.png" />
-    <link rel="stylesheet" href="styles.css?v=20260525-0848" />
+    <link rel="stylesheet" href="styles.css?v=20260605-website-refresh-1" />
   </head>
   <body>
     <header class="site-header">
@@ -25,8 +25,8 @@
       </a>
       <div class="header-controls">
         <nav class="nav-links" aria-label="Main navigation">
-          <a href="#features" data-i18n="navFeatures">Features</a>
-          <a href="#how-to" data-i18n="navHowTo">How to</a>
+          <a href="#stories" data-i18n="navFeatures">Features</a>
+          <a href="#workflow" data-i18n="navHowTo">How to</a>
           <a href="download.html" data-i18n="navDownload">Download</a>
           <a href="#help" data-i18n="navHelp">Help</a>
           <a href="privacy.html" data-i18n="navPrivacy">Privacy</a>
@@ -40,270 +40,220 @@
     </header>
 
     <main id="top">
-      <section class="hero section-grid">
+      <section class="hero">
         <div class="hero-copy">
-          <p class="eyebrow" data-i18n="heroEyebrow">For rehearsals, worship teams, and live bands</p>
-          <h1 data-i18n="heroTitle">Chord charts that move with your band.</h1>
+          <p class="eyebrow" data-i18n="heroEyebrow">Tablet-ready workflow for rehearsals, worship teams, and live bands</p>
+          <h1 class="hero-title">
+            <span data-i18n="heroTitleLine1">Build</span>
+            <span class="accent" data-i18n="heroTitleLine2">your chart flow</span>
+            <span data-i18n="heroTitleLine3">for the stage.</span>
+          </h1>
           <p class="lead" data-i18n="heroLead">
-            ChordLab keeps your PDF and image charts, cloud libraries, setlists, annotations, and Band Mode sharing in one tablet-friendly workspace.
+            ChordLab brings library search, setlists, transpose, live annotation, cloud sync, and Band Mode sharing into one fast tablet workspace.
           </p>
           <div class="hero-actions">
-            <a class="coffee-button" href="https://www.buymeacoffee.com/chordlab" aria-label="Buy me a coffee">
-              <img src="https://img.buymeacoffee.com/button-api/?text=Buy me a coffee&emoji=%E2%98%95&slug=chordlab&button_colour=FFDD00&font_colour=000000&font_family=Cookie&outline_colour=000000&coffee_colour=ffffff" alt="Buy me a coffee" />
-            </a>
+            <a class="button primary" href="download.html" data-i18n="heroPrimary">Get ChordLab</a>
+            <button class="button secondary video-trigger" type="button" id="video-trigger" aria-expanded="false" aria-controls="video-popover">
+              <span data-i18n="watchVideo">Watch demo</span>
+            </button>
+            <a class="button ghost" href="#stories" data-i18n="heroSecondary">See real screens</a>
+          </div>
+          <ul class="hero-points">
+            <li data-i18n="heroPoint1">Import PDF, JPG, JPEG, and PNG charts</li>
+            <li data-i18n="heroPoint2">Connect Dropbox or Google Drive inside the app</li>
+            <li data-i18n="heroPoint3">Share charts and messages across the band on the same network</li>
+          </ul>
+        </div>
+
+        <div class="hero-stage" aria-label="ChordLab story posters">
+          <div class="poster-stack">
+            <img class="poster poster-left" src="store-page-6.png" alt="ChordLab Build Setlist Fast poster" />
+            <img class="poster poster-main" src="store-page-2.png" alt="ChordLab Organise Your Song Library poster" />
+            <img class="poster poster-right" src="store-page-1.png" alt="ChordLab Share Chart With The Band poster" />
           </div>
         </div>
-        <div class="hero-visual">
-          <figure class="feature-art">
-            <img src="hero-feature.png" alt="ChordLab tablet feature preview" />
-          </figure>
-          <button class="video-trigger" type="button" id="video-trigger" aria-expanded="false" aria-controls="video-popover">
-            <img src="youtube_logo.png" alt="Open YouTube video" />
-            <span data-i18n="watchVideo">Watch demo</span>
-          </button>
-          <div class="video-popover" id="video-popover" role="dialog" aria-modal="true" aria-label="ChordLab video" hidden>
-            <div class="video-card video-card-vertical" aria-label="ChordLab introduction video">
-              <iframe
-                id="hero-video-frame"
-                src="https://www.youtube.com/embed/DfoLbRaoKZc?rel=0&playsinline=1"
-                title="ChordLab introduction video"
-                loading="lazy"
-                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                allowfullscreen
-              ></iframe>
+
+        <div class="video-popover" id="video-popover" role="dialog" aria-modal="true" aria-label="ChordLab video" hidden>
+          <div class="video-card video-card-vertical" aria-label="ChordLab introduction video">
+            <iframe
+              id="hero-video-frame"
+              src=""
+              title="ChordLab introduction video"
+              loading="lazy"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+              allowfullscreen
+            ></iframe>
+          </div>
+        </div>
+      </section>
+
+      <section class="signal-band">
+        <div class="signal-pill">
+          <span class="signal-label" data-i18n="signal1Label">Library</span>
+          <strong data-i18n="signal1Value">Cloud + local charts in one place</strong>
+        </div>
+        <div class="signal-pill">
+          <span class="signal-label" data-i18n="signal2Label">Live</span>
+          <strong data-i18n="signal2Value">Transpose, annotate, and move fast on stage</strong>
+        </div>
+        <div class="signal-pill">
+          <span class="signal-label" data-i18n="signal3Label">Band Mode</span>
+          <strong data-i18n="signal3Value">Share songs and messages across your team</strong>
+        </div>
+      </section>
+
+      <section id="stories" class="content-section story-section">
+        <div class="section-heading">
+          <p class="eyebrow" data-i18n="storiesEyebrow">Feature storyboards</p>
+          <h2 data-i18n="storiesTitle">Six real workflows, built from your actual app screens.</h2>
+          <p data-i18n="storiesLead">
+            These are the same visual directions used in your latest store material, now turned into the structure of the website so visitors understand ChordLab in seconds.
+          </p>
+        </div>
+
+        <div class="story-grid">
+          <article class="story-card">
+            <figure class="story-poster">
+              <img src="store-page-2.png" alt="Organise your song library poster" />
+            </figure>
+            <div class="story-copy">
+              <p class="story-kicker" data-i18n="story1Kicker">Library</p>
+              <h3 data-i18n="story1Title">Organise your song library</h3>
+              <p data-i18n="story1Body">Search local charts, browse cloud sources, import PDFs, and open the right song quickly from a tablet-friendly library layout.</p>
             </div>
-          </div>
-        </div>
-      </section>
-
-      <section class="showcase">
-        <div class="section-heading">
-          <p class="eyebrow" data-i18n="showcaseEyebrow">Inside ChordLab</p>
-          <h2 data-i18n="showcaseTitle">Real screens from the app.</h2>
-          <p data-i18n="showcaseLead">Browse your library, reorder a live set, share charts across the band, and annotate on the fly with a workspace designed for performance.</p>
-        </div>
-        <div class="showcase-shell">
-          <div class="demo-nav" role="tablist" aria-label="ChordLab demos">
-            <button class="demo-button active" type="button" data-demo-target="transpose" aria-pressed="true">
-              <strong data-i18n="demoNavTranspose">Transpose</strong>
-            </button>
-            <button class="demo-button" type="button" data-demo-target="setlist" aria-pressed="false">
-              <strong data-i18n="demoNavSetlists">Setlist</strong>
-            </button>
-            <button class="demo-button" type="button" data-demo-target="library" aria-pressed="false">
-              <strong data-i18n="demoNavLibrary">Library</strong>
-            </button>
-            <button class="demo-button" type="button" data-demo-target="band-mode" aria-pressed="false">
-              <strong data-i18n="demoNavBandMode">Band Mode</strong>
-            </button>
-            <button class="demo-button" type="button" data-demo-target="annotation" aria-pressed="false">
-              <strong data-i18n="demoNavAnnotation">Annotation</strong>
-            </button>
-            <button class="demo-button" type="button" data-demo-target="metronome" aria-pressed="false">
-              <strong data-i18n="demoNavMetronome">BPM</strong>
-            </button>
-          </div>
-
-          <div class="demo-stage">
-            <article class="demo-panel active" data-demo-panel="transpose">
-              <div class="demo-panel-copy">
-                <h3 data-i18n="capture1Title">Transpose on the fly, even in Live Mode.</h3>
-                <p data-i18n="capture1Body">Change key quickly during rehearsal or worship without leaving the chart.</p>
-              </div>
-              <div class="demo-screen demo-screen-transpose">
-                <img src="capture-transpose.png" alt="ChordLab transpose controls in live chart view" />
-              </div>
-            </article>
-
-            <article class="demo-panel" data-demo-panel="setlist" hidden>
-              <div class="demo-panel-copy">
-                <h3 data-i18n="capture2Title">Reorder the setlist into the exact running order.</h3>
-                <p data-i18n="capture2Body">Drag songs into place so everyone follows the same flow on stage.</p>
-              </div>
-              <div class="demo-screen demo-screen-setlist">
-                <img src="capture-setlist-order.png" alt="ChordLab setlist reorder drawer" />
-              </div>
-            </article>
-
-            <article class="demo-panel" data-demo-panel="library" hidden>
-              <div class="demo-panel-copy">
-                <h3 data-i18n="capture3Title">Find songs fast across Local, Dropbox, Google Drive, PDFs, and image charts.</h3>
-                <p data-i18n="capture3Body">Search and open the right chart quickly from a tablet-friendly library with clear loading feedback while cloud songs download.</p>
-              </div>
-              <div class="demo-screen demo-screen-library">
-                <img src="capture-library-search.png" alt="ChordLab library search drawer" />
-              </div>
-            </article>
-
-            <article class="demo-panel" data-demo-panel="band-mode" hidden>
-              <div class="demo-panel-copy">
-                <h3 data-i18n="capture4Title">Share charts, images, PDFs, and short band messages.</h3>
-                <p data-i18n="capture4Body">Send the current chart to another member, even when the PDF is not already in their Dropbox or local library.</p>
-              </div>
-              <div class="demo-screen demo-screen-band">
-                <img src="capture-band-share.png" alt="ChordLab Band Mode members and broadcast tools" />
-              </div>
-            </article>
-
-            <article class="demo-panel" data-demo-panel="annotation" hidden>
-              <div class="demo-panel-copy">
-                <h3 data-i18n="capture5Title">Mark charts directly during practice or performance.</h3>
-                <p data-i18n="capture5Body">Use pen and eraser tools without breaking the flow of rehearsal or live play.</p>
-              </div>
-              <div class="demo-screen demo-screen-annotation">
-                <img src="capture-annotation-live.png" alt="ChordLab annotation toolbar in live mode" />
-              </div>
-            </article>
-
-            <article class="demo-panel" data-demo-panel="metronome" hidden>
-              <div class="demo-panel-copy">
-                <h3 data-i18n="capture6Title">Keep the band locked in without leaving the chart.</h3>
-                <p data-i18n="capture6Body">Use BPM controls, click support, and an enhanced visual pulse while the chord chart stays on screen.</p>
-              </div>
-              <div class="demo-screen demo-screen-metronome">
-                <img src="capture-metronome-live.png" alt="ChordLab Live Mode BPM controls with visual pulse around the chord chart" />
-              </div>
-            </article>
-          </div>
-        </div>
-      </section>
-
-      <section id="features" class="content-section">
-        <div class="section-heading">
-          <p class="eyebrow" data-i18n="featuresEyebrow">What ChordLab does</p>
-          <h2 data-i18n="featuresTitle">Built for musicians who need charts fast.</h2>
-          <p data-i18n="featuresLead">Made for live performance, worship teams, and band rehearsals with a focus on speed, clarity, and reliability.</p>
-        </div>
-
-        <div class="feature-grid">
-          <article class="feature-card">
-            <span class="feature-icon">PDF+</span>
-            <h3 data-i18n="feature1Title">PDF and image chart library</h3>
-            <p data-i18n="feature1Body">Import PDF, JPG, JPEG, and PNG charts, then browse, annotate, add to setlists, and send them to other members.</p>
           </article>
-          <article class="feature-card">
-            <span class="feature-icon">Set</span>
-            <h3 data-i18n="feature2Title">Setlists for performance</h3>
-            <p data-i18n="feature2Body">Create setlists, reorder songs by dragging, and keep your live set ready for the next rehearsal.</p>
+
+          <article class="story-card">
+            <figure class="story-poster">
+              <img src="store-page-6.png" alt="Build setlist fast poster" />
+            </figure>
+            <div class="story-copy">
+              <p class="story-kicker" data-i18n="story2Kicker">Setlist</p>
+              <h3 data-i18n="story2Title">Build setlists fast</h3>
+              <p data-i18n="story2Body">Create the running order, drag songs into place, and keep the whole set ready for rehearsal, worship, or live performance.</p>
+            </div>
           </article>
-          <article class="feature-card">
-            <span class="feature-icon">Key</span>
-            <h3 data-i18n="feature3Title">Transpose chords</h3>
-            <p data-i18n="feature3Body">Transpose on the fly, even in Live Mode, including common slash chords. Image charts stay viewable and annotatable, but transpose is not supported.</p>
+
+          <article class="story-card">
+            <figure class="story-poster">
+              <img src="store-page-3.png" alt="Transpose keys instantly poster" />
+            </figure>
+            <div class="story-copy">
+              <p class="story-kicker" data-i18n="story3Kicker">Transpose</p>
+              <h3 data-i18n="story3Title">Transpose keys instantly</h3>
+              <p data-i18n="story3Body">Shift the key on the fly without leaving the chart, so the band can react immediately when the room or vocalist needs a change.</p>
+            </div>
           </article>
-          <article class="feature-card">
-            <span class="feature-icon">Pen</span>
-            <h3 data-i18n="feature4Title">Annotations</h3>
-            <p data-i18n="feature4Body">Use pen and eraser tools to mark charts directly during practice or performance.</p>
+
+          <article class="story-card">
+            <figure class="story-poster">
+              <img src="store-page-4.png" alt="Use it live on stage poster" />
+            </figure>
+            <div class="story-copy">
+              <p class="story-kicker" data-i18n="story4Kicker">Live mode</p>
+              <h3 data-i18n="story4Title">Use it live on stage</h3>
+              <p data-i18n="story4Body">Keep the chart full-size, switch tools quickly, and stay inside the performance flow while rehearsing or playing live.</p>
+            </div>
           </article>
-          <article class="feature-card">
-            <span class="feature-icon">Cloud</span>
-            <h3 data-i18n="feature5Title">Cloud libraries and in-app sign-in</h3>
-            <p data-i18n="feature5Body">Connect Dropbox or Google Drive inside the app, complete secure sign-in in a browser tab, and return straight back to ChordLab.</p>
+
+          <article class="story-card">
+            <figure class="story-poster">
+              <img src="store-page-5.png" alt="Connect your cloud library poster" />
+            </figure>
+            <div class="story-copy">
+              <p class="story-kicker" data-i18n="story5Kicker">Cloud</p>
+              <h3 data-i18n="story5Title">Connect your cloud library</h3>
+              <p data-i18n="story5Body">Link Dropbox or Google Drive from inside the app, choose your chart folder, and refresh the library without leaving your workflow.</p>
+            </div>
           </article>
-          <article class="feature-card">
-            <span class="feature-icon">Sync</span>
-            <h3 data-i18n="feature6Title">Band Mode sharing</h3>
-            <p data-i18n="feature6Body">Send charts, messages, and the chart file itself when the other device does not already have it.</p>
+
+          <article class="story-card">
+            <figure class="story-poster">
+              <img src="store-page-1.png" alt="Share chart with the band poster" />
+            </figure>
+            <div class="story-copy">
+              <p class="story-kicker" data-i18n="story6Kicker">Band Mode</p>
+              <h3 data-i18n="story6Title">Share charts with the band</h3>
+              <p data-i18n="story6Body">Send charts, messages, and files to connected members on the same network, even when they do not already have the song in their library.</p>
+            </div>
           </article>
         </div>
       </section>
 
-      <section id="how-to" class="content-section how-to-section">
+      <section id="workflow" class="content-section workflow-section">
         <div class="section-heading">
-          <p class="eyebrow" data-i18n="howToEyebrow">How to</p>
-          <h2 data-i18n="howToTitle">Connect your cloud library.</h2>
-          <p data-i18n="howToLead">Dropbox and Google Drive now follow the same in-app flow, so signing in and returning to your library is much simpler.</p>
+          <p class="eyebrow" data-i18n="workflowEyebrow">How it flows</p>
+          <h2 data-i18n="workflowTitle">From cloud to stage in three moves.</h2>
+          <p data-i18n="workflowLead">The website now mirrors the way ChordLab is actually used: collect charts, prepare the set, then stay locked in while the band plays.</p>
         </div>
-        <div class="how-to-grid">
-          <article class="how-to-card">
+
+        <div class="workflow-grid">
+          <article class="workflow-card">
             <span class="step-number">01</span>
-            <h3 data-i18n="dropboxStep1Title">Choose your provider</h3>
-            <ol>
-              <li data-i18n="dropboxStep1A">Open ChordLab Settings and choose Dropbox or Google Drive.</li>
-              <li data-i18n="dropboxStep1B">Start the connection from inside the app.</li>
-              <li data-i18n="dropboxStep1C">ChordLab opens a secure sign-in tab without sending you into a separate workflow.</li>
-            </ol>
+            <div class="workflow-shot">
+              <img src="capture-library-search.png" alt="ChordLab library search view" />
+            </div>
+            <h3 data-i18n="flow1Title">Collect the right charts</h3>
+            <p data-i18n="flow1Body">Import files locally or connect Dropbox and Google Drive, then search titles and open songs fast from the library.</p>
           </article>
-          <article class="how-to-card">
+
+          <article class="workflow-card">
             <span class="step-number">02</span>
-            <h3 data-i18n="dropboxStep2Title">Sign in and return to the app</h3>
-            <ol>
-              <li data-i18n="dropboxStep2A">Approve access in Dropbox or Google.</li>
-              <li data-i18n="dropboxStep2B">After authorization, ChordLab returns you straight back into the app.</li>
-              <li data-i18n="dropboxStep2C">The library view refreshes so you can see the connected status without reopening the app.</li>
-            </ol>
+            <div class="workflow-shot">
+              <img src="capture-setlist-order.png" alt="ChordLab setlist drawer and drag sorting" />
+            </div>
+            <h3 data-i18n="flow2Title">Prepare the running order</h3>
+            <p data-i18n="flow2Body">Build the setlist, reorder songs, and keep navigation ready for the next rehearsal or service.</p>
           </article>
-          <article class="how-to-card">
+
+          <article class="workflow-card">
             <span class="step-number">03</span>
-            <h3 data-i18n="dropboxStep3Title">Start browsing and refreshing</h3>
-            <ol>
-              <li data-i18n="dropboxStep3A">The first successful connection can trigger a library refresh automatically.</li>
-              <li data-i18n="dropboxStep3B">Later refreshes show a clear progress window, then close automatically when syncing finishes.</li>
-              <li data-i18n="dropboxStep3C">While a cloud song is downloading, the library shows fetching progress and clear timeout or no-internet messages.</li>
-            </ol>
+            <div class="workflow-shot">
+              <img src="capture-band-share.png" alt="ChordLab Band Mode sharing and member controls" />
+            </div>
+            <h3 data-i18n="flow3Title">Run live with the team</h3>
+            <p data-i18n="flow3Body">Transpose, annotate, send the current chart, and keep everyone aligned from the same local network workspace.</p>
           </article>
         </div>
       </section>
 
       <section id="help" class="content-section split-section">
-        <div>
-          <p class="eyebrow" data-i18n="helpEyebrow">Help</p>
-          <h2 data-i18n="helpTitle">Quick start</h2>
+        <div class="panel-block">
+          <p class="eyebrow" data-i18n="helpEyebrow">Quick start</p>
+          <h2 data-i18n="helpTitle">Start simple, then scale up.</h2>
           <ol class="steps">
-            <li data-i18n="helpStep1">Add charts. Open Library, import PDF, JPG, JPEG, or PNG files, or connect Dropbox or Google Drive.</li>
-            <li data-i18n="helpStep2">Create a setlist. Add songs to a setlist and drag the left handle to reorder.</li>
-            <li data-i18n="helpStep3">Open Live Mode. Use large navigation controls for performance.</li>
-            <li data-i18n="helpStep4">Use Band Mode. Turn Visible on, enter your musician name, then add or scan members on the same network.</li>
-            <li data-i18n="helpStep5">Send a chart. Open a song, select a remote member, and press Send in Band Mode. PDF and image charts can both be shared.</li>
+            <li data-i18n="helpStep1">Open Library and import PDF, JPG, JPEG, or PNG charts, or connect Dropbox or Google Drive.</li>
+            <li data-i18n="helpStep2">Add songs into a setlist and drag to reorder the flow.</li>
+            <li data-i18n="helpStep3">Open the chart, transpose if needed, and switch into Live Mode for larger controls.</li>
+            <li data-i18n="helpStep4">Use annotation tools to mark reminders, cues, and changes directly on the chart.</li>
+            <li data-i18n="helpStep5">Turn on Band Mode, connect members on the same network, and send charts or messages when needed.</li>
           </ol>
         </div>
-        <div class="zh-panel">
+
+        <div class="panel-block faq-block">
           <p class="eyebrow" data-i18n="faqEyebrow">FAQ</p>
-          <h2 data-i18n="faqTitle">Common questions</h2>
+          <h2 data-i18n="faqTitle">Answers that matter on rehearsal day.</h2>
           <div class="faq-mini">
             <p><strong data-i18n="faq1Q">Do all tablets need the same Dropbox or Google account?</strong></p>
             <p data-i18n="faq1A">No. If the receiving tablet does not already have the chart, ChordLab can receive the sent file and store it locally.</p>
             <p><strong data-i18n="faq2Q">Does Band Mode use the internet?</strong></p>
             <p data-i18n="faq2A">Band Mode is designed for devices on the same local network. It does not require a ChordLab cloud server.</p>
+            <p><strong data-i18n="faq3Q">Can I use image charts too?</strong></p>
+            <p data-i18n="faq3A">Yes. ChordLab supports PDF, JPG, JPEG, and PNG for viewing, annotation, setlists, and sending to members. Transpose is only for chord-based charts.</p>
           </div>
         </div>
       </section>
 
-      <section class="content-section">
-        <div class="section-heading">
-          <p class="eyebrow" data-i18n="faqSectionEyebrow">FAQ</p>
-          <h2 data-i18n="faqSectionTitle">Practical answers for rehearsals.</h2>
-        </div>
-        <div class="faq-grid">
-          <article>
-            <h3 data-i18n="faq1Q">Do all tablets need the same Dropbox or Google account?</h3>
-            <p data-i18n="faq1A">No. If the receiving tablet does not already have the chart, ChordLab can receive the sent file and store it locally.</p>
-          </article>
-          <article>
-            <h3 data-i18n="faq2Q">Does Band Mode use the internet?</h3>
-            <p data-i18n="faq2A">Band Mode is designed for devices on the same local network. It does not require a ChordLab cloud server.</p>
-          </article>
-          <article>
-            <h3 data-i18n="faq3Q">Can I use JPG or PNG charts too?</h3>
-            <p data-i18n="faq3A">Yes. ChordLab supports PDF, JPG, JPEG, and PNG for viewing, annotation, setlists, and sending to members. Transpose is only for chord-based charts.</p>
-          </article>
-          <article>
-            <h3 data-i18n="faq4Q">What if a cloud song gets stuck while downloading?</h3>
-            <p data-i18n="faq4A">ChordLab shows fetching progress in the library, gives a no-internet message when the network drops, and times out instead of hanging forever.</p>
-          </article>
-        </div>
-      </section>
-
       <section id="support" class="content-section support-section">
-        <div>
-          <p class="eyebrow" data-i18n="supportEyebrow">Support</p>
-          <h2 data-i18n="supportTitle">ChordLab is free to use.</h2>
-          <p data-i18n="supportBody">If ChordLab helps your rehearsals, worship sets, or live sessions, you can support ongoing development.</p>
+        <div class="support-copy">
+          <p class="eyebrow" data-i18n="supportEyebrow">Download and support</p>
+          <h2 data-i18n="supportTitle">Ready to build your next set in ChordLab?</h2>
+          <p data-i18n="supportBody">Download the Android tablet version, try it in rehearsal, and support the project if it becomes part of your weekly workflow.</p>
         </div>
-        <a class="coffee-button" href="https://www.buymeacoffee.com/chordlab" aria-label="Buy me a coffee">
-          <img src="https://img.buymeacoffee.com/button-api/?text=Buy me a coffee&emoji=%E2%98%95&slug=chordlab&button_colour=FFDD00&font_colour=000000&font_family=Cookie&outline_colour=000000&coffee_colour=ffffff" alt="Buy me a coffee" />
-        </a>
+        <div class="support-actions">
+          <a class="button primary" href="download.html" data-i18n="supportPrimary">Download now</a>
+          <a class="button ghost" href="https://www.buymeacoffee.com/chordlab" data-i18n="supportSecondary">Support ChordLab</a>
+        </div>
       </section>
     </main>
 
@@ -311,19 +261,6 @@
       <span data-i18n="footerCopy">© 2026 ChordLab</span>
       <a href="privacy.html" data-i18n="footerPrivacy">Privacy Policy</a>
     </footer>
-
-    <script
-      data-name="BMC-Widget"
-      data-cfasync="false"
-      src="https://cdnjs.buymeacoffee.com/1.0.0/widget.prod.min.js"
-      data-id="chordlab"
-      data-description="Support me on Buy me a coffee!"
-      data-message=""
-      data-color="#FF813F"
-      data-position="Right"
-      data-x_margin="18"
-      data-y_margin="18"
-    ></script>
 
     <script>
       const translations = {
@@ -334,107 +271,75 @@
           navHelp: "Help",
           navPrivacy: "Privacy",
           navSupport: "Support",
-          heroEyebrow: "For rehearsals, worship teams, and live bands",
-          heroTitle: "Chord charts that move with your band.",
+          heroEyebrow: "Tablet-ready workflow for rehearsals, worship teams, and live bands",
+          heroTitleLine1: "Build",
+          heroTitleLine2: "your chart flow",
+          heroTitleLine3: "for the stage.",
           heroLead:
-            "ChordLab keeps your PDF and image charts, cloud libraries, setlists, annotations, and Band Mode sharing in one tablet-friendly workspace.",
+            "ChordLab brings library search, setlists, transpose, live annotation, cloud sync, and Band Mode sharing into one fast tablet workspace.",
+          heroPrimary: "Get ChordLab",
+          heroSecondary: "See real screens",
           watchVideo: "Watch demo",
-          showcaseEyebrow: "Inside ChordLab",
-          showcaseTitle: "Real screens from the app.",
-          showcaseLead:
-            "Browse your library, reorder a live set, share charts across the band, and annotate on the fly with a workspace designed for performance.",
-          demoNavTranspose: "Transpose",
-          demoNavSetlists: "Setlists",
-          demoNavBandMode: "Band Mode",
-          demoNavLibrary: "Library",
-          demoNavAnnotation: "Annotation",
-          demoNavMetronome: "BPM",
-          capture1Title: "Transpose on the fly, even in Live Mode.",
-          capture1Body:
-            "Change key quickly during rehearsal or worship without leaving the chart.",
-          capture2Title: "Reorder the setlist into the exact running order.",
-          capture2Body:
-            "Drag songs into place so everyone follows the same flow on stage.",
-          capture3Title: "Find songs fast across Local, Dropbox, Google Drive, PDFs, and image charts.",
-          capture3Body: "Search and open the right chart quickly from a tablet-friendly library with clear loading feedback while cloud songs download.",
-          capture4Title: "Share charts, images, PDFs, and short band messages.",
-          capture4Body:
-            "Send the current chart to another member, even when the PDF is not already in their Dropbox or local library.",
-          capture5Title: "Mark charts directly during practice or performance.",
-          capture5Body: "Use pen and eraser tools without breaking the flow of rehearsal or live play.",
-          capture6Title: "Keep the band locked in without leaving the chart.",
-          capture6Body:
-            "Use BPM controls, click support, and an enhanced visual pulse while the chord chart stays on screen.",
-          featuresEyebrow: "What ChordLab does",
-          featuresTitle: "Built for musicians who need charts fast.",
-          featuresLead:
-            "Made for live performance, worship teams, and band rehearsals with a focus on speed, clarity, and reliability.",
-          feature1Title: "PDF and image chart library",
-          feature1Body:
-            "Import PDF, JPG, JPEG, and PNG charts, then browse, annotate, add to setlists, and send them to other members.",
-          feature2Title: "Setlists for performance",
-          feature2Body:
-            "Create setlists, reorder songs by dragging, and keep your live set ready for the next rehearsal.",
-          feature3Title: "Transpose chords",
-          feature3Body:
-            "Transpose on the fly, even in Live Mode, including common slash chords. Image charts stay viewable and annotatable, but transpose is not supported.",
-          feature4Title: "Annotations",
-          feature4Body:
-            "Use pen and eraser tools to mark charts directly during practice or performance.",
-          feature5Title: "Cloud libraries and in-app sign-in",
-          feature5Body:
-            "Connect Dropbox or Google Drive inside the app, complete secure sign-in in a browser tab, and return straight back to ChordLab.",
-          feature6Title: "Band Mode sharing",
-          feature6Body:
-            "Send charts, messages, and the chart file itself when the other device does not already have it.",
-          howToEyebrow: "How to",
-          howToTitle: "Connect your cloud library.",
-          howToLead: "Dropbox and Google Drive now follow the same in-app flow, so signing in and returning to your library is much simpler.",
-          dropboxStep1Title: "Choose your provider",
-          dropboxStep1A: "Open ChordLab Settings and choose Dropbox or Google Drive.",
-          dropboxStep1B: "Start the connection from inside the app.",
-          dropboxStep1C: "ChordLab opens a secure sign-in tab without sending you into a separate workflow.",
-          dropboxStep2Title: "Sign in and return to the app",
-          dropboxStep2A: "Approve access in Dropbox or Google.",
-          dropboxStep2B: "After authorization, ChordLab returns you straight back into the app.",
-          dropboxStep2C: "The library view refreshes so you can see the connected status without reopening the app.",
-          dropboxStep3Title: "Start browsing and refreshing",
-          dropboxStep3A: "The first successful connection can trigger a library refresh automatically.",
-          dropboxStep3B: "Later refreshes show a clear progress window, then close automatically when syncing finishes.",
-          dropboxStep3C: "While a cloud song is downloading, the library shows fetching progress and clear timeout or no-internet messages.",
-          helpEyebrow: "Help",
-          helpTitle: "Quick start",
-          helpStep1:
-            "Add charts. Open Library, import PDF, JPG, JPEG, or PNG files, or connect Dropbox or Google Drive.",
-          helpStep2:
-            "Create a setlist. Add songs to a setlist and drag the left handle to reorder.",
-          helpStep3:
-            "Open Live Mode. Use large navigation controls for performance.",
-          helpStep4:
-            "Use Band Mode. Turn Visible on, enter your musician name, then add or scan members on the same network.",
-          helpStep5:
-            "Send a chart. Open a song, select a remote member, and press Send in Band Mode. PDF and image charts can both be shared.",
+          heroPoint1: "Import PDF, JPG, JPEG, and PNG charts",
+          heroPoint2: "Connect Dropbox or Google Drive inside the app",
+          heroPoint3: "Share charts and messages across your team on the same network",
+          signal1Label: "Library",
+          signal1Value: "Cloud + local charts in one place",
+          signal2Label: "Live",
+          signal2Value: "Transpose, annotate, and move fast on stage",
+          signal3Label: "Band Mode",
+          signal3Value: "Share songs and messages across the band",
+          storiesEyebrow: "Feature storyboards",
+          storiesTitle: "Six real workflows, built from your actual app screens.",
+          storiesLead:
+            "These are the same visual directions used in your latest store material, now turned into the structure of the website so visitors understand ChordLab in seconds.",
+          story1Kicker: "Library",
+          story1Title: "Organise your song library",
+          story1Body: "Search local charts, browse cloud sources, import PDFs, and open the right song quickly from a tablet-friendly library layout.",
+          story2Kicker: "Setlist",
+          story2Title: "Build setlists fast",
+          story2Body: "Create the running order, drag songs into place, and keep the whole set ready for rehearsal, worship, or live performance.",
+          story3Kicker: "Transpose",
+          story3Title: "Transpose keys instantly",
+          story3Body: "Shift the key on the fly without leaving the chart, so the band can react immediately when the room or vocalist needs a change.",
+          story4Kicker: "Live mode",
+          story4Title: "Use it live on stage",
+          story4Body: "Keep the chart full-size, switch tools quickly, and stay inside the performance flow while rehearsing or playing live.",
+          story5Kicker: "Cloud",
+          story5Title: "Connect your cloud library",
+          story5Body: "Link Dropbox or Google Drive from inside the app, choose your chart folder, and refresh the library without leaving your workflow.",
+          story6Kicker: "Band Mode",
+          story6Title: "Share charts with the band",
+          story6Body: "Send charts, messages, and files to connected members on the same network, even when they do not already have the song in their library.",
+          workflowEyebrow: "How it flows",
+          workflowTitle: "From cloud to stage in three moves.",
+          workflowLead: "The website now mirrors the way ChordLab is actually used: collect charts, prepare the set, then stay locked in while the band plays.",
+          flow1Title: "Collect the right charts",
+          flow1Body: "Import files locally or connect Dropbox and Google Drive, then search titles and open songs fast from the library.",
+          flow2Title: "Prepare the running order",
+          flow2Body: "Build the setlist, reorder songs, and keep navigation ready for the next rehearsal or service.",
+          flow3Title: "Run live with the team",
+          flow3Body: "Transpose, annotate, send the current chart, and keep everyone aligned from the same local network workspace.",
+          helpEyebrow: "Quick start",
+          helpTitle: "Start simple, then scale up.",
+          helpStep1: "Open Library and import PDF, JPG, JPEG, or PNG charts, or connect Dropbox or Google Drive.",
+          helpStep2: "Add songs into a setlist and drag to reorder the flow.",
+          helpStep3: "Open the chart, transpose if needed, and switch into Live Mode for larger controls.",
+          helpStep4: "Use annotation tools to mark reminders, cues, and changes directly on the chart.",
+          helpStep5: "Turn on Band Mode, connect members on the same network, and send charts or messages when needed.",
           faqEyebrow: "FAQ",
-          faqTitle: "Common questions",
-          faqSectionEyebrow: "FAQ",
-          faqSectionTitle: "Practical answers for rehearsals.",
+          faqTitle: "Answers that matter on rehearsal day.",
           faq1Q: "Do all tablets need the same Dropbox or Google account?",
-          faq1A:
-            "No. If the receiving tablet does not already have the chart, ChordLab can receive the sent file and store it locally.",
+          faq1A: "No. If the receiving tablet does not already have the chart, ChordLab can receive the sent file and store it locally.",
           faq2Q: "Does Band Mode use the internet?",
-          faq2A:
-            "Band Mode is designed for devices on the same local network. It does not require a ChordLab cloud server.",
-          faq3Q: "Can I use JPG or PNG charts too?",
-          faq3A:
-            "Yes. ChordLab supports PDF, JPG, JPEG, and PNG for viewing, annotation, setlists, and sending to members. Transpose is only for chord-based charts.",
-          faq4Q: "What if a cloud song gets stuck while downloading?",
-          faq4A:
-            "ChordLab shows fetching progress in the library, gives a no-internet message when the network drops, and times out instead of hanging forever.",
-          supportEyebrow: "Support",
-          supportTitle: "ChordLab is free to use.",
-          supportBody:
-            "If ChordLab helps your rehearsals, worship sets, or live sessions, you can support ongoing development.",
-          supportButton: "Support ChordLab",
+          faq2A: "Band Mode is designed for devices on the same local network. It does not require a ChordLab cloud server.",
+          faq3Q: "Can I use image charts too?",
+          faq3A: "Yes. ChordLab supports PDF, JPG, JPEG, and PNG for viewing, annotation, setlists, and sending to members. Transpose is only for chord-based charts.",
+          supportEyebrow: "Download and support",
+          supportTitle: "Ready to build your next set in ChordLab?",
+          supportBody: "Download the Android tablet version, try it in rehearsal, and support the project if it becomes part of your weekly workflow.",
+          supportPrimary: "Download now",
+          supportSecondary: "Support ChordLab",
           footerCopy: "© 2026 ChordLab",
           footerPrivacy: "Privacy Policy"
         },
@@ -445,107 +350,75 @@
           navHelp: "說明",
           navPrivacy: "私隱",
           navSupport: "支援",
-          heroEyebrow: "適合排練、敬拜團隊與現場樂隊",
-          heroTitle: "讓樂譜與整個團隊同步前進。",
+          heroEyebrow: "為排練、敬拜團隊與現場樂隊而設的平板工作流程",
+          heroTitleLine1: "建立",
+          heroTitleLine2: "你的樂譜流程",
+          heroTitleLine3: "直上舞台。",
           heroLead:
-            "ChordLab 將 PDF 與圖片樂譜、雲端樂譜庫、Setlist、移調、手寫標記與 Band Mode 分享功能整合於一個適合平板使用的工作空間。",
+            "ChordLab 將樂譜庫搜尋、Setlist、移調、現場標記、雲端連接與 Band Mode 分享整合成一個快速的平板工作空間。",
+          heroPrimary: "下載 ChordLab",
+          heroSecondary: "看真實畫面",
           watchVideo: "觀看示範",
-          showcaseEyebrow: "ChordLab 介面",
-          showcaseTitle: "透過真實畫面了解操作流程。",
-          showcaseLead:
-            "從樂譜庫、Setlist 排序，到 Band Mode 傳送樂譜與手寫標記，每項功能皆為排練與演出流程而設計。",
-          demoNavTranspose: "移調",
-          demoNavSetlists: "Setlist",
-          demoNavBandMode: "Band Mode",
-          demoNavLibrary: "樂譜庫",
-          demoNavAnnotation: "標記",
-          demoNavMetronome: "BPM",
-          capture1Title: "即時移調，Live Mode 亦可使用。",
-          capture1Body:
-            "在排練或敬拜現場需要轉調時，可直接在樂譜畫面中完成操作。",
-          capture2Title: "拖動歌曲，安排演出所需的順序。",
-          capture2Body:
-            "無論是排練期間或上台前臨時調整歌序，都能快速完成而不中斷流程。",
-          capture3Title: "Local、Dropbox、Google Drive、PDF 與圖片樂譜均可快速搜尋。",
-          capture3Body: "將完整樂譜收藏集中管理，搜尋與選歌更加快捷，雲端歌曲下載時亦有清晰進度提示。",
-          capture4Title: "分享樂譜、圖片、PDF 與簡短團隊訊息。",
-          capture4Body:
-            "即使對方的 Dropbox 或本地樂譜庫沒有相同 PDF，也能直接傳送目前的樂譜檔案。",
-          capture5Title: "排練或演出時可直接在樂譜上標記重點。",
-          capture5Body: "使用筆與橡皮擦工具直接標記，不會中斷演奏流程。",
-          capture6Title: "不用離開樂譜畫面，也能讓全隊跟穩節奏。",
-          capture6Body:
-            "可在樂譜仍然顯示時使用 BPM 控制、Click 支援與加強版視覺節奏提示。",
-          featuresEyebrow: "ChordLab 功能",
-          featuresTitle: "為需要高效處理樂譜的樂手而設。",
-          featuresLead:
-            "專為現場演奏、敬拜團隊與樂隊排練而設，重點在於快速、清晰與可靠。",
-          feature1Title: "PDF 與圖片樂譜庫",
-          feature1Body:
-            "支援匯入 PDF、JPG、JPEG、PNG，並可瀏覽、標記、加入 Setlist，以及傳送給其他成員。",
-          feature2Title: "演出用 Setlist",
-          feature2Body:
-            "建立 Setlist，用拖放重新排序歌曲，為下一次排練或演出準備好流程。",
-          feature3Title: "和弦移調",
-          feature3Body:
-            "在 Live Mode 中亦可即時移調，並支援常見 slash chords。圖片樂譜可瀏覽及標記，但不支援移調。",
-          feature4Title: "手寫標記",
-          feature4Body:
-            "排練或演出時可直接在樂譜上使用筆與橡皮擦工具作標記。",
-          feature5Title: "雲端樂譜庫與 app 內登入",
-          feature5Body:
-            "可在 app 內連接 Dropbox 或 Google Drive，於安全登入頁授權後直接返回 ChordLab。",
-          feature6Title: "Band Mode 分享",
-          feature6Body:
-            "可傳送樂譜與訊息；若對方沒有該檔案，亦可直接傳送整個 chart 檔。",
-          howToEyebrow: "教學",
-          howToTitle: "連接您的雲端樂譜庫。",
-          howToLead: "Dropbox 與 Google Drive 現在共用同一套 app 內流程，登入後返回樂譜庫會更直接。",
-          dropboxStep1Title: "選擇雲端服務",
-          dropboxStep1A: "打開 ChordLab Settings，選擇 Dropbox 或 Google Drive。",
-          dropboxStep1B: "直接在 app 內開始連接流程。",
-          dropboxStep1C: "ChordLab 會打開安全登入頁，無需切換到另一套複雜流程。",
-          dropboxStep2Title: "登入後返回 app",
-          dropboxStep2A: "在 Dropbox 或 Google 批准存取。",
-          dropboxStep2B: "完成授權後，ChordLab 會直接返回 app。",
-          dropboxStep2C: "返回時樂譜庫會刷新，無需重新開啟 app 也能見到已連接狀態。",
-          dropboxStep3Title: "開始瀏覽與重新整理",
-          dropboxStep3A: "第一次成功連接後，可自動執行一次 library refresh。",
-          dropboxStep3B: "之後手動 refresh 會顯示清晰進度視窗，完成後自動關閉。",
-          dropboxStep3C: "下載雲端歌曲時，library 亦會顯示 fetching 進度、timeout 與無網絡提示。",
-          helpEyebrow: "說明",
-          helpTitle: "快速開始",
-          helpStep1:
-            "加入樂譜：打開 Library，匯入 PDF、JPG、JPEG、PNG，或者連接 Dropbox / Google Drive。",
-          helpStep2:
-            "建立 Setlist：將歌曲加入 Setlist，用左邊手柄拖動重新排序。",
-          helpStep3:
-            "開啟 Live Mode：用大按鈕翻頁，方便演出時使用。",
-          helpStep4:
-            "使用 Band Mode：開啟 Visible，輸入您的名稱，然後加入或掃描同一網絡內的成員。",
-          helpStep5:
-            "傳送歌曲：打開歌曲後，選擇遠端成員，再於 Band Mode 按 Send。PDF 與圖片樂譜都可以傳送。",
+          heroPoint1: "支援匯入 PDF、JPG、JPEG、PNG 樂譜",
+          heroPoint2: "可直接在 app 內連接 Dropbox 或 Google Drive",
+          heroPoint3: "可在同一網絡內向團隊成員分享樂譜與訊息",
+          signal1Label: "Library",
+          signal1Value: "雲端與本機樂譜集中管理",
+          signal2Label: "Live",
+          signal2Value: "在台上快速移調、標記、翻歌",
+          signal3Label: "Band Mode",
+          signal3Value: "跨團隊分享歌曲與訊息",
+          storiesEyebrow: "功能故事版",
+          storiesTitle: "六個真實工作流程，直接來自你實際的 app 畫面。",
+          storiesLead:
+            "網站而家直接跟返你最新 store material 嘅講法，令新訪客一眼就明白 ChordLab 可以點樣幫到排練同演出。",
+          story1Kicker: "Library",
+          story1Title: "整理你的樂譜庫",
+          story1Body: "搜尋本機歌曲、瀏覽雲端來源、匯入 PDF，並用平板友善的介面快速打開需要的 chart。",
+          story2Kicker: "Setlist",
+          story2Title: "快速建立 Setlist",
+          story2Body: "建立歌單、拖動排序，將整個排練或演出流程預先安排好。",
+          story3Kicker: "Transpose",
+          story3Title: "即時移調",
+          story3Body: "無需離開樂譜畫面即可轉 key，方便即場配合主唱、樂手或現場需要。",
+          story4Kicker: "Live Mode",
+          story4Title: "舞台上直接使用",
+          story4Body: "保持大畫面顯示樂譜，快速切換工具，排練與演出時都可以留在同一個流程內。",
+          story5Kicker: "Cloud",
+          story5Title: "連接你的雲端樂譜庫",
+          story5Body: "在 app 內連接 Dropbox 或 Google Drive，選擇資料夾後直接 refresh library，流程簡潔直接。",
+          story6Kicker: "Band Mode",
+          story6Title: "與樂隊分享樂譜",
+          story6Body: "可向同網絡內的成員傳送 chart、訊息與檔案，就算對方本身未有該歌曲都可以接收。",
+          workflowEyebrow: "流程",
+          workflowTitle: "由雲端到舞台，只需三步。",
+          workflowLead: "網站內容而家直接跟返 ChordLab 真正使用方式：先收歌，再編排，最後帶上台。",
+          flow1Title: "收集需要的樂譜",
+          flow1Body: "從本機匯入，或者連接 Dropbox / Google Drive，然後在 Library 快速搜尋與開歌。",
+          flow2Title: "準備演出次序",
+          flow2Body: "建立 Setlist、拖動調整次序，為下一次排練、敬拜或表演預先準備好。",
+          flow3Title: "與團隊一齊進入 Live",
+          flow3Body: "可即時移調、標記、傳送目前歌曲，並在同一個本地網絡工作空間內保持全隊同步。",
+          helpEyebrow: "快速開始",
+          helpTitle: "先簡單開始，再慢慢擴展。",
+          helpStep1: "打開 Library，匯入 PDF、JPG、JPEG、PNG，或者連接 Dropbox / Google Drive。",
+          helpStep2: "將歌曲加入 Setlist，並拖動重新排序。",
+          helpStep3: "打開歌曲，需要時移調，再切換到 Live Mode 使用更大的控制。",
+          helpStep4: "用 annotation 工具直接在 chart 上標記提醒、cue 位與修改。",
+          helpStep5: "開啟 Band Mode，連接同一網絡成員，按需要傳送歌曲或訊息。",
           faqEyebrow: "常見問題",
-          faqTitle: "快速解答",
-          faqSectionEyebrow: "常見問題",
-          faqSectionTitle: "排練與現場演出常見問題。",
-          faq1Q: "所有平板都需要使用同一個 Dropbox 或 Google 帳戶嗎？",
-          faq1A:
-            "不需要。若接收方尚未擁有該 chart，ChordLab 可接收傳送的檔案並儲存在本機。",
-          faq2Q: "Band Mode 需要用互聯網嗎？",
-          faq2A:
-            "Band Mode 主要為同一個本地網絡內的裝置而設，不需要 ChordLab 雲端伺服器。",
-          faq3Q: "可以使用 JPG 或 PNG 樂譜嗎？",
-          faq3A:
-            "可以。ChordLab 支援 PDF、JPG、JPEG、PNG 作瀏覽、標記、加入 Setlist，以及傳送給成員；移調只適用於和弦型樂譜。",
-          faq4Q: "如果雲端歌曲下載時卡住怎麼辦？",
-          faq4A:
-            "ChordLab 會在 library 顯示 fetching 進度；若網絡中斷會顯示無網絡提示，亦設有 timeout，避免一直卡住。",
-          supportEyebrow: "支援",
-          supportTitle: "ChordLab 可以免費使用。",
-          supportBody:
-            "如果 ChordLab 幫到您的綵排、敬拜或現場演出，歡迎支持持續開發。",
-          supportButton: "Support ChordLab",
+          faqTitle: "排練當日最實際的答案。",
+          faq1Q: "所有平板都需要同一個 Dropbox 或 Google 帳戶嗎？",
+          faq1A: "不需要。若接收方未有該 chart，ChordLab 可以接收傳送過來的檔案並儲存在本機。",
+          faq2Q: "Band Mode 需要互聯網嗎？",
+          faq2A: "Band Mode 主要為同一個本地網絡內的裝置而設，不需要 ChordLab 雲端伺服器。",
+          faq3Q: "可以使用圖片樂譜嗎？",
+          faq3A: "可以。ChordLab 支援 PDF、JPG、JPEG、PNG 作瀏覽、標記、Setlist 與傳送；移調只適用於和弦型樂譜。",
+          supportEyebrow: "下載與支持",
+          supportTitle: "準備好用 ChordLab 建立下一個 set？",
+          supportBody: "下載 Android 平板版本，在排練中試用；如果成為你每星期流程一部分，歡迎支持持續開發。",
+          supportPrimary: "立即下載",
+          supportSecondary: "支持 ChordLab",
           footerCopy: "© 2026 ChordLab",
           footerPrivacy: "私隱政策"
         }
@@ -574,29 +447,6 @@
         button.addEventListener("click", () => applyLanguage(button.getAttribute("data-lang-button")));
       });
 
-      const demoButtons = document.querySelectorAll("[data-demo-target]");
-      const demoPanels = document.querySelectorAll("[data-demo-panel]");
-
-      function activateDemo(target) {
-        demoButtons.forEach((button) => {
-          const active = button.getAttribute("data-demo-target") === target;
-          button.classList.toggle("active", active);
-          button.setAttribute("aria-pressed", active ? "true" : "false");
-        });
-
-        demoPanels.forEach((panel) => {
-          const active = panel.getAttribute("data-demo-panel") === target;
-          panel.classList.toggle("active", active);
-          panel.hidden = !active;
-        });
-      }
-
-      demoButtons.forEach((button) => {
-        button.addEventListener("click", () => activateDemo(button.getAttribute("data-demo-target")));
-      });
-
-      activateDemo("transpose");
-
       const videoTrigger = document.getElementById("video-trigger");
       const videoPopover = document.getElementById("video-popover");
       const heroVideoFrame = document.getElementById("hero-video-frame");
@@ -623,10 +473,7 @@
       });
 
       document.addEventListener("click", (event) => {
-        if (videoPopover.hidden) {
-          return;
-        }
-        if (event.target === videoPopover) {
+        if (!videoPopover.hidden && event.target === videoPopover) {
           closeHeroVideo();
         }
       });
