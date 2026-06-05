@@ -147,8 +147,8 @@ li {
 
 .brand img {
   display: block;
-  width: min(230px, 22vw);
-  max-height: 92px;
+  width: min(320px, 30vw);
+  max-height: 132px;
   height: auto;
   object-fit: contain;
 }
@@ -707,11 +707,12 @@ main {
 
   .nav-links {
     justify-content: flex-start;
+    gap: 8px;
   }
 
   .brand img {
-    width: min(190px, 42vw);
-    max-height: 74px;
+    width: min(240px, 48vw);
+    max-height: 92px;
   }
 
   .story-card {
@@ -727,6 +728,81 @@ main {
   }
 }
 
+@media (max-width: 720px) {
+  h1 {
+    font-size: clamp(2.7rem, 13vw, 4.3rem);
+  }
+
+  h2 {
+    font-size: clamp(1.95rem, 8vw, 3rem);
+  }
+
+  .site-header {
+    gap: 12px;
+  }
+
+  .brand {
+    width: 100%;
+    justify-content: center;
+  }
+
+  .brand img {
+    width: min(280px, 72vw);
+    max-height: 104px;
+  }
+
+  .header-controls {
+    gap: 12px;
+  }
+
+  .nav-links {
+    width: 100%;
+    justify-content: center;
+  }
+
+  .lang-switch {
+    align-self: center;
+  }
+
+  .hero {
+    gap: 26px;
+  }
+
+  .lead {
+    font-size: 1.03rem;
+  }
+
+  .hero-points {
+    gap: 8px;
+  }
+
+  .hero-stage {
+    min-height: 360px;
+  }
+
+  .poster-stack {
+    width: min(100%, 360px);
+    height: 360px;
+    margin: 0 auto;
+  }
+
+  .poster-left,
+  .poster-right {
+    display: none;
+  }
+
+  .poster-main {
+    top: 0;
+    left: 50%;
+    width: min(72vw, 280px);
+    transform: translateX(-50%) rotate(-3deg);
+  }
+
+  .story-grid {
+    gap: 16px;
+  }
+}
+
 @media (max-width: 560px) {
   .site-header,
   .hero,
@@ -739,9 +815,22 @@ main {
     padding: 12px 0;
   }
 
+  .brand img {
+    width: min(250px, 78vw);
+    max-height: 96px;
+  }
+
+  .header-controls {
+    width: 100%;
+  }
+
+  .nav-links {
+    gap: 6px;
+  }
+
   .nav-links a {
     padding: 8px 10px;
-    font-size: 0.92rem;
+    font-size: 0.88rem;
   }
 
   .lang-button {
@@ -750,19 +839,16 @@ main {
   }
 
   .hero {
+    gap: 20px;
     padding-bottom: 8px;
   }
 
   .hero-stage {
-    min-height: 430px;
+    min-height: 310px;
   }
 
   .poster-stack {
-    height: 420px;
-  }
-
-  .poster-main {
-    left: 18%;
+    height: 310px;
   }
 
   .content-section {
@@ -788,6 +874,14 @@ main {
 
   .button {
     width: 100%;
+  }
+
+  .hero-actions {
+    margin-top: 22px;
+  }
+
+  .hero-points li {
+    font-size: 0.96rem;
   }
 
   .video-popover {
