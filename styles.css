@@ -222,7 +222,7 @@ main {
   display: grid;
   grid-template-columns: minmax(0, 0.94fr) minmax(320px, 1.06fr);
   gap: clamp(28px, 6vw, 72px);
-  align-items: center;
+  align-items: start;
   min-height: calc(100vh - 110px);
   padding: 42px 0 24px;
 }
@@ -302,21 +302,23 @@ main {
 }
 
 .provider-strip {
-  display: flex;
+  display: inline-flex;
   flex-wrap: nowrap;
   align-items: center;
   justify-content: flex-start;
-  gap: 12px;
-  margin-top: 18px;
-  padding: 10px 14px;
-  border: 1px solid rgba(255, 255, 255, 0.06);
-  border-radius: 18px;
-  background: rgba(8, 13, 24, 0.18);
+  width: fit-content;
+  max-width: 100%;
+  gap: 8px;
+  margin-top: 14px;
+  padding: 4px 0 0;
+  border: 0;
+  border-radius: 0;
+  background: transparent;
 }
 
 .provider-strip-label {
   color: #eef5ff;
-  font-size: 0.92rem;
+  font-size: 0.84rem;
   font-weight: 600;
   white-space: nowrap;
 }
@@ -325,22 +327,22 @@ main {
   display: flex;
   flex-wrap: nowrap;
   align-items: center;
-  gap: 10px;
+  gap: 8px;
 }
 
 .provider-logo {
   display: block;
-  height: 28px;
+  height: 18px;
   width: auto;
   object-fit: contain;
 }
 
 .provider-logo-dropbox {
-  height: 26px;
+  height: 16px;
 }
 
 .provider-logo-google-drive {
-  height: 27px;
+  height: 17px;
 }
 
 .hero-points li {
@@ -371,17 +373,17 @@ main {
 .hero-inline-provider {
   display: inline-block;
   width: auto;
-  height: 24px;
+  height: 19px;
   vertical-align: middle;
   object-fit: contain;
 }
 
 .hero-inline-provider-dropbox {
-  height: 22px;
+  height: 17px;
 }
 
 .hero-inline-provider-google-drive {
-  height: 23px;
+  height: 18px;
 }
 
 .hero-stage {
@@ -391,14 +393,15 @@ main {
   flex-direction: column;
   align-items: center;
   justify-content: flex-start;
+  padding-top: 8px;
 }
 
 .poster-stack {
   position: relative;
   width: min(660px, 100%);
-  height: min(760px, 74vh);
+  height: min(720px, 70vh);
   margin-left: auto;
-  margin-top: -34px;
+  margin-top: -6px;
 }
 
 .poster {
@@ -413,7 +416,7 @@ main {
 }
 
 .poster-main {
-  top: 8%;
+  top: 0;
   left: 22%;
   z-index: 3;
   transform: rotate(-3deg);
@@ -735,6 +738,7 @@ main {
 
   .hero-stage {
     min-height: 560px;
+    padding-top: 0;
   }
 
   .support-section {
@@ -833,11 +837,12 @@ main {
 
   .provider-strip {
     flex-wrap: wrap;
-    padding: 12px 14px;
+    gap: 8px;
+    padding: 4px 0 0;
   }
 
   .provider-logo {
-    height: 26px;
+    height: 16px;
   }
 
   .hero-stage {
@@ -847,7 +852,7 @@ main {
   .poster-stack {
     width: min(100%, 360px);
     height: 360px;
-    margin: -18px auto 0;
+    margin: 0 auto 0;
   }
 
   .poster-left,
@@ -953,20 +958,20 @@ main {
   }
 
   .hero-inline-provider {
-    height: 20px;
+    height: 17px;
   }
 
   .hero-inline-provider-dropbox {
-    height: 18px;
+    height: 15px;
   }
 
   .hero-inline-provider-google-drive {
-    height: 19px;
+    height: 16px;
   }
 
   .provider-strip {
     align-items: flex-start;
-    gap: 12px;
+    gap: 8px;
   }
 
   .provider-strip-label {
@@ -975,7 +980,7 @@ main {
   }
 
   .provider-logo {
-    height: 24px;
+    height: 15px;
   }
 
   .video-popover {
