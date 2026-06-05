@@ -130,13 +130,10 @@ li {
   justify-content: space-between;
   gap: 18px;
   padding: 12px 0 10px;
-  background:
-    linear-gradient(180deg, rgba(38, 17, 200, 0.84), rgba(38, 17, 200, 0.68)),
-    radial-gradient(circle at left center, rgba(88, 223, 255, 0.12), transparent 32%),
-    radial-gradient(circle at right center, rgba(183, 234, 83, 0.08), transparent 26%);
+  background: transparent;
   backdrop-filter: blur(20px);
-  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
-  box-shadow: 0 10px 24px rgba(0, 0, 0, 0.14);
+  border-bottom: 0;
+  box-shadow: none;
 }
 
 .brand {
@@ -147,8 +144,8 @@ li {
 
 .brand img {
   display: block;
-  width: min(320px, 30vw);
-  max-height: 132px;
+  width: min(460px, 42vw);
+  max-height: 172px;
   height: auto;
   object-fit: contain;
 }
@@ -711,8 +708,8 @@ main {
   }
 
   .brand img {
-    width: min(240px, 48vw);
-    max-height: 92px;
+    width: min(300px, 58vw);
+    max-height: 116px;
   }
 
   .story-card {
@@ -747,8 +744,8 @@ main {
   }
 
   .brand img {
-    width: min(280px, 72vw);
-    max-height: 104px;
+    width: min(320px, 76vw);
+    max-height: 126px;
   }
 
   .header-controls {
@@ -816,8 +813,8 @@ main {
   }
 
   .brand img {
-    width: min(250px, 78vw);
-    max-height: 96px;
+    width: min(300px, 82vw);
+    max-height: 118px;
   }
 
   .header-controls {
