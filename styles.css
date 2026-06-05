@@ -446,8 +446,13 @@ main {
 .download-card,
 .policy-grid article {
   border: 1px solid var(--line);
-  background: linear-gradient(180deg, rgba(8, 13, 24, 0.86), rgba(11, 18, 33, 0.9));
   box-shadow: var(--shadow);
+}
+
+.policy-grid article {
+  background: transparent;
+  border: 0;
+  box-shadow: none;
 }
 
 .signal-label,
