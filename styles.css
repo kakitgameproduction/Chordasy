@@ -308,7 +308,7 @@ main {
   justify-content: flex-start;
   width: fit-content;
   max-width: 100%;
-  gap: 8px;
+  gap: 12px;
   margin-top: 14px;
   padding: 4px 0 0;
   border: 0;
@@ -327,22 +327,22 @@ main {
   display: flex;
   flex-wrap: nowrap;
   align-items: center;
-  gap: 8px;
+  gap: 14px;
 }
 
 .provider-logo {
   display: block;
-  height: 18px;
+  height: 34px;
   width: auto;
   object-fit: contain;
 }
 
 .provider-logo-dropbox {
-  height: 16px;
+  height: 31px;
 }
 
 .provider-logo-google-drive {
-  height: 17px;
+  height: 32px;
 }
 
 .hero-points li {
@@ -373,17 +373,17 @@ main {
 .hero-inline-provider {
   display: inline-block;
   width: auto;
-  height: 19px;
+  height: 28px;
   vertical-align: middle;
   object-fit: contain;
 }
 
 .hero-inline-provider-dropbox {
-  height: 17px;
+  height: 25px;
 }
 
 .hero-inline-provider-google-drive {
-  height: 18px;
+  height: 26px;
 }
 
 .hero-stage {
@@ -393,7 +393,7 @@ main {
   flex-direction: column;
   align-items: center;
   justify-content: flex-start;
-  padding-top: 8px;
+  padding-top: 28px;
 }
 
 .poster-stack {
@@ -401,7 +401,7 @@ main {
   width: min(660px, 100%);
   height: min(720px, 70vh);
   margin-left: auto;
-  margin-top: -6px;
+  margin-top: 16px;
 }
 
 .poster {
@@ -437,7 +437,7 @@ main {
 }
 
 .hero-stage-trigger {
-  margin-top: 14px;
+  margin-top: 54px;
 }
 
 .story-card,
@@ -738,7 +738,7 @@ main {
 
   .hero-stage {
     min-height: 560px;
-    padding-top: 0;
+    padding-top: 18px;
   }
 
   .support-section {
@@ -837,12 +837,12 @@ main {
 
   .provider-strip {
     flex-wrap: wrap;
-    gap: 8px;
+    gap: 10px;
     padding: 4px 0 0;
   }
 
   .provider-logo {
-    height: 16px;
+    height: 28px;
   }
 
   .hero-stage {
@@ -852,7 +852,7 @@ main {
   .poster-stack {
     width: min(100%, 360px);
     height: 360px;
-    margin: 0 auto 0;
+    margin: 10px auto 0;
   }
 
   .poster-left,
@@ -921,7 +921,7 @@ main {
   }
 
   .hero-stage-trigger {
-    margin-top: 10px;
+    margin-top: 34px;
   }
 
   .content-section {
@@ -958,15 +958,15 @@ main {
   }
 
   .hero-inline-provider {
-    height: 17px;
+    height: 24px;
   }
 
   .hero-inline-provider-dropbox {
-    height: 15px;
+    height: 22px;
   }
 
   .hero-inline-provider-google-drive {
-    height: 16px;
+    height: 23px;
   }
 
   .provider-strip {
@@ -980,7 +980,7 @@ main {
   }
 
   .provider-logo {
-    height: 15px;
+    height: 26px;
   }
 
   .video-popover {
