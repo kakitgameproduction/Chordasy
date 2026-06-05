@@ -26,8 +26,9 @@
       <div class="header-controls">
         <nav class="nav-links" aria-label="Main navigation">
           <a href="#stories" data-i18n="navFeatures">Features</a>
-          <a href="#workflow" data-i18n="navHowTo">How to</a>
+          <a href="#help" data-i18n="navHowTo">How to</a>
           <a href="download.html" data-i18n="navDownload">Download</a>
+          <a href="ChordLab_User_Manual_v1.pdf" download data-i18n="navManual">User Manual</a>
           <a href="#help" data-i18n="navHelp">Help</a>
           <a href="privacy.html" data-i18n="navPrivacy">Privacy</a>
           <a href="#support" data-i18n="navSupport">Support</a>
@@ -53,6 +54,7 @@
           </p>
           <div class="hero-actions">
             <a class="button primary" href="download.html" data-i18n="heroPrimary">Get ChordLab</a>
+            <a class="button ghost" href="ChordLab_User_Manual_v1.pdf" download data-i18n="heroManual">Download user manual</a>
             <button class="button secondary video-trigger" type="button" id="video-trigger" aria-expanded="false" aria-controls="video-popover">
               <span data-i18n="watchVideo">Watch demo</span>
             </button>
@@ -180,43 +182,6 @@
         </div>
       </section>
 
-      <section id="workflow" class="content-section workflow-section">
-        <div class="section-heading">
-          <p class="eyebrow" data-i18n="workflowEyebrow">How it flows</p>
-          <h2 data-i18n="workflowTitle">From cloud to stage in three moves.</h2>
-          <p data-i18n="workflowLead">The website now mirrors the way ChordLab is actually used: collect charts, prepare the set, then stay locked in while the band plays.</p>
-        </div>
-
-        <div class="workflow-grid">
-          <article class="workflow-card">
-            <span class="step-number">01</span>
-            <div class="workflow-shot">
-              <img src="capture-library-search.png" alt="ChordLab library search view" />
-            </div>
-            <h3 data-i18n="flow1Title">Collect the right charts</h3>
-            <p data-i18n="flow1Body">Import files locally or connect Dropbox and Google Drive, then search titles and open songs fast from the library.</p>
-          </article>
-
-          <article class="workflow-card">
-            <span class="step-number">02</span>
-            <div class="workflow-shot">
-              <img src="capture-setlist-order.png" alt="ChordLab setlist drawer and drag sorting" />
-            </div>
-            <h3 data-i18n="flow2Title">Prepare the running order</h3>
-            <p data-i18n="flow2Body">Build the setlist, reorder songs, and keep navigation ready for the next rehearsal or service.</p>
-          </article>
-
-          <article class="workflow-card">
-            <span class="step-number">03</span>
-            <div class="workflow-shot">
-              <img src="capture-band-share.png" alt="ChordLab Band Mode sharing and member controls" />
-            </div>
-            <h3 data-i18n="flow3Title">Run live with the team</h3>
-            <p data-i18n="flow3Body">Transpose, annotate, send the current chart, and keep everyone aligned from the same local network workspace.</p>
-          </article>
-        </div>
-      </section>
-
       <section id="help" class="content-section split-section">
         <div class="panel-block">
           <p class="eyebrow" data-i18n="helpEyebrow">Quick start</p>
@@ -252,6 +217,7 @@
         </div>
         <div class="support-actions">
           <a class="button primary" href="download.html" data-i18n="supportPrimary">Download now</a>
+          <a class="button ghost" href="ChordLab_User_Manual_v1.pdf" download data-i18n="supportManual">Download user manual</a>
           <a class="button ghost" href="https://www.buymeacoffee.com/chordlab" data-i18n="supportSecondary">Support ChordLab</a>
         </div>
       </section>
@@ -268,6 +234,7 @@
           navFeatures: "Features",
           navHowTo: "How to",
           navDownload: "Download",
+          navManual: "User Manual",
           navHelp: "Help",
           navPrivacy: "Privacy",
           navSupport: "Support",
@@ -278,6 +245,7 @@
           heroLead:
             "ChordLab brings library search, setlists, transpose, live annotation, cloud sync, and Band Mode sharing into one fast tablet workspace.",
           heroPrimary: "Get ChordLab",
+          heroManual: "Download user manual",
           heroSecondary: "See real screens",
           watchVideo: "Watch demo",
           heroPoint1: "Import PDF, JPG, JPEG, and PNG charts",
@@ -311,15 +279,6 @@
           story6Kicker: "Band Mode",
           story6Title: "Share charts with the band",
           story6Body: "Send charts, messages, and files to connected members on the same network, even when they do not already have the song in their library.",
-          workflowEyebrow: "How it flows",
-          workflowTitle: "From cloud to stage in three moves.",
-          workflowLead: "The website now mirrors the way ChordLab is actually used: collect charts, prepare the set, then stay locked in while the band plays.",
-          flow1Title: "Collect the right charts",
-          flow1Body: "Import files locally or connect Dropbox and Google Drive, then search titles and open songs fast from the library.",
-          flow2Title: "Prepare the running order",
-          flow2Body: "Build the setlist, reorder songs, and keep navigation ready for the next rehearsal or service.",
-          flow3Title: "Run live with the team",
-          flow3Body: "Transpose, annotate, send the current chart, and keep everyone aligned from the same local network workspace.",
           helpEyebrow: "Quick start",
           helpTitle: "Start simple, then scale up.",
           helpStep1: "Open Library and import PDF, JPG, JPEG, or PNG charts, or connect Dropbox or Google Drive.",
@@ -339,6 +298,7 @@
           supportTitle: "Ready to build your next set in ChordLab?",
           supportBody: "Download the Android tablet version, try it in rehearsal, and support the project if it becomes part of your weekly workflow.",
           supportPrimary: "Download now",
+          supportManual: "Download user manual",
           supportSecondary: "Support ChordLab",
           footerCopy: "© 2026 ChordLab",
           footerPrivacy: "Privacy Policy"
@@ -347,6 +307,7 @@
           navFeatures: "功能",
           navHowTo: "教學",
           navDownload: "下載",
+          navManual: "使用手冊",
           navHelp: "說明",
           navPrivacy: "私隱",
           navSupport: "支援",
@@ -357,6 +318,7 @@
           heroLead:
             "ChordLab 將樂譜庫搜尋、Setlist、移調、現場標記、雲端連接與 Band Mode 分享整合成一個快速的平板工作空間。",
           heroPrimary: "下載 ChordLab",
+          heroManual: "下載使用手冊",
           heroSecondary: "看真實畫面",
           watchVideo: "觀看示範",
           heroPoint1: "支援匯入 PDF、JPG、JPEG、PNG 樂譜",
@@ -390,15 +352,6 @@
           story6Kicker: "Band Mode",
           story6Title: "與樂隊分享樂譜",
           story6Body: "可向同網絡內的成員傳送 chart、訊息與檔案，就算對方本身未有該歌曲都可以接收。",
-          workflowEyebrow: "流程",
-          workflowTitle: "由雲端到舞台，只需三步。",
-          workflowLead: "網站內容而家直接跟返 ChordLab 真正使用方式：先收歌，再編排，最後帶上台。",
-          flow1Title: "收集需要的樂譜",
-          flow1Body: "從本機匯入，或者連接 Dropbox / Google Drive，然後在 Library 快速搜尋與開歌。",
-          flow2Title: "準備演出次序",
-          flow2Body: "建立 Setlist、拖動調整次序，為下一次排練、敬拜或表演預先準備好。",
-          flow3Title: "與團隊一齊進入 Live",
-          flow3Body: "可即時移調、標記、傳送目前歌曲，並在同一個本地網絡工作空間內保持全隊同步。",
           helpEyebrow: "快速開始",
           helpTitle: "先簡單開始，再慢慢擴展。",
           helpStep1: "打開 Library，匯入 PDF、JPG、JPEG、PNG，或者連接 Dropbox / Google Drive。",
@@ -418,6 +371,7 @@
           supportTitle: "準備好用 ChordLab 建立下一個 set？",
           supportBody: "下載 Android 平板版本，在排練中試用；如果成為你每星期流程一部分，歡迎支持持續開發。",
           supportPrimary: "立即下載",
+          supportManual: "下載使用手冊",
           supportSecondary: "支持 ChordLab",
           footerCopy: "© 2026 ChordLab",
           footerPrivacy: "私隱政策"
