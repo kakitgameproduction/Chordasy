@@ -128,26 +128,29 @@ li {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  gap: 24px;
-  padding: 16px 0;
+  gap: 18px;
+  padding: 12px 0 10px;
   background:
-    linear-gradient(180deg, rgba(29, 18, 170, 0.96), rgba(20, 18, 132, 0.92)),
-    radial-gradient(circle at left center, rgba(88, 223, 255, 0.16), transparent 32%),
-    radial-gradient(circle at right center, rgba(183, 234, 83, 0.12), transparent 26%);
+    linear-gradient(180deg, rgba(38, 17, 200, 0.84), rgba(38, 17, 200, 0.68)),
+    radial-gradient(circle at left center, rgba(88, 223, 255, 0.12), transparent 32%),
+    radial-gradient(circle at right center, rgba(183, 234, 83, 0.08), transparent 26%);
   backdrop-filter: blur(20px);
-  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
-  box-shadow: 0 14px 36px rgba(0, 0, 0, 0.22);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+  box-shadow: 0 10px 24px rgba(0, 0, 0, 0.14);
 }
 
 .brand {
   display: inline-flex;
   align-items: center;
+  flex: 0 0 auto;
 }
 
 .brand img {
   display: block;
-  width: min(228px, 48vw);
+  width: min(230px, 22vw);
+  max-height: 92px;
   height: auto;
+  object-fit: contain;
 }
 
 .nav-links a[href$="ChordLab_User_Manual_v1.pdf"] {
@@ -159,6 +162,8 @@ li {
   display: flex;
   align-items: center;
   gap: 16px;
+  flex: 1 1 auto;
+  justify-content: flex-end;
 }
 
 .nav-links {
@@ -166,6 +171,7 @@ li {
   flex-wrap: wrap;
   justify-content: flex-end;
   gap: 10px;
+  align-items: center;
 }
 
 .nav-links a,
@@ -178,7 +184,7 @@ li {
 }
 
 .nav-links a {
-  padding: 10px 14px;
+  padding: 10px 13px;
 }
 
 .nav-links a:hover {
@@ -191,7 +197,7 @@ li {
   padding: 4px;
   border: 1px solid var(--line);
   border-radius: 999px;
-  background: rgba(255, 255, 255, 0.05);
+  background: rgba(255, 255, 255, 0.08);
 }
 
 .lang-button {
@@ -701,6 +707,11 @@ main {
 
   .nav-links {
     justify-content: flex-start;
+  }
+
+  .brand img {
+    width: min(190px, 42vw);
+    max-height: 74px;
   }
 
   .story-card {
