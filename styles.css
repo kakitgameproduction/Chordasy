@@ -881,6 +881,39 @@ main {
   color: #eef5ff;
 }
 
+.transpose-loading {
+  display: grid;
+  gap: 8px;
+}
+
+.transpose-loading-track {
+  position: relative;
+  height: 8px;
+  overflow: hidden;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.transpose-loading-bar {
+  position: absolute;
+  inset: 0 auto 0 0;
+  width: 38%;
+  border-radius: inherit;
+  background: linear-gradient(90deg, rgba(88, 223, 255, 0.2), var(--accent-2), var(--accent));
+  animation: transpose-loading-slide 1.15s ease-in-out infinite;
+}
+
+@keyframes transpose-loading-slide {
+  0% {
+    transform: translateX(-115%);
+  }
+
+  100% {
+    transform: translateX(330%);
+  }
+}
+
 .transpose-demo-bar-controls {
   display: flex;
   align-items: center;

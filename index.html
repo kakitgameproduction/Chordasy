@@ -248,6 +248,11 @@
             </div>
 
             <p class="transpose-demo-status" id="transpose-demo-status" data-i18n="transposeDemoStatusIdle">Upload a PDF to start the transpose demo.</p>
+            <div class="transpose-loading hidden" id="transpose-loading" aria-hidden="true">
+              <div class="transpose-loading-track">
+                <div class="transpose-loading-bar"></div>
+              </div>
+            </div>
           </div>
 
           <div class="transpose-modal-panel transpose-modal-panel-preview">
@@ -493,6 +498,7 @@
         uploadInput: document.getElementById("transpose-upload-input"),
         uploadFile: document.getElementById("transpose-upload-file"),
         status: document.getElementById("transpose-demo-status"),
+        loading: document.getElementById("transpose-loading"),
         pages: document.getElementById("transpose-preview-pages"),
         value: document.getElementById("transpose-demo-value"),
         down: document.getElementById("transpose-demo-down"),
@@ -508,6 +514,11 @@
 
       function setTransposeStatus(key, fallback) {
         transposeEls.status.textContent = transposeText(key) || fallback;
+      }
+
+      function setTransposeLoading(active) {
+        transposeEls.loading.classList.toggle("hidden", !active);
+        transposeEls.loading.setAttribute("aria-hidden", active ? "false" : "true");
       }
 
       function setTransposeControlsEnabled(enabled) {
@@ -577,10 +588,12 @@
           return;
         }
         setTransposeStatus("transposeDemoStatusLoading", "Refreshing transpose preview...");
+        setTransposeLoading(true);
         const payload = await transposeApiJson(
           `${transposeApiBase}/api/transpose/${transposeDemoState.documentId}/preview?transpose=${transposeDemoState.transpose}`
         );
         renderTransposePreview(payload);
+        setTransposeLoading(false);
         setTransposeStatus("transposeDemoStatusReady", "Preview ready. Adjust the key and download when you are happy.");
       }
 
@@ -594,6 +607,7 @@
         updateTransposeDownload("");
         transposeEls.uploadFile.textContent = file.name;
         setTransposeStatus("transposeDemoStatusUploading", "Uploading PDF and preparing preview...");
+        setTransposeLoading(true);
         setTransposeControlsEnabled(false);
 
         const formData = new FormData();
@@ -608,10 +622,12 @@
           transposeDemoState.filename = payload.filename || file.name;
           renderTransposePreview(payload);
           setTransposeControlsEnabled(true);
+          setTransposeLoading(false);
           setTransposeStatus("transposeDemoStatusReady", "Preview ready. Adjust the key and download when you are happy.");
         } catch (error) {
           renderTransposeEmptyState();
           updateTransposeDownload("");
+          setTransposeLoading(false);
           setTransposeStatus("transposeDemoStatusError", "Something went wrong while preparing the transpose demo.");
           transposeEls.status.textContent += ` ${error.message}`;
         }
@@ -680,6 +696,7 @@
         try {
           await refreshTransposePreview();
         } catch (error) {
+          setTransposeLoading(false);
           setTransposeStatus("transposeDemoStatusError", "Something went wrong while preparing the transpose demo.");
           transposeEls.status.textContent += ` ${error.message}`;
         }
@@ -691,6 +708,7 @@
         try {
           await refreshTransposePreview();
         } catch (error) {
+          setTransposeLoading(false);
           setTransposeStatus("transposeDemoStatusError", "Something went wrong while preparing the transpose demo.");
           transposeEls.status.textContent += ` ${error.message}`;
         }
@@ -702,6 +720,7 @@
         try {
           await refreshTransposePreview();
         } catch (error) {
+          setTransposeLoading(false);
           setTransposeStatus("transposeDemoStatusError", "Something went wrong while preparing the transpose demo.");
           transposeEls.status.textContent += ` ${error.message}`;
         }
@@ -714,6 +733,7 @@
       closeTransposeModal();
       renderTransposeEmptyState();
       setTransposeControlsEnabled(false);
+      setTransposeLoading(false);
       updateTransposeValue();
       updateTransposeDownload("");
     </script>
