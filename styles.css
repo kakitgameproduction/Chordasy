@@ -1,6 +1,6 @@
 :root {
   color-scheme: dark;
-  --bg-top: #2611c8;
+  --bg-top: #2b0bbd;
   --bg-bottom: #0a0f1d;
   --surface: rgba(12, 18, 32, 0.78);
   --surface-strong: rgba(12, 18, 32, 0.92);
@@ -10,9 +10,9 @@
   --text: #f8fbff;
   --muted: #b6c5e0;
   --accent: #b7ea53;
-  --accent-2: #58dfff;
+  --accent-2: #5cf0ff;
   --shadow: 0 28px 80px rgba(0, 0, 0, 0.34);
-  --display-font: Georgia, "Times New Roman", serif;
+  --display-font: "Avenir Next", "Trebuchet MS", sans-serif;
   --ui-font: "Avenir Next", "Trebuchet MS", sans-serif;
 }
 
@@ -42,10 +42,8 @@ body {
   font-family: var(--ui-font);
   color: var(--text);
   background:
-    linear-gradient(180deg, rgba(0, 0, 0, 0.08), rgba(0, 0, 0, 0.28)),
-    radial-gradient(circle at 18% 18%, rgba(88, 223, 255, 0.15), transparent 20rem),
-    radial-gradient(circle at 82% 10%, rgba(183, 234, 83, 0.12), transparent 18rem),
-    linear-gradient(180deg, var(--bg-top) 0%, #1a1298 26%, #121834 58%, var(--bg-bottom) 100%);
+    linear-gradient(180deg, rgba(0, 0, 0, 0.04), rgba(0, 0, 0, 0.26)),
+    linear-gradient(180deg, var(--bg-top) 0%, #2111a4 28%, #121834 62%, var(--bg-bottom) 100%);
 }
 
 body::before,
@@ -56,7 +54,7 @@ body::after {
   bottom: 0;
   width: 34px;
   pointer-events: none;
-  opacity: 0.82;
+  opacity: 0.38;
   background:
     radial-gradient(circle at 50% 12px, rgba(88, 223, 255, 1) 0 6px, transparent 7px),
     linear-gradient(135deg, transparent 0 38%, rgba(88, 223, 255, 0.95) 38% 48%, transparent 48% 100%),
@@ -94,7 +92,7 @@ h1,
 h2,
 h3 {
   font-family: var(--display-font);
-  font-weight: 700;
+  font-weight: 900;
   letter-spacing: 0;
   line-height: 0.96;
 }
@@ -136,8 +134,8 @@ li {
   align-items: center;
   justify-content: space-between;
   gap: 18px;
-  padding: 12px 0 10px;
-  background: transparent;
+  padding: 10px 0;
+  background: rgba(43, 11, 189, 0.74);
   backdrop-filter: blur(20px);
   border-bottom: 0;
   box-shadow: none;
@@ -151,13 +149,13 @@ li {
 
 .brand img {
   display: block;
-  width: min(460px, 42vw);
-  max-height: 172px;
+  width: min(300px, 30vw);
+  max-height: 136px;
   height: auto;
   object-fit: contain;
 }
 
-.nav-links a[href$="ChordLab_User_Manual_v1.pdf"] {
+.nav-links a[href$="Chordasy_User_Manual_v1.pdf"] {
   border-color: rgba(88, 223, 255, 0.28);
   background: rgba(255, 255, 255, 0.08);
 }
@@ -263,11 +261,11 @@ main {
 
 .hero {
   display: grid;
-  grid-template-columns: minmax(0, 0.94fr) minmax(320px, 1.06fr);
-  gap: clamp(28px, 6vw, 72px);
-  align-items: start;
+  grid-template-columns: minmax(0, 0.9fr) minmax(320px, 1.1fr);
+  gap: clamp(28px, 5vw, 64px);
+  align-items: center;
   min-height: calc(100vh - 110px);
-  padding: 42px 0 24px;
+  padding: 28px 0 24px;
 }
 
 .eyebrow {
@@ -284,7 +282,7 @@ main {
 }
 
 .hero-title .accent {
-  color: var(--accent);
+  color: var(--accent-2);
 }
 
 .lead {
@@ -440,52 +438,52 @@ main {
 
 .hero-stage {
   position: relative;
-  min-height: 680px;
+  min-height: 630px;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: flex-start;
-  padding-top: 28px;
+  padding-top: 8px;
 }
 
 .poster-stack {
   position: relative;
-  width: min(660px, 100%);
-  height: min(720px, 70vh);
+  width: min(700px, 100%);
+  height: min(660px, 68vh);
   margin-left: auto;
-  margin-top: 16px;
+  margin-top: 0;
 }
 
 .poster {
   position: absolute;
   display: block;
-  width: clamp(220px, 30vw, 320px);
+  width: clamp(220px, 28vw, 300px);
   aspect-ratio: 9 / 16;
   object-fit: cover;
-  border-radius: 32px;
-  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 22px;
+  border: 1px solid rgba(92, 240, 255, 0.16);
   box-shadow: var(--shadow);
 }
 
 .poster-main {
-  top: 0;
-  left: 22%;
+  top: 2%;
+  left: 24%;
   z-index: 3;
-  transform: rotate(-3deg);
+  transform: rotate(-2deg);
 }
 
 .poster-left {
   left: 0;
-  bottom: 4%;
+  bottom: 5%;
   z-index: 2;
-  transform: rotate(-10deg);
+  transform: rotate(-8deg);
 }
 
 .poster-right {
   right: 0;
-  top: 0;
+  top: 4%;
   z-index: 1;
-  transform: rotate(8deg);
+  transform: rotate(7deg);
 }
 
 .hero-stage-trigger {
@@ -538,8 +536,9 @@ main {
   grid-template-columns: minmax(200px, 250px) minmax(0, 1fr);
   gap: 18px;
   padding: 18px;
-  border-radius: 28px;
+  border-radius: 18px;
   align-items: center;
+  background: rgba(255, 255, 255, 0.045);
 }
 
 .story-poster {
@@ -551,7 +550,7 @@ main {
   width: 100%;
   aspect-ratio: 9 / 16;
   object-fit: cover;
-  border-radius: 22px;
+  border-radius: 16px;
 }
 
 .story-copy p:last-child,
@@ -1117,7 +1116,7 @@ main {
   }
 
   .brand img {
-    width: min(300px, 58vw);
+    width: min(280px, 58vw);
     max-height: 116px;
   }
 
@@ -1143,6 +1142,10 @@ main {
 }
 
 @media (max-width: 720px) {
+  .site-header {
+    position: relative;
+  }
+
   h1 {
     font-size: clamp(2.7rem, 13vw, 4.3rem);
   }
