@@ -149,8 +149,8 @@ li {
 
 .brand img {
   display: block;
-  width: min(300px, 30vw);
-  max-height: 136px;
+  width: min(420px, 34vw);
+  max-height: 156px;
   height: auto;
   object-fit: contain;
 }
