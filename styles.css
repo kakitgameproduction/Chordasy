@@ -178,6 +178,13 @@ li {
   align-items: center;
 }
 
+.transpose-nav-callout {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  z-index: 6;
+}
+
 .nav-links a,
 .nav-link-button,
 .lang-button {
@@ -204,6 +211,28 @@ li {
 .nav-link-button:hover {
   border-color: var(--line-strong);
   background: rgba(255, 255, 255, 0.06);
+}
+
+.nav-link-button-accent {
+  color: #071019;
+  border-color: transparent;
+  background: linear-gradient(180deg, #d8ff70, #b7ea53);
+  box-shadow: 0 14px 34px rgba(183, 234, 83, 0.2);
+}
+
+.nav-link-button-accent:hover {
+  border-color: transparent;
+  background: linear-gradient(180deg, #defe84, #bce75d);
+}
+
+.transpose-nav-callout-image {
+  position: absolute;
+  top: calc(100% - 6px);
+  left: -118px;
+  width: 210px;
+  max-width: none;
+  pointer-events: none;
+  z-index: 8;
 }
 
 .lang-switch {
@@ -1056,6 +1085,10 @@ main {
   .brand img {
     width: min(300px, 58vw);
     max-height: 116px;
+  }
+
+  .transpose-nav-callout-image {
+    display: none;
   }
 
   .story-card {
