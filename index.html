@@ -210,7 +210,7 @@
       </section>
     </main>
 
-    <div class="transpose-modal hidden" id="transpose-modal" aria-hidden="true">
+    <div class="transpose-modal hidden" id="transpose-modal" aria-hidden="true" hidden>
       <div class="transpose-modal-backdrop" data-transpose-close></div>
       <div class="transpose-modal-card" role="dialog" aria-modal="true" aria-labelledby="transpose-modal-title">
         <div class="transpose-modal-header">
@@ -615,6 +615,7 @@
       }
 
       function openTransposeModal() {
+        transposeEls.modal.hidden = false;
         transposeEls.modal.classList.remove("hidden");
         transposeEls.modal.setAttribute("aria-hidden", "false");
         document.body.classList.add("modal-open");
@@ -622,6 +623,7 @@
 
       function closeTransposeModal() {
         transposeEls.modal.classList.add("hidden");
+        transposeEls.modal.hidden = true;
         transposeEls.modal.setAttribute("aria-hidden", "true");
         document.body.classList.remove("modal-open");
       }
@@ -706,6 +708,7 @@
           event.preventDefault();
         }
       });
+      closeTransposeModal();
       renderTransposeEmptyState();
       setTransposeControlsEnabled(false);
       updateTransposeValue();
