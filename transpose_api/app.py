@@ -13,9 +13,14 @@ from flask import Flask, jsonify, request, send_file
 
 
 RUNTIME_ROOT = Path(os.environ.get("TRANSPOSE_API_HOME", "/tmp/chordlab-transpose-api")).resolve()
-os.environ.setdefault("CHORDVAULT_HOME", str(RUNTIME_ROOT / "chordvault-runtime"))
 
-from chordvault.services.pdf_service import PdfService  # noqa: E402
+if __package__ in {None, ""}:
+    import sys
+
+    sys.path.insert(0, str(Path(__file__).resolve().parent.parent))
+    from transpose_api.pdf_service import PdfService
+else:
+    from .pdf_service import PdfService
 
 
 MAX_UPLOAD_BYTES = int(os.environ.get("TRANSPOSE_API_MAX_UPLOAD_MB", "20")) * 1024 * 1024
@@ -26,7 +31,7 @@ UPLOAD_ROOT = RUNTIME_ROOT / "documents"
 app = Flask(__name__)
 app.config["MAX_CONTENT_LENGTH"] = MAX_UPLOAD_BYTES
 
-pdf_service = PdfService()
+pdf_service = PdfService(RUNTIME_ROOT / "cache")
 
 
 @dataclass(slots=True)

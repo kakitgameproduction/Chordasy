@@ -3,6 +3,7 @@
 This folder contains a standalone Python API for the ChordLab website transpose demo.
 
 It is meant to be deployed separately from GitHub Pages, for example on Render.
+This version is self-contained and does not depend on the app's `chordvault` package.
 
 ## What it does
 
@@ -22,14 +23,16 @@ It is meant to be deployed separately from GitHub Pages, for example on Render.
 ## Local run
 
 ```bash
-pip install -r transpose_api/requirements.txt
-gunicorn transpose_api.app:app
+cd transpose_api
+pip install -r requirements.txt
+gunicorn app:app
 ```
 
 Or:
 
 ```bash
-python -m transpose_api.app
+cd transpose_api
+python app.py
 ```
 
 Default port is `8080`.
@@ -67,14 +70,20 @@ curl -X POST http://127.0.0.1:8080/api/transpose/upload \
 ## Render deploy
 
 1. Push this repo to GitHub.
-2. In Render, choose `New +` -> `Blueprint`.
+2. In Render, choose `New +` -> `Blueprint`, or `New +` -> `Web Service`.
 3. Connect the GitHub repo.
-4. Select this repo and deploy using `transpose_api/render.yaml`.
-5. After deploy, your API URL will look like:
+4. If using `Blueprint`, Render can read `transpose_api/render.yaml`.
+5. If using `Web Service`, set:
+
+   - Root Directory: `transpose_api`
+   - Build Command: `pip install -r requirements.txt`
+   - Start Command: `gunicorn app:app`
+
+6. After deploy, your API URL will look like:
 
    `https://chordlab-transpose-api.onrender.com`
 
-6. Your website can then call:
+7. Your website can then call:
 
    `https://chordlab-transpose-api.onrender.com/api/transpose/upload`
 

@@ -3,8 +3,9 @@ services:
     name: chordlab-transpose-api
     runtime: python
     plan: starter
-    buildCommand: pip install -r transpose_api/requirements.txt
-    startCommand: gunicorn transpose_api.app:app
+    rootDir: transpose_api
+    buildCommand: pip install -r requirements.txt
+    startCommand: gunicorn app:app
     envVars:
       - key: PYTHON_VERSION
         value: 3.12.3
