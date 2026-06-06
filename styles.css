@@ -227,8 +227,8 @@ li {
 
 .transpose-nav-callout-image {
   position: absolute;
-  top: calc(100% - 6px);
-  left: -118px;
+  top: calc(100% - 14px);
+  left: -58px;
   width: 210px;
   max-width: none;
   pointer-events: none;
