@@ -16,7 +16,7 @@
     <meta property="og:type" content="website" />
     <meta property="og:image" content="store-page-2.png" />
     <link rel="icon" href="chordlab_app_icon.png" />
-    <link rel="stylesheet" href="styles.css?v=20260605-website-refresh-4" />
+    <link rel="stylesheet" href="styles.css?v=20260606-website-refresh-5" />
   </head>
   <body>
     <header class="site-header">
@@ -130,6 +130,7 @@
               <p class="story-kicker" data-i18n="story3Kicker">Transpose</p>
               <h3 data-i18n="story3Title">Transpose keys instantly</h3>
               <p data-i18n="story3Body">Shift the key on the fly without leaving the chart, so the band can react immediately when the room or vocalist needs a change.</p>
+              <button class="button secondary story-action" type="button" id="transpose-demo-open" data-i18n="transposeDemoButton">Transpose</button>
             </div>
           </article>
 
@@ -209,6 +210,59 @@
       </section>
     </main>
 
+    <div class="transpose-modal hidden" id="transpose-modal" aria-hidden="true">
+      <div class="transpose-modal-backdrop" data-transpose-close></div>
+      <div class="transpose-modal-card" role="dialog" aria-modal="true" aria-labelledby="transpose-modal-title">
+        <div class="transpose-modal-header">
+          <div>
+            <p class="eyebrow" data-i18n="transposeDemoEyebrow">Try the transpose demo</p>
+            <h2 id="transpose-modal-title" class="transpose-modal-title" data-i18n="transposeDemoTitle">Upload a PDF and transpose it live.</h2>
+            <p class="transpose-modal-copy" data-i18n="transposeDemoCopy">Preview the chart, shift the key with the same style bar as the app, then download the updated PDF.</p>
+          </div>
+          <button class="transpose-modal-close" type="button" aria-label="Close" data-transpose-close>&times;</button>
+        </div>
+
+        <div class="transpose-modal-layout">
+          <div class="transpose-modal-panel transpose-modal-panel-controls">
+            <div class="transpose-upload-card">
+              <p class="transpose-upload-label" data-i18n="transposeDemoUploadLabel">Upload PDF</p>
+              <button class="button primary transpose-upload-button" type="button" id="transpose-upload-trigger" data-i18n="transposeDemoUploadButton">Choose PDF</button>
+              <input id="transpose-upload-input" class="transpose-upload-input" type="file" accept="application/pdf,.pdf" />
+              <p class="transpose-upload-hint" data-i18n="transposeDemoUploadHint">Best for chord charts in PDF format.</p>
+              <p class="transpose-upload-file" id="transpose-upload-file" data-i18n="transposeDemoNoFile">No PDF selected yet.</p>
+            </div>
+
+            <div class="transpose-demo-bar">
+              <span class="transpose-demo-bar-label" data-i18n="transposeDemoBarLabel">Transpose</span>
+              <div class="transpose-demo-bar-controls">
+                <button class="transpose-step-button" type="button" id="transpose-demo-down">-1</button>
+                <strong class="transpose-demo-value" id="transpose-demo-value">+0</strong>
+                <button class="transpose-step-button" type="button" id="transpose-demo-up">+1</button>
+                <button class="transpose-reset-button" type="button" id="transpose-demo-reset" data-i18n="transposeDemoReset">Reset</button>
+              </div>
+            </div>
+
+            <div class="transpose-demo-actions">
+              <a class="button ghost transpose-download-button is-disabled" id="transpose-download-button" href="#" aria-disabled="true" data-i18n="transposeDemoDownload">Download PDF</a>
+            </div>
+
+            <p class="transpose-demo-status" id="transpose-demo-status" data-i18n="transposeDemoStatusIdle">Upload a PDF to start the transpose demo.</p>
+          </div>
+
+          <div class="transpose-modal-panel transpose-modal-panel-preview">
+            <div class="transpose-preview-frame">
+              <div class="transpose-preview-pages is-empty" id="transpose-preview-pages">
+                <div class="transpose-preview-empty">
+                  <p class="transpose-preview-empty-title" data-i18n="transposeDemoEmptyTitle">Transpose preview</p>
+                  <p class="transpose-preview-empty-copy" data-i18n="transposeDemoEmptyCopy">Your PDF preview will appear here after upload.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
     <footer class="site-footer">
       <span data-i18n="footerCopy">© 2026 ChordLab</span>
       <a href="privacy.html" data-i18n="footerPrivacy">Privacy Policy</a>
@@ -250,6 +304,24 @@
           story3Kicker: "Transpose",
           story3Title: "Transpose keys instantly",
           story3Body: "Shift the key on the fly without leaving the chart, so the band can react immediately when the room or vocalist needs a change.",
+          transposeDemoButton: "Transpose",
+          transposeDemoEyebrow: "Try the transpose demo",
+          transposeDemoTitle: "Upload a PDF and transpose it live.",
+          transposeDemoCopy: "Preview the chart, shift the key with the same style bar as the app, then download the updated PDF.",
+          transposeDemoUploadLabel: "Upload PDF",
+          transposeDemoUploadButton: "Choose PDF",
+          transposeDemoUploadHint: "Best for chord charts in PDF format.",
+          transposeDemoNoFile: "No PDF selected yet.",
+          transposeDemoBarLabel: "Transpose",
+          transposeDemoReset: "Reset",
+          transposeDemoDownload: "Download PDF",
+          transposeDemoStatusIdle: "Upload a PDF to start the transpose demo.",
+          transposeDemoStatusUploading: "Uploading PDF and preparing preview...",
+          transposeDemoStatusLoading: "Refreshing transpose preview...",
+          transposeDemoStatusReady: "Preview ready. Adjust the key and download when you are happy.",
+          transposeDemoStatusError: "Something went wrong while preparing the transpose demo.",
+          transposeDemoEmptyTitle: "Transpose preview",
+          transposeDemoEmptyCopy: "Your PDF preview will appear here after upload.",
           story4Kicker: "Live mode",
           story4Title: "Use it live on stage",
           story4Body: "Keep the chart full-size, switch tools quickly, and stay inside the performance flow while rehearsing or playing live.",
@@ -317,6 +389,24 @@
           story3Kicker: "Transpose",
           story3Title: "即時移調",
           story3Body: "無需離開樂譜畫面即可轉 key，方便即場配合主唱、樂手或現場需要。",
+          transposeDemoButton: "Transpose",
+          transposeDemoEyebrow: "試用移調功能",
+          transposeDemoTitle: "上載 PDF，直接即時移調。",
+          transposeDemoCopy: "先預覽樂譜，再用同 app 類似的 transpose bar 轉 key，最後下載更新後的 PDF。",
+          transposeDemoUploadLabel: "上載 PDF",
+          transposeDemoUploadButton: "選擇 PDF",
+          transposeDemoUploadHint: "最適合和弦類 PDF 樂譜。",
+          transposeDemoNoFile: "尚未選擇 PDF。",
+          transposeDemoBarLabel: "Transpose",
+          transposeDemoReset: "重設",
+          transposeDemoDownload: "下載 PDF",
+          transposeDemoStatusIdle: "先上載 PDF，之後就可以開始試用移調。",
+          transposeDemoStatusUploading: "正在上載 PDF 並準備預覽...",
+          transposeDemoStatusLoading: "正在更新移調預覽...",
+          transposeDemoStatusReady: "預覽已準備好，你可以繼續轉 key，之後下載 PDF。",
+          transposeDemoStatusError: "準備移調示範時發生問題。",
+          transposeDemoEmptyTitle: "移調預覽",
+          transposeDemoEmptyCopy: "上載 PDF 後，預覽會顯示喺呢度。",
           story4Kicker: "Live Mode",
           story4Title: "舞台上直接使用",
           story4Body: "保持大畫面顯示樂譜，快速切換工具，排練與演出時都可以留在同一個流程內。",
@@ -385,6 +475,156 @@
       const videoPopover = document.getElementById("video-popover");
       const heroVideoFrame = document.getElementById("hero-video-frame");
       const heroVideoUrl = "https://www.youtube.com/embed/DfoLbRaoKZc?rel=0&playsinline=1";
+      const transposeApiBase = "https://chordlab-transpose-api.onrender.com";
+      const transposeDemoState = {
+        documentId: "",
+        transpose: 0,
+        filename: "",
+        downloadUrl: "",
+      };
+      const transposeEls = {
+        modal: document.getElementById("transpose-modal"),
+        open: document.getElementById("transpose-demo-open"),
+        close: document.querySelectorAll("[data-transpose-close]"),
+        uploadTrigger: document.getElementById("transpose-upload-trigger"),
+        uploadInput: document.getElementById("transpose-upload-input"),
+        uploadFile: document.getElementById("transpose-upload-file"),
+        status: document.getElementById("transpose-demo-status"),
+        pages: document.getElementById("transpose-preview-pages"),
+        value: document.getElementById("transpose-demo-value"),
+        down: document.getElementById("transpose-demo-down"),
+        up: document.getElementById("transpose-demo-up"),
+        reset: document.getElementById("transpose-demo-reset"),
+        download: document.getElementById("transpose-download-button"),
+      };
+
+      function transposeText(key) {
+        const currentLang = document.documentElement.lang === "zh" ? "zh" : "en";
+        return translations[currentLang][key] || translations.en[key] || "";
+      }
+
+      function setTransposeStatus(key, fallback) {
+        transposeEls.status.textContent = transposeText(key) || fallback;
+      }
+
+      function setTransposeControlsEnabled(enabled) {
+        [transposeEls.down, transposeEls.up, transposeEls.reset].forEach((button) => {
+          button.disabled = !enabled;
+        });
+      }
+
+      function updateTransposeValue() {
+        transposeEls.value.textContent = `${transposeDemoState.transpose >= 0 ? "+" : ""}${transposeDemoState.transpose}`;
+      }
+
+      function updateTransposeDownload(downloadUrl) {
+        transposeDemoState.downloadUrl = downloadUrl || "";
+        if (transposeDemoState.downloadUrl) {
+          transposeEls.download.href = transposeDemoState.downloadUrl;
+          transposeEls.download.classList.remove("is-disabled");
+          transposeEls.download.setAttribute("aria-disabled", "false");
+        } else {
+          transposeEls.download.href = "#";
+          transposeEls.download.classList.add("is-disabled");
+          transposeEls.download.setAttribute("aria-disabled", "true");
+        }
+      }
+
+      function renderTransposeEmptyState() {
+        transposeEls.pages.classList.add("is-empty");
+        transposeEls.pages.innerHTML = `
+          <div class="transpose-preview-empty">
+            <p class="transpose-preview-empty-title">${transposeText("transposeDemoEmptyTitle")}</p>
+            <p class="transpose-preview-empty-copy">${transposeText("transposeDemoEmptyCopy")}</p>
+          </div>
+        `;
+      }
+
+      function renderTransposePreview(payload) {
+        transposeEls.pages.classList.remove("is-empty");
+        transposeEls.pages.innerHTML = payload.pages
+          .map(
+            (pageUrl, index) => `
+              <figure class="transpose-preview-page">
+                <img src="${pageUrl}" alt="Transpose preview page ${index + 1}" loading="${index === 0 ? "eager" : "lazy"}" />
+              </figure>
+            `
+          )
+          .join("");
+        updateTransposeDownload(payload.download_url || "");
+        updateTransposeValue();
+      }
+
+      async function transposeApiJson(url, options) {
+        const response = await fetch(url, options);
+        let payload = null;
+        try {
+          payload = await response.json();
+        } catch (error) {
+          payload = null;
+        }
+        if (!response.ok) {
+          throw new Error((payload && payload.error) || `Request failed with status ${response.status}`);
+        }
+        return payload;
+      }
+
+      async function refreshTransposePreview() {
+        if (!transposeDemoState.documentId) {
+          return;
+        }
+        setTransposeStatus("transposeDemoStatusLoading", "Refreshing transpose preview...");
+        const payload = await transposeApiJson(
+          `${transposeApiBase}/api/transpose/${transposeDemoState.documentId}/preview?transpose=${transposeDemoState.transpose}`
+        );
+        renderTransposePreview(payload);
+        setTransposeStatus("transposeDemoStatusReady", "Preview ready. Adjust the key and download when you are happy.");
+      }
+
+      async function handleTransposeUpload(file) {
+        if (!file) {
+          return;
+        }
+        transposeDemoState.transpose = 0;
+        transposeDemoState.documentId = "";
+        updateTransposeValue();
+        updateTransposeDownload("");
+        transposeEls.uploadFile.textContent = file.name;
+        setTransposeStatus("transposeDemoStatusUploading", "Uploading PDF and preparing preview...");
+        setTransposeControlsEnabled(false);
+
+        const formData = new FormData();
+        formData.append("file", file);
+
+        try {
+          const payload = await transposeApiJson(`${transposeApiBase}/api/transpose/upload`, {
+            method: "POST",
+            body: formData,
+          });
+          transposeDemoState.documentId = payload.document_id || "";
+          transposeDemoState.filename = payload.filename || file.name;
+          renderTransposePreview(payload);
+          setTransposeControlsEnabled(true);
+          setTransposeStatus("transposeDemoStatusReady", "Preview ready. Adjust the key and download when you are happy.");
+        } catch (error) {
+          renderTransposeEmptyState();
+          updateTransposeDownload("");
+          setTransposeStatus("transposeDemoStatusError", "Something went wrong while preparing the transpose demo.");
+          transposeEls.status.textContent += ` ${error.message}`;
+        }
+      }
+
+      function openTransposeModal() {
+        transposeEls.modal.classList.remove("hidden");
+        transposeEls.modal.setAttribute("aria-hidden", "false");
+        document.body.classList.add("modal-open");
+      }
+
+      function closeTransposeModal() {
+        transposeEls.modal.classList.add("hidden");
+        transposeEls.modal.setAttribute("aria-hidden", "true");
+        document.body.classList.remove("modal-open");
+      }
 
       function openHeroVideo() {
         videoPopover.hidden = false;
@@ -416,7 +656,60 @@
         if (event.key === "Escape" && !videoPopover.hidden) {
           closeHeroVideo();
         }
+        if (event.key === "Escape" && !transposeEls.modal.classList.contains("hidden")) {
+          closeTransposeModal();
+        }
       });
+
+      transposeEls.open.addEventListener("click", openTransposeModal);
+      transposeEls.close.forEach((button) => button.addEventListener("click", closeTransposeModal));
+      transposeEls.uploadTrigger.addEventListener("click", () => transposeEls.uploadInput.click());
+      transposeEls.uploadInput.addEventListener("change", () => {
+        const [file] = transposeEls.uploadInput.files || [];
+        handleTransposeUpload(file);
+      });
+      transposeEls.down.addEventListener("click", async () => {
+        if (!transposeDemoState.documentId) return;
+        transposeDemoState.transpose -= 1;
+        updateTransposeValue();
+        try {
+          await refreshTransposePreview();
+        } catch (error) {
+          setTransposeStatus("transposeDemoStatusError", "Something went wrong while preparing the transpose demo.");
+          transposeEls.status.textContent += ` ${error.message}`;
+        }
+      });
+      transposeEls.up.addEventListener("click", async () => {
+        if (!transposeDemoState.documentId) return;
+        transposeDemoState.transpose += 1;
+        updateTransposeValue();
+        try {
+          await refreshTransposePreview();
+        } catch (error) {
+          setTransposeStatus("transposeDemoStatusError", "Something went wrong while preparing the transpose demo.");
+          transposeEls.status.textContent += ` ${error.message}`;
+        }
+      });
+      transposeEls.reset.addEventListener("click", async () => {
+        if (!transposeDemoState.documentId) return;
+        transposeDemoState.transpose = 0;
+        updateTransposeValue();
+        try {
+          await refreshTransposePreview();
+        } catch (error) {
+          setTransposeStatus("transposeDemoStatusError", "Something went wrong while preparing the transpose demo.");
+          transposeEls.status.textContent += ` ${error.message}`;
+        }
+      });
+      transposeEls.download.addEventListener("click", (event) => {
+        if (!transposeDemoState.downloadUrl) {
+          event.preventDefault();
+        }
+      });
+      renderTransposeEmptyState();
+      setTransposeControlsEnabled(false);
+      updateTransposeValue();
+      updateTransposeDownload("");
     </script>
   </body>
 </html>

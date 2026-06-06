@@ -28,6 +28,10 @@ html {
   scroll-behavior: smooth;
 }
 
+body.modal-open {
+  overflow: hidden;
+}
+
 body {
   margin: 0;
   min-height: 100vh;
@@ -518,6 +522,10 @@ main {
   margin-bottom: 0;
 }
 
+.story-action {
+  min-width: 180px;
+}
+
 .workflow-grid,
 .feature-grid,
 .faq-grid,
@@ -734,6 +742,225 @@ main {
   border: 0;
 }
 
+.transpose-modal {
+  position: fixed;
+  inset: 0;
+  z-index: 95;
+  display: grid;
+  place-items: center;
+  padding: 28px;
+}
+
+.transpose-modal-backdrop {
+  position: absolute;
+  inset: 0;
+  background: rgba(5, 9, 20, 0.78);
+  backdrop-filter: blur(18px);
+}
+
+.transpose-modal-card {
+  position: relative;
+  z-index: 1;
+  width: min(1200px, 100%);
+  max-height: min(92vh, 980px);
+  overflow: hidden;
+  display: grid;
+  gap: 20px;
+  padding: 24px;
+  border: 1px solid var(--line-strong);
+  border-radius: 32px;
+  background: linear-gradient(180deg, rgba(8, 13, 24, 0.96), rgba(12, 18, 33, 0.98));
+  box-shadow: 0 42px 90px rgba(0, 0, 0, 0.42);
+}
+
+.transpose-modal-header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 16px;
+}
+
+.transpose-modal-title {
+  margin-bottom: 10px;
+  font-size: clamp(2rem, 3vw, 3.2rem);
+}
+
+.transpose-modal-copy {
+  max-width: 760px;
+  margin-bottom: 0;
+}
+
+.transpose-modal-close {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 48px;
+  height: 48px;
+  flex: 0 0 auto;
+  border: 1px solid var(--line);
+  border-radius: 18px;
+  background: rgba(255, 255, 255, 0.06);
+  color: var(--text);
+  font: inherit;
+  font-size: 1.8rem;
+  line-height: 1;
+  cursor: pointer;
+}
+
+.transpose-modal-layout {
+  display: grid;
+  grid-template-columns: minmax(280px, 360px) minmax(0, 1fr);
+  gap: 18px;
+  min-height: 0;
+}
+
+.transpose-modal-panel {
+  min-height: 0;
+  border: 1px solid var(--line);
+  border-radius: 28px;
+  background: rgba(255, 255, 255, 0.04);
+}
+
+.transpose-modal-panel-controls {
+  display: grid;
+  gap: 16px;
+  align-content: start;
+  padding: 20px;
+}
+
+.transpose-upload-card,
+.transpose-demo-bar {
+  display: grid;
+  gap: 12px;
+  padding: 18px;
+  border-radius: 24px;
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.transpose-upload-label,
+.transpose-demo-bar-label,
+.transpose-preview-empty-title {
+  color: var(--text);
+  font-weight: 700;
+}
+
+.transpose-upload-button,
+.transpose-download-button {
+  width: 100%;
+}
+
+.transpose-upload-input {
+  display: none;
+}
+
+.transpose-upload-hint,
+.transpose-upload-file,
+.transpose-demo-status {
+  font-size: 0.95rem;
+}
+
+.transpose-upload-hint,
+.transpose-demo-status,
+.transpose-preview-empty-copy {
+  margin-bottom: 0;
+}
+
+.transpose-upload-file,
+.transpose-demo-status,
+.transpose-demo-value {
+  color: #eef5ff;
+}
+
+.transpose-demo-bar-controls {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.transpose-step-button,
+.transpose-reset-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 48px;
+  padding: 0 18px;
+  border: 1px solid var(--line);
+  border-radius: 18px;
+  background: rgba(255, 255, 255, 0.06);
+  color: var(--text);
+  font: inherit;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.transpose-step-button:disabled,
+.transpose-reset-button:disabled,
+.transpose-download-button.is-disabled {
+  opacity: 0.45;
+  cursor: not-allowed;
+  pointer-events: none;
+}
+
+.transpose-demo-value {
+  min-width: 72px;
+  text-align: center;
+  font-size: 1.35rem;
+}
+
+.transpose-demo-actions {
+  display: grid;
+}
+
+.transpose-modal-panel-preview {
+  padding: 16px;
+}
+
+.transpose-preview-frame {
+  height: min(68vh, 720px);
+  overflow: hidden;
+  border-radius: 24px;
+  background: rgba(6, 10, 20, 0.78);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.transpose-preview-pages {
+  height: 100%;
+  overflow: auto;
+  display: grid;
+  gap: 18px;
+  padding: 18px;
+}
+
+.transpose-preview-pages.is-empty {
+  place-items: center;
+}
+
+.transpose-preview-empty {
+  max-width: 360px;
+  text-align: center;
+}
+
+.transpose-preview-empty-title {
+  margin-bottom: 10px;
+}
+
+.transpose-preview-page {
+  margin: 0;
+  padding: 16px;
+  border-radius: 24px;
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.transpose-preview-page img {
+  display: block;
+  width: 100%;
+  height: auto;
+  border-radius: 16px;
+}
+
 @media (max-width: 1080px) {
   .hero,
   .split-section,
@@ -799,6 +1026,10 @@ main {
 
   .poster {
     width: clamp(180px, 36vw, 250px);
+  }
+
+  .transpose-modal-layout {
+    grid-template-columns: 1fr;
   }
 }
 
@@ -884,6 +1115,28 @@ main {
 
   .story-grid {
     gap: 16px;
+  }
+
+  .transpose-modal {
+    padding: 16px;
+  }
+
+  .transpose-modal-card {
+    max-height: 94vh;
+    padding: 18px;
+  }
+
+  .transpose-modal-header {
+    align-items: flex-start;
+  }
+
+  .transpose-modal-close {
+    width: 42px;
+    height: 42px;
+  }
+
+  .transpose-preview-frame {
+    height: min(54vh, 560px);
   }
 }
 
@@ -1000,5 +1253,58 @@ main {
 
   .video-popover {
     padding: 14px;
+  }
+
+  .story-action {
+    min-width: 100%;
+  }
+
+  .transpose-modal-card {
+    gap: 16px;
+    padding: 16px;
+    border-radius: 24px;
+  }
+
+  .transpose-modal-title {
+    font-size: clamp(1.7rem, 8vw, 2.3rem);
+  }
+
+  .transpose-modal-copy,
+  .transpose-upload-hint,
+  .transpose-upload-file,
+  .transpose-demo-status,
+  .transpose-preview-empty-copy {
+    font-size: 0.92rem;
+  }
+
+  .transpose-modal-panel-controls,
+  .transpose-modal-panel-preview {
+    padding: 14px;
+  }
+
+  .transpose-upload-card,
+  .transpose-demo-bar,
+  .transpose-preview-page {
+    padding: 14px;
+    border-radius: 20px;
+  }
+
+  .transpose-demo-bar-controls {
+    gap: 8px;
+  }
+
+  .transpose-step-button,
+  .transpose-reset-button {
+    min-height: 44px;
+    padding: 0 14px;
+  }
+
+  .transpose-demo-value {
+    min-width: 64px;
+    font-size: 1.15rem;
+  }
+
+  .transpose-preview-frame {
+    height: 48vh;
   }
 }
