@@ -1,0 +1,14 @@
+services:
+  - type: web
+    name: chordlab-transpose-api
+    runtime: python
+    plan: starter
+    buildCommand: pip install -r transpose_api/requirements.txt
+    startCommand: gunicorn transpose_api.app:app
+    envVars:
+      - key: PYTHON_VERSION
+        value: 3.12.3
+      - key: TRANSPOSE_API_ALLOW_ORIGIN
+        value: https://kakitgameproduction.github.io
+      - key: TRANSPOSE_API_HOME
+        value: /tmp/chordlab-transpose-api
