@@ -260,6 +260,14 @@
 
           <div class="transpose-modal-panel transpose-modal-panel-preview">
             <div class="transpose-preview-frame">
+              <div class="transpose-preview-loading hidden" id="transpose-preview-loading" aria-hidden="true">
+                <div class="transpose-preview-loading-card">
+                  <p class="transpose-preview-loading-label" data-i18n="transposeDemoLoadingLabel">Preparing preview...</p>
+                  <div class="transpose-loading-track transpose-loading-track-large">
+                    <div class="transpose-loading-bar"></div>
+                  </div>
+                </div>
+              </div>
               <div class="transpose-preview-pages is-empty" id="transpose-preview-pages">
                 <div class="transpose-preview-empty">
                   <p class="transpose-preview-empty-title" data-i18n="transposeDemoEmptyTitle">Transpose preview</p>
@@ -328,6 +336,7 @@
           transposeDemoStatusIdle: "Upload a PDF to start the transpose demo.",
           transposeDemoStatusUploading: "Uploading PDF and preparing preview...",
           transposeDemoStatusLoading: "Refreshing transpose preview...",
+          transposeDemoLoadingLabel: "Preparing preview...",
           transposeDemoStatusReady: "Preview ready. Adjust the key and download when you are happy.",
           transposeDemoStatusError: "Something went wrong while preparing the transpose demo.",
           transposeDemoEmptyTitle: "Transpose preview",
@@ -414,6 +423,7 @@
           transposeDemoStatusIdle: "先上載 PDF，之後就可以開始試用移調。",
           transposeDemoStatusUploading: "正在上載 PDF 並準備預覽...",
           transposeDemoStatusLoading: "正在更新移調預覽...",
+          transposeDemoLoadingLabel: "正在準備預覽...",
           transposeDemoStatusReady: "預覽已準備好，你可以繼續轉 key，之後下載 PDF。",
           transposeDemoStatusError: "準備移調示範時發生問題。",
           transposeDemoEmptyTitle: "移調預覽",
@@ -502,6 +512,7 @@
         uploadFile: document.getElementById("transpose-upload-file"),
         status: document.getElementById("transpose-demo-status"),
         loading: document.getElementById("transpose-loading"),
+        previewLoading: document.getElementById("transpose-preview-loading"),
         pages: document.getElementById("transpose-preview-pages"),
         value: document.getElementById("transpose-demo-value"),
         down: document.getElementById("transpose-demo-down"),
@@ -522,6 +533,8 @@
       function setTransposeLoading(active) {
         transposeEls.loading.classList.toggle("hidden", !active);
         transposeEls.loading.setAttribute("aria-hidden", active ? "false" : "true");
+        transposeEls.previewLoading.classList.toggle("hidden", !active);
+        transposeEls.previewLoading.setAttribute("aria-hidden", active ? "false" : "true");
       }
 
       function setTransposeControlsEnabled(enabled) {

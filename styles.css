@@ -989,11 +989,45 @@ main {
 }
 
 .transpose-preview-frame {
+  position: relative;
   height: min(68vh, 720px);
   overflow: hidden;
   border-radius: 24px;
   background: rgba(6, 10, 20, 0.78);
   border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.transpose-preview-loading {
+  position: absolute;
+  inset: 0;
+  z-index: 2;
+  display: grid;
+  place-items: center;
+  padding: 24px;
+  background: rgba(4, 7, 16, 0.58);
+  backdrop-filter: blur(4px);
+}
+
+.transpose-preview-loading-card {
+  display: grid;
+  gap: 12px;
+  width: min(360px, 100%);
+  padding: 18px;
+  border-radius: 22px;
+  background: rgba(12, 18, 32, 0.92);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  box-shadow: 0 18px 44px rgba(0, 0, 0, 0.28);
+}
+
+.transpose-preview-loading-label {
+  margin: 0;
+  color: #eef5ff;
+  font-weight: 700;
+  text-align: center;
+}
+
+.transpose-loading-track-large {
+  height: 12px;
 }
 
 .transpose-preview-pages {
