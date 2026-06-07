@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://kakitgameproduction.github.io/Chordasy/sitemap.xml
+Sitemap: https://chordasy.com/sitemap.xml
