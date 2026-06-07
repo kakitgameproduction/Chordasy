@@ -1189,18 +1189,7 @@ main {
   }
 
   .header-controls {
-    gap: 12px;
-  }
-
-  .nav-links {
-    width: 100%;
-    justify-content: center;
-  }
-
-  .lang-switch {
-    align-self: center;
-    margin-right: 0;
-    transform: none;
+    display: none;
   }
 
   .hero {
