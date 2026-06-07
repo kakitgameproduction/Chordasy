@@ -1217,14 +1217,14 @@ main {
   .story-grid {
     display: grid;
     grid-auto-flow: column;
-    grid-auto-columns: calc(100% - 30px);
-    gap: 12px;
+    grid-auto-columns: 100%;
+    gap: 0;
     overflow-x: auto;
     overscroll-behavior-x: contain;
-    padding: 4px 10px 10px;
-    margin: 0 -10px;
+    padding: 4px 0 10px;
+    margin: 0;
     scroll-snap-type: x mandatory;
-    scroll-padding-inline: 10px;
+    scroll-padding-inline: 0;
     scrollbar-width: none;
     -ms-overflow-style: none;
   }
@@ -1239,11 +1239,12 @@ main {
     align-content: start;
     min-height: 100%;
     height: 100%;
+    width: 100%;
     scroll-snap-align: center;
   }
 
   .story-poster {
-    width: min(100%, 240px);
+    width: min(100%, 250px);
     margin: 0 auto;
   }
 
@@ -1380,10 +1381,13 @@ main {
     display: grid;
     grid-template-columns: repeat(2, minmax(0, 1fr));
     gap: 10px;
+    align-items: stretch;
   }
 
   .support-actions .button {
+    width: 100%;
     min-width: 0;
+    min-height: 46px;
     padding: 12px 10px;
     font-size: 0.92rem;
   }
