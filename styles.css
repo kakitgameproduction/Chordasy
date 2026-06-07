@@ -1231,6 +1231,11 @@ main {
     margin: 0;
   }
 
+  .story-poster img {
+    object-fit: contain;
+    background: rgba(255, 255, 255, 0.03);
+  }
+
   .story-copy {
     display: flex;
     flex-direction: column;
@@ -1346,6 +1351,21 @@ main {
 
   .button {
     width: 100%;
+  }
+
+  .hero-actions {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 10px;
+    align-items: stretch;
+  }
+
+  .hero-actions .button {
+    width: 100%;
+    min-width: 0;
+    min-height: 46px;
+    padding: 12px 10px;
+    font-size: 0.92rem;
   }
 
   .support-actions {
