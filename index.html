@@ -17,7 +17,7 @@
     <meta property="og:image" content="store-page-2.png" />
     <link rel="canonical" href="https://chordasy.com/" />
     <link rel="icon" href="chordasy_app_icon.png" />
-    <link rel="stylesheet" href="styles.css?v=20260606-chordasy-store-1" />
+    <link rel="stylesheet" href="styles.css?v=20260607-mobile-story-carousel-1" />
     <script type="application/ld+json">
       {
         "@context": "https://schema.org",
@@ -186,7 +186,7 @@
         </div>
 
         <div class="story-grid">
-          <article class="story-card">
+          <article class="story-card" data-story-card>
             <figure class="story-poster">
               <img src="store-page-2.png" alt="Organise your song library poster" />
             </figure>
@@ -197,7 +197,7 @@
             </div>
           </article>
 
-          <article class="story-card">
+          <article class="story-card" data-story-card>
             <figure class="story-poster">
               <img src="store-page-6.png" alt="Build setlist fast poster" />
             </figure>
@@ -208,7 +208,7 @@
             </div>
           </article>
 
-          <article class="story-card">
+          <article class="story-card" data-story-card>
             <figure class="story-poster">
               <img src="store-page-3.png" alt="Transpose keys instantly poster" />
             </figure>
@@ -220,7 +220,7 @@
             </div>
           </article>
 
-          <article class="story-card">
+          <article class="story-card" data-story-card>
             <figure class="story-poster">
               <img src="store-page-4.png" alt="Use it live on stage poster" />
             </figure>
@@ -231,7 +231,7 @@
             </div>
           </article>
 
-          <article class="story-card">
+          <article class="story-card" data-story-card>
             <figure class="story-poster">
               <img src="store-page-5.png" alt="Connect your cloud library poster" />
             </figure>
@@ -242,7 +242,7 @@
             </div>
           </article>
 
-          <article class="story-card">
+          <article class="story-card" data-story-card>
             <figure class="story-poster">
               <img src="store-page-1.png" alt="Share chart with the band poster" />
             </figure>
@@ -252,6 +252,14 @@
               <p data-i18n="story6Body">Send charts, messages, and files to connected members on the same network, even when they do not already have the song in their library.</p>
             </div>
           </article>
+        </div>
+        <div class="story-carousel-dots" aria-label="Feature story navigation">
+          <button class="story-carousel-dot is-active" type="button" aria-label="Go to feature 1" data-story-dot="0"></button>
+          <button class="story-carousel-dot" type="button" aria-label="Go to feature 2" data-story-dot="1"></button>
+          <button class="story-carousel-dot" type="button" aria-label="Go to feature 3" data-story-dot="2"></button>
+          <button class="story-carousel-dot" type="button" aria-label="Go to feature 4" data-story-dot="3"></button>
+          <button class="story-carousel-dot" type="button" aria-label="Go to feature 5" data-story-dot="4"></button>
+          <button class="story-carousel-dot" type="button" aria-label="Go to feature 6" data-story-dot="5"></button>
         </div>
       </section>
 
@@ -760,6 +768,67 @@
         heroVideoFrame.src = "";
       }
 
+      function initStoryCarousel() {
+        const grid = document.querySelector(".story-grid");
+        const cards = Array.from(document.querySelectorAll("[data-story-card]"));
+        const dots = Array.from(document.querySelectorAll("[data-story-dot]"));
+        if (!grid || !cards.length || !dots.length) return;
+
+        let activeIndex = 0;
+        let rafId = 0;
+        const mobileQuery = window.matchMedia("(max-width: 720px)");
+
+        function setActiveStory(index) {
+          activeIndex = Math.max(0, Math.min(index, cards.length - 1));
+          dots.forEach((dot, dotIndex) => {
+            const isActive = dotIndex === activeIndex;
+            dot.classList.toggle("is-active", isActive);
+            dot.setAttribute("aria-current", isActive ? "true" : "false");
+          });
+        }
+
+        function detectActiveStory() {
+          if (!mobileQuery.matches) {
+            setActiveStory(0);
+            return;
+          }
+          const gridRect = grid.getBoundingClientRect();
+          const gridCenter = gridRect.left + gridRect.width / 2;
+          let closestIndex = 0;
+          let closestDistance = Number.POSITIVE_INFINITY;
+          cards.forEach((card, index) => {
+            const rect = card.getBoundingClientRect();
+            const cardCenter = rect.left + rect.width / 2;
+            const distance = Math.abs(cardCenter - gridCenter);
+            if (distance < closestDistance) {
+              closestDistance = distance;
+              closestIndex = index;
+            }
+          });
+          setActiveStory(closestIndex);
+        }
+
+        function onScroll() {
+          if (rafId) cancelAnimationFrame(rafId);
+          rafId = requestAnimationFrame(detectActiveStory);
+        }
+
+        dots.forEach((dot, index) => {
+          dot.addEventListener("click", () => {
+            cards[index]?.scrollIntoView({
+              behavior: mobileQuery.matches ? "smooth" : "auto",
+              inline: "center",
+              block: "nearest",
+            });
+            setActiveStory(index);
+          });
+        });
+
+        grid.addEventListener("scroll", onScroll, { passive: true });
+        window.addEventListener("resize", detectActiveStory);
+        detectActiveStory();
+      }
+
       videoTrigger.addEventListener("click", () => {
         if (videoPopover.hidden) {
           openHeroVideo();
@@ -831,6 +900,7 @@
           event.preventDefault();
         }
       });
+      initStoryCarousel();
       closeTransposeModal();
       renderTransposeEmptyState();
       setTransposeControlsEnabled(false);

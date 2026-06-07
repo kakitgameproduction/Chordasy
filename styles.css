@@ -548,6 +548,10 @@ main {
   gap: 20px;
 }
 
+.story-carousel-dots {
+  display: none;
+}
+
 .story-card {
   display: grid;
   grid-template-columns: minmax(200px, 250px) minmax(0, 1fr);
@@ -1237,7 +1241,50 @@ main {
   }
 
   .story-grid {
-    gap: 16px;
+    display: grid;
+    grid-auto-flow: column;
+    grid-auto-columns: 84%;
+    gap: 14px;
+    overflow-x: auto;
+    overscroll-behavior-x: contain;
+    padding: 4px 6px 10px;
+    margin: 0 -6px;
+    scroll-snap-type: x mandatory;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+  }
+
+  .story-grid::-webkit-scrollbar {
+    display: none;
+  }
+
+  .story-card {
+    grid-template-columns: 1fr;
+    min-height: 100%;
+    scroll-snap-align: center;
+  }
+
+  .story-carousel-dots {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    margin-top: 14px;
+  }
+
+  .story-carousel-dot {
+    width: 9px;
+    height: 9px;
+    padding: 0;
+    border: 0;
+    border-radius: 999px;
+    background: rgba(255, 255, 255, 0.28);
+    cursor: pointer;
+  }
+
+  .story-carousel-dot.is-active {
+    width: 24px;
+    background: var(--accent);
   }
 
   .transpose-modal {
