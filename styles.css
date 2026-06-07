@@ -174,6 +174,8 @@ li {
   justify-content: flex-end;
   gap: 4px;
   align-items: center;
+  margin-right: clamp(28px, 5vw, 76px);
+  transform: translateY(18px);
 }
 
 .transpose-nav-callout {
@@ -218,7 +220,19 @@ li {
   box-shadow: 0 14px 34px rgba(183, 234, 83, 0.2);
 }
 
+.nav-links a.nav-link-button-accent {
+  color: #071019;
+  background: linear-gradient(180deg, #d8ff70, #b7ea53);
+  border-color: transparent;
+  box-shadow: 0 14px 34px rgba(183, 234, 83, 0.2);
+}
+
 .nav-link-button-accent:hover {
+  border-color: transparent;
+  background: linear-gradient(180deg, #defe84, #bce75d);
+}
+
+.nav-links a.nav-link-button-accent:hover {
   border-color: transparent;
   background: linear-gradient(180deg, #defe84, #bce75d);
 }
@@ -239,6 +253,8 @@ li {
   border: 1px solid var(--line);
   border-radius: 999px;
   background: rgba(255, 255, 255, 0.08);
+  margin-right: clamp(18px, 3vw, 44px);
+  transform: translateY(18px);
 }
 
 .lang-button {
@@ -443,7 +459,7 @@ main {
   flex-direction: column;
   align-items: center;
   justify-content: flex-start;
-  margin-top: -58px;
+  margin-top: -124px;
   padding-top: 0;
 }
 
@@ -452,7 +468,7 @@ main {
   width: min(700px, 100%);
   height: min(640px, 64vh);
   margin-left: auto;
-  margin-top: -8px;
+  margin-top: -58px;
 }
 
 .poster {
@@ -1085,6 +1101,7 @@ main {
 
   .hero-stage {
     min-height: 560px;
+    margin-top: 0;
     padding-top: 18px;
   }
 
@@ -1114,6 +1131,8 @@ main {
   .nav-links {
     justify-content: flex-start;
     gap: 8px;
+    margin-right: 0;
+    transform: none;
   }
 
   .brand img {
@@ -1180,6 +1199,8 @@ main {
 
   .lang-switch {
     align-self: center;
+    margin-right: 0;
+    transform: none;
   }
 
   .hero {

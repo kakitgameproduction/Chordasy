@@ -7,7 +7,7 @@
     <meta name="description" content="Download Chordasy for Android tablets with PDF and image chart support, cloud libraries, setlists, annotations, and Band Mode sharing." />
     <link rel="canonical" href="https://kakitgameproduction.github.io/Chordasy/download.html" />
     <link rel="icon" href="chordasy_app_icon.png" />
-    <link rel="stylesheet" href="styles.css?v=20260606-chordasy-store-1" />
+    <link rel="stylesheet" href="styles.css?v=20260607-header-align-1" />
     <script type="application/ld+json">
       {
         "@context": "https://schema.org",
@@ -52,8 +52,11 @@
       <div class="header-controls">
         <nav class="nav-links" aria-label="Main navigation">
           <a href="index.html#stories" data-i18n="navFeatures">Features</a>
+          <div class="transpose-nav-callout">
+            <a href="index.html" class="nav-link-button nav-link-button-accent" data-i18n="navTranspose">Transpose</a>
+            <img class="transpose-nav-callout-image" src="transpose-callout.gif" alt="Free try callout for Transpose" />
+          </div>
           <a href="download.html" data-i18n="navDownload">Download</a>
-          <a href="privacy.html" data-i18n="navPrivacy">Privacy</a>
         </nav>
         <div class="lang-switch" aria-label="Language switcher">
           <button type="button" class="lang-button" data-lang-button="en">Eng</button>
@@ -94,6 +97,7 @@
       const translations = {
         en: {
           navFeatures: "Features",
+          navTranspose: "Transpose",
           navHowTo: "How to",
           navDownload: "Download",
           navManual: "User Manual",
@@ -114,6 +118,7 @@
         },
         zh: {
           navFeatures: "功能",
+          navTranspose: "Transpose",
           navHowTo: "教學",
           navDownload: "下載",
           navManual: "使用手冊",
