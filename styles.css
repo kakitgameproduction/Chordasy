@@ -1174,6 +1174,10 @@ main {
     gap: 26px;
   }
 
+  .hero-stage {
+    display: none;
+  }
+
   .lead {
     font-size: 1.03rem;
   }
@@ -1192,33 +1196,12 @@ main {
     height: 28px;
   }
 
-  .hero-stage {
-    min-height: 360px;
-  }
-
-  .poster-stack {
-    width: min(100%, 360px);
-    height: 360px;
-    margin: 10px auto 0;
-  }
-
-  .poster-left,
-  .poster-right {
-    display: none;
-  }
-
-  .poster-main {
-    top: 0;
-    left: 50%;
-    width: min(72vw, 280px);
-    transform: translateX(-50%) rotate(-3deg);
-  }
-
   .story-grid {
     display: grid;
     grid-auto-flow: column;
     grid-auto-columns: 100%;
     gap: 0;
+    align-items: stretch;
     overflow-x: auto;
     overscroll-behavior-x: contain;
     padding: 4px 0 10px;
@@ -1244,8 +1227,9 @@ main {
   }
 
   .story-poster {
-    width: min(100%, 250px);
-    margin: 0 auto;
+    width: 100%;
+    max-width: none;
+    margin: 0;
   }
 
   .story-copy {
@@ -1340,18 +1324,6 @@ main {
     padding-bottom: 8px;
   }
 
-  .hero-stage {
-    min-height: 310px;
-  }
-
-  .poster-stack {
-    height: 310px;
-  }
-
-  .hero-stage-trigger {
-    margin-top: 34px;
-  }
-
   .content-section {
     padding: 54px 0;
   }
@@ -1394,6 +1366,21 @@ main {
 
   .support-actions .button:nth-child(n + 3) {
     grid-column: 1 / -1;
+  }
+
+  .download-actions-stacked {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 10px;
+    width: 100%;
+  }
+
+  .download-actions-stacked .button {
+    width: 100%;
+    min-width: 0;
+    min-height: 46px;
+    padding: 12px 10px;
+    font-size: 0.92rem;
   }
 
   .hero-actions {
