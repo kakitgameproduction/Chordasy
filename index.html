@@ -17,7 +17,8 @@
     <meta property="og:image" content="store-page-2.png" />
     <link rel="canonical" href="https://chordasy.com/" />
     <link rel="icon" href="chordasy_app_icon.png" />
-    <link rel="stylesheet" href="styles.css?v=20260608-play-badge-1" />
+    <link rel="preload" as="image" href="feature_card_desktop_1.png" />
+    <link rel="stylesheet" href="styles.css?v=20260608-feature-cards-1" />
     <script type="application/ld+json">
       {
         "@context": "https://schema.org",
@@ -108,7 +109,10 @@
       </a>
       <div class="header-controls">
         <nav class="nav-links" aria-label="Main navigation">
-          <a href="#stories" data-i18n="navFeatures">Features</a>
+          <a class="nav-play-badge play-badge-button" href="https://play.google.com/store/apps/details?id=com.KaKitGameProduction.Chordasy" aria-label="Download on Google Play">
+            <img src="Google-play-badge.png" alt="Get it on Google Play" />
+          </a>
+          <a href="#help" data-i18n="navFeatures">Quick Start</a>
           <div class="transpose-nav-callout">
             <button type="button" class="nav-link-button nav-link-button-accent" data-transpose-open data-i18n="navTranspose">Transpose</button>
             <img class="transpose-nav-callout-image" src="transpose-callout.gif" alt="Free try callout for Transpose" />
@@ -123,7 +127,7 @@
 
     <main id="top">
       <section class="hero">
-        <div class="hero-copy">
+        <div class="hero-copy hero-copy-top">
           <p class="eyebrow" data-i18n="heroEyebrow">Tablet-ready workflow for rehearsals, worship teams, and live bands</p>
           <h1 class="hero-title">
             <span data-i18n="heroTitleLine1">Build</span>
@@ -133,12 +137,9 @@
           <p class="lead" data-i18n="heroLead">
             Chordasy brings library search, setlists, transpose, live annotation, cloud sync, and Band Mode sharing into one fast tablet workspace.
           </p>
-          <div class="hero-actions">
-            <button class="button primary play-badge-button" type="button" aria-label="Download on Google Play">
-              <img src="Google-play-badge.png" alt="Get it on Google Play" />
-            </button>
-            <a class="button ghost" href="Chordasy_User_Manual_v1.pdf" download data-i18n="heroManual">User Manual</a>
-          </div>
+        </div>
+
+        <div class="hero-copy hero-copy-bottom">
           <ul class="hero-points">
             <li data-i18n="heroPoint1">Import PDF, JPG, JPEG, and PNG charts</li>
             <li data-i18n="heroPoint3">Share charts and messages across the band on the same network</li>
@@ -152,15 +153,102 @@
           </div>
         </div>
 
-        <div class="hero-stage" aria-label="Chordasy story posters">
-          <div class="poster-stack">
-            <img class="poster poster-left" src="store-page-6.png" alt="Chordasy Build Setlist Fast poster" />
-            <img class="poster poster-main" src="store-page-2.png" alt="Chordasy Organise Your Song Library poster" />
-            <img class="poster poster-right" src="store-page-1.png" alt="Chordasy Share Chart With The Band poster" />
+        <div class="hero-stage" id="stories" aria-label="Chordasy story posters">
+          <div class="story-grid hero-story-grid">
+            <article class="story-card" data-story-card>
+              <img class="story-desktop-card" src="feature_card_desktop_1.png" alt="Organise Transpose Sync feature card" width="1024" height="500" loading="eager" fetchpriority="high" decoding="sync" />
+              <figure class="story-poster">
+                <img src="store-page-2.png" alt="Organise Transpose Sync poster" width="900" height="1600" loading="eager" fetchpriority="high" decoding="sync" />
+              </figure>
+              <div class="story-copy">
+                <p class="story-kicker" data-i18n="story0Kicker">Workflow</p>
+                <h3 data-i18n="story0Title">Organise, transpose, sync</h3>
+                <p data-i18n="story0Body">Keep your charts, setlists, key changes, cloud library, and band sharing in one tablet-ready music workspace.</p>
+              </div>
+            </article>
+
+            <article class="story-card" data-story-card>
+              <img class="story-desktop-card" src="feature_card_desktop_2.png" alt="Connect your cloud library feature card" width="1024" height="500" loading="lazy" decoding="async" />
+              <figure class="story-poster">
+                <img src="store-page-5.png" alt="Connect your cloud library poster" width="900" height="1600" loading="lazy" decoding="async" />
+              </figure>
+              <div class="story-copy">
+                <p class="story-kicker" data-i18n="story5Kicker">Cloud</p>
+                <h3 data-i18n="story5Title">Connect your cloud library</h3>
+                <p data-i18n="story5Body">Link Dropbox or Google Drive from inside the app, choose your chart folder, and refresh the library without leaving your workflow.</p>
+              </div>
+            </article>
+
+            <article class="story-card" data-story-card>
+              <img class="story-desktop-card" src="feature_card_desktop_3.png" alt="Build setlists fast feature card" width="1024" height="500" loading="lazy" decoding="async" />
+              <figure class="story-poster">
+                <img src="store-page-6.png" alt="Build setlist fast poster" width="900" height="1600" loading="lazy" decoding="async" />
+              </figure>
+              <div class="story-copy">
+                <p class="story-kicker" data-i18n="story2Kicker">Setlist</p>
+                <h3 data-i18n="story2Title">Build setlists fast</h3>
+                <p data-i18n="story2Body">Create the running order, drag songs into place, and keep the whole set ready for rehearsal, worship, or live performance.</p>
+              </div>
+            </article>
+
+            <article class="story-card" data-story-card>
+              <img class="story-desktop-card" src="feature_card_desktop_4.png" alt="Organise your song library feature card" width="1024" height="500" loading="lazy" decoding="async" />
+              <figure class="story-poster">
+                <img src="store-page-2.png" alt="Organise your song library poster" width="900" height="1600" loading="lazy" decoding="async" />
+              </figure>
+              <div class="story-copy">
+                <p class="story-kicker" data-i18n="story1Kicker">Library</p>
+                <h3 data-i18n="story1Title">Organise your song library</h3>
+                <p data-i18n="story1Body">Search local charts, browse cloud sources, import PDFs, and open the right song quickly from a tablet-friendly library layout.</p>
+              </div>
+            </article>
+
+            <article class="story-card" data-story-card>
+              <img class="story-desktop-card" src="feature_card_desktop_5.png" alt="Transpose keys instantly feature card" width="1024" height="500" loading="lazy" decoding="async" />
+              <figure class="story-poster">
+                <img src="store-page-3.png" alt="Transpose keys instantly poster" width="900" height="1600" loading="lazy" decoding="async" />
+              </figure>
+              <div class="story-copy">
+                <p class="story-kicker" data-i18n="story3Kicker">Transpose</p>
+                <h3 data-i18n="story3Title">Transpose keys instantly</h3>
+                <p data-i18n="story3Body">Shift the key on the fly without leaving the chart, so the band can react immediately when the room or vocalist needs a change.</p>
+                <button class="button secondary story-action" type="button" data-transpose-open data-i18n="transposeDemoButton">Transpose</button>
+              </div>
+            </article>
+
+            <article class="story-card" data-story-card>
+              <img class="story-desktop-card" src="feature_card_desktop_6.png" alt="Share chart with the band feature card" width="1024" height="500" loading="lazy" decoding="async" />
+              <figure class="story-poster">
+                <img src="store-page-1.png" alt="Share chart with the band poster" width="900" height="1600" loading="lazy" decoding="async" />
+              </figure>
+              <div class="story-copy">
+                <p class="story-kicker" data-i18n="story6Kicker">Band Mode</p>
+                <h3 data-i18n="story6Title">Share charts with the band</h3>
+                <p data-i18n="story6Body">Send charts, messages, and files to connected members on the same network, even when they do not already have the song in their library.</p>
+              </div>
+            </article>
+
+            <article class="story-card" data-story-card>
+              <img class="story-desktop-card" src="feature_card_desktop_7.png" alt="Use it live on stage feature card" width="1024" height="500" loading="lazy" decoding="async" />
+              <figure class="story-poster">
+                <img src="store-page-4.png" alt="Use it live on stage poster" width="900" height="1600" loading="lazy" decoding="async" />
+              </figure>
+              <div class="story-copy">
+                <p class="story-kicker" data-i18n="story4Kicker">Live mode</p>
+                <h3 data-i18n="story4Title">Use it live on stage</h3>
+                <p data-i18n="story4Body">Keep the chart full-size, switch tools quickly, and stay inside the performance flow while rehearsing or playing live.</p>
+              </div>
+            </article>
           </div>
-          <button class="button secondary video-trigger hero-stage-trigger" type="button" id="video-trigger" aria-expanded="false" aria-controls="video-popover">
-            <span data-i18n="watchVideo">Watch demo</span>
-          </button>
+          <div class="story-carousel-dots hero-story-dots" aria-label="Feature story navigation">
+            <button class="story-carousel-dot is-active" type="button" aria-label="Go to feature 1" data-story-dot="0"></button>
+            <button class="story-carousel-dot" type="button" aria-label="Go to feature 2" data-story-dot="1"></button>
+            <button class="story-carousel-dot" type="button" aria-label="Go to feature 3" data-story-dot="2"></button>
+            <button class="story-carousel-dot" type="button" aria-label="Go to feature 4" data-story-dot="3"></button>
+            <button class="story-carousel-dot" type="button" aria-label="Go to feature 5" data-story-dot="4"></button>
+            <button class="story-carousel-dot" type="button" aria-label="Go to feature 6" data-story-dot="5"></button>
+            <button class="story-carousel-dot" type="button" aria-label="Go to feature 7" data-story-dot="6"></button>
+          </div>
         </div>
 
         <div class="video-popover" id="video-popover" role="dialog" aria-modal="true" aria-label="Chordasy video" hidden>
@@ -174,93 +262,6 @@
               allowfullscreen
             ></iframe>
           </div>
-        </div>
-      </section>
-
-      <section id="stories" class="content-section story-section">
-        <div class="section-heading">
-          <p class="eyebrow" data-i18n="storiesEyebrow">Feature storyboards</p>
-          <h2 data-i18n="storiesTitle">Six real workflows, built from your actual app screens.</h2>
-          <p data-i18n="storiesLead">
-            These are the same visual directions used in your latest store material, now turned into the structure of the website so visitors understand Chordasy in seconds.
-          </p>
-        </div>
-
-        <div class="story-grid">
-          <article class="story-card" data-story-card>
-            <figure class="story-poster">
-              <img src="store-page-2.png" alt="Organise your song library poster" />
-            </figure>
-            <div class="story-copy">
-              <p class="story-kicker" data-i18n="story1Kicker">Library</p>
-              <h3 data-i18n="story1Title">Organise your song library</h3>
-              <p data-i18n="story1Body">Search local charts, browse cloud sources, import PDFs, and open the right song quickly from a tablet-friendly library layout.</p>
-            </div>
-          </article>
-
-          <article class="story-card" data-story-card>
-            <figure class="story-poster">
-              <img src="store-page-6.png" alt="Build setlist fast poster" />
-            </figure>
-            <div class="story-copy">
-              <p class="story-kicker" data-i18n="story2Kicker">Setlist</p>
-              <h3 data-i18n="story2Title">Build setlists fast</h3>
-              <p data-i18n="story2Body">Create the running order, drag songs into place, and keep the whole set ready for rehearsal, worship, or live performance.</p>
-            </div>
-          </article>
-
-          <article class="story-card" data-story-card>
-            <figure class="story-poster">
-              <img src="store-page-3.png" alt="Transpose keys instantly poster" />
-            </figure>
-            <div class="story-copy">
-              <p class="story-kicker" data-i18n="story3Kicker">Transpose</p>
-              <h3 data-i18n="story3Title">Transpose keys instantly</h3>
-              <p data-i18n="story3Body">Shift the key on the fly without leaving the chart, so the band can react immediately when the room or vocalist needs a change.</p>
-              <button class="button secondary story-action" type="button" data-transpose-open data-i18n="transposeDemoButton">Transpose</button>
-            </div>
-          </article>
-
-          <article class="story-card" data-story-card>
-            <figure class="story-poster">
-              <img src="store-page-4.png" alt="Use it live on stage poster" />
-            </figure>
-            <div class="story-copy">
-              <p class="story-kicker" data-i18n="story4Kicker">Live mode</p>
-              <h3 data-i18n="story4Title">Use it live on stage</h3>
-              <p data-i18n="story4Body">Keep the chart full-size, switch tools quickly, and stay inside the performance flow while rehearsing or playing live.</p>
-            </div>
-          </article>
-
-          <article class="story-card" data-story-card>
-            <figure class="story-poster">
-              <img src="store-page-5.png" alt="Connect your cloud library poster" />
-            </figure>
-            <div class="story-copy">
-              <p class="story-kicker" data-i18n="story5Kicker">Cloud</p>
-              <h3 data-i18n="story5Title">Connect your cloud library</h3>
-              <p data-i18n="story5Body">Link Dropbox or Google Drive from inside the app, choose your chart folder, and refresh the library without leaving your workflow.</p>
-            </div>
-          </article>
-
-          <article class="story-card" data-story-card>
-            <figure class="story-poster">
-              <img src="store-page-1.png" alt="Share chart with the band poster" />
-            </figure>
-            <div class="story-copy">
-              <p class="story-kicker" data-i18n="story6Kicker">Band Mode</p>
-              <h3 data-i18n="story6Title">Share charts with the band</h3>
-              <p data-i18n="story6Body">Send charts, messages, and files to connected members on the same network, even when they do not already have the song in their library.</p>
-            </div>
-          </article>
-        </div>
-        <div class="story-carousel-dots" aria-label="Feature story navigation">
-          <button class="story-carousel-dot is-active" type="button" aria-label="Go to feature 1" data-story-dot="0"></button>
-          <button class="story-carousel-dot" type="button" aria-label="Go to feature 2" data-story-dot="1"></button>
-          <button class="story-carousel-dot" type="button" aria-label="Go to feature 3" data-story-dot="2"></button>
-          <button class="story-carousel-dot" type="button" aria-label="Go to feature 4" data-story-dot="3"></button>
-          <button class="story-carousel-dot" type="button" aria-label="Go to feature 5" data-story-dot="4"></button>
-          <button class="story-carousel-dot" type="button" aria-label="Go to feature 6" data-story-dot="5"></button>
         </div>
       </section>
 
@@ -298,9 +299,9 @@
           <p data-i18n="supportBody">Download the Android tablet version, try it in rehearsal, and support the project if it becomes part of your weekly workflow.</p>
         </div>
         <div class="support-actions">
-          <button class="button primary play-badge-button" type="button" aria-label="Download on Google Play">
+          <a class="button primary play-badge-button" href="https://play.google.com/store/apps/details?id=com.KaKitGameProduction.Chordasy" aria-label="Download on Google Play">
             <img src="Google-play-badge.png" alt="Get it on Google Play" />
-          </button>
+          </a>
           <a class="button ghost" href="Chordasy_User_Manual_v1.pdf" download data-i18n="supportManual">User Manual</a>
           <a class="button ghost" href="privacy.html" data-i18n="supportPrivacy">Privacy</a>
           <a class="button ghost" href="https://www.buymeacoffee.com/chordlab" data-i18n="supportSecondary">Support Chordasy</a>
@@ -382,7 +383,7 @@
     <script>
       const translations = {
         en: {
-          navFeatures: "Features",
+          navFeatures: "Quick Start",
           navTranspose: "Transpose",
           navHowTo: "How to",
           navManual: "User Manual",
@@ -398,14 +399,16 @@
           heroPrimary: "Download Now",
           heroManual: "User Manual",
           heroSecondary: "See real screens",
-          watchVideo: "Watch demo",
           heroPoint1: "Import PDF, JPG, JPEG, and PNG charts",
           heroPoint3: "Share charts and messages across your team on the same network",
           providerLabel: "Supports cloud library sync with",
           storiesEyebrow: "Feature storyboards",
-          storiesTitle: "Six real workflows, built from your actual app screens.",
+          storiesTitle: "Seven real workflows, built from your actual app screens.",
           storiesLead:
             "These are the same visual directions used in your latest store material, now turned into the structure of the website so visitors understand Chordasy in seconds.",
+          story0Kicker: "Workflow",
+          story0Title: "Organise, transpose, sync",
+          story0Body: "Keep your charts, setlists, key changes, cloud library, and band sharing in one tablet-ready music workspace.",
           story1Kicker: "Library",
           story1Title: "Organise your song library",
           story1Body: "Search local charts, browse cloud sources, import PDFs, and open the right song quickly from a tablet-friendly library layout.",
@@ -469,7 +472,7 @@
           footerPrivacy: "Privacy Policy"
         },
         zh: {
-          navFeatures: "功能",
+          navFeatures: "快速開始",
           navTranspose: "Transpose",
           navHowTo: "教學",
           navManual: "使用手冊",
@@ -485,14 +488,16 @@
           heroPrimary: "立即下載",
           heroManual: "使用手冊",
           heroSecondary: "看真實畫面",
-          watchVideo: "觀看示範",
           heroPoint1: "支援匯入 PDF、JPG、JPEG、PNG 樂譜",
           heroPoint3: "可在同一網絡內向團隊成員分享樂譜與訊息",
           providerLabel: "支援以下雲端樂譜服務",
           storiesEyebrow: "功能故事版",
-          storiesTitle: "六個真實工作流程，直接來自你實際的 app 畫面。",
+          storiesTitle: "七個真實工作流程，直接來自你實際的 app 畫面。",
           storiesLead:
             "網站而家直接跟返你最新 store material 嘅講法，令新訪客一眼就明白 Chordasy 可以點樣幫到排練同演出。",
+          story0Kicker: "Workflow",
+          story0Title: "整理、移調、同步",
+          story0Body: "將樂譜、Setlist、轉 key、雲端樂譜庫同樂隊分享集中在一個平板工作空間。",
           story1Kicker: "Library",
           story1Title: "整理你的樂譜庫",
           story1Body: "搜尋本機歌曲、瀏覽雲端來源、匯入 PDF，並用平板友善的介面快速打開需要的 chart。",
@@ -759,25 +764,31 @@
 
       function openHeroVideo() {
         videoPopover.hidden = false;
-        videoTrigger.setAttribute("aria-expanded", "true");
+        if (videoTrigger) {
+          videoTrigger.setAttribute("aria-expanded", "true");
+        }
         heroVideoFrame.src = heroVideoUrl;
       }
 
       function closeHeroVideo() {
         videoPopover.hidden = true;
-        videoTrigger.setAttribute("aria-expanded", "false");
+        if (videoTrigger) {
+          videoTrigger.setAttribute("aria-expanded", "false");
+        }
         heroVideoFrame.src = "";
       }
 
       function initStoryCarousel() {
-        const grid = document.querySelector(".story-grid");
+        const grid = document.querySelector(".hero-story-grid");
         const cards = Array.from(document.querySelectorAll("[data-story-card]"));
         const dots = Array.from(document.querySelectorAll("[data-story-dot]"));
         if (!grid || !cards.length || !dots.length) return;
 
         let activeIndex = 0;
         let rafId = 0;
-        const mobileQuery = window.matchMedia("(max-width: 720px)");
+        let autoAdvanceTimer = 0;
+        let autoAdvanceStartTimer = 0;
+        const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 
         function setActiveStory(index) {
           activeIndex = Math.max(0, Math.min(index, cards.length - 1));
@@ -789,10 +800,6 @@
         }
 
         function detectActiveStory() {
-          if (!mobileQuery.matches) {
-            setActiveStory(0);
-            return;
-          }
           const gridRect = grid.getBoundingClientRect();
           const gridCenter = gridRect.left + gridRect.width / 2;
           let closestIndex = 0;
@@ -814,29 +821,86 @@
           rafId = requestAnimationFrame(detectActiveStory);
         }
 
+        function scrollToStory(index) {
+          cards[index]?.scrollIntoView({
+            behavior: "smooth",
+            inline: "center",
+            block: "nearest",
+          });
+          setActiveStory(index);
+        }
+
+        function stopAutoAdvance() {
+          if (autoAdvanceStartTimer) {
+            window.clearTimeout(autoAdvanceStartTimer);
+            autoAdvanceStartTimer = 0;
+          }
+          if (autoAdvanceTimer) {
+            window.clearInterval(autoAdvanceTimer);
+            autoAdvanceTimer = 0;
+          }
+        }
+
+        function startAutoAdvance() {
+          if (prefersReducedMotion) return;
+          stopAutoAdvance();
+          autoAdvanceStartTimer = window.setTimeout(() => {
+            autoAdvanceTimer = window.setInterval(() => {
+              const nextIndex = (activeIndex + 1) % cards.length;
+              scrollToStory(nextIndex);
+            }, 4200);
+          }, 2600);
+        }
+
         dots.forEach((dot, index) => {
           dot.addEventListener("click", () => {
-            cards[index]?.scrollIntoView({
-              behavior: mobileQuery.matches ? "smooth" : "auto",
-              inline: "center",
-              block: "nearest",
-            });
-            setActiveStory(index);
+            scrollToStory(index);
+            startAutoAdvance();
           });
         });
 
         grid.addEventListener("scroll", onScroll, { passive: true });
+        grid.addEventListener("pointerenter", stopAutoAdvance);
+        grid.addEventListener("pointerleave", startAutoAdvance);
+        grid.addEventListener("focusin", stopAutoAdvance);
+        grid.addEventListener("focusout", startAutoAdvance);
+        grid.addEventListener("touchstart", stopAutoAdvance, { passive: true });
+        grid.addEventListener("touchend", startAutoAdvance, { passive: true });
         window.addEventListener("resize", detectActiveStory);
-        detectActiveStory();
+        document.addEventListener("visibilitychange", () => {
+          if (document.hidden) {
+            stopAutoAdvance();
+          } else {
+            startAutoAdvance();
+          }
+        });
+
+        grid.scrollLeft = 0;
+        setActiveStory(0);
+        window.requestAnimationFrame(() => {
+          grid.scrollLeft = 0;
+          setActiveStory(0);
+        });
+        window.addEventListener(
+          "load",
+          () => {
+            grid.scrollLeft = 0;
+            setActiveStory(0);
+            startAutoAdvance();
+          },
+          { once: true }
+        );
       }
 
-      videoTrigger.addEventListener("click", () => {
-        if (videoPopover.hidden) {
-          openHeroVideo();
-        } else {
-          closeHeroVideo();
-        }
-      });
+      if (videoTrigger) {
+        videoTrigger.addEventListener("click", () => {
+          if (videoPopover.hidden) {
+            openHeroVideo();
+          } else {
+            closeHeroVideo();
+          }
+        });
+      }
 
       document.addEventListener("click", (event) => {
         if (!videoPopover.hidden && event.target === videoPopover) {

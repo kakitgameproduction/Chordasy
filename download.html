@@ -7,7 +7,7 @@
     <meta name="description" content="Download Chordasy for Android tablets with PDF and image chart support, cloud libraries, setlists, annotations, and Band Mode sharing." />
     <link rel="canonical" href="https://chordasy.com/download.html" />
     <link rel="icon" href="chordasy_app_icon.png" />
-    <link rel="stylesheet" href="styles.css?v=20260608-play-badge-1" />
+    <link rel="stylesheet" href="styles.css?v=20260608-feature-cards-1" />
     <script type="application/ld+json">
       {
         "@context": "https://schema.org",
@@ -51,7 +51,10 @@
       </a>
       <div class="header-controls">
         <nav class="nav-links" aria-label="Main navigation">
-          <a href="index.html#stories" data-i18n="navFeatures">Features</a>
+          <a class="nav-play-badge play-badge-button" href="https://play.google.com/store/apps/details?id=com.KaKitGameProduction.Chordasy" aria-label="Download on Google Play">
+            <img src="Google-play-badge.png" alt="Get it on Google Play" />
+          </a>
+          <a href="index.html#help" data-i18n="navFeatures">Quick Start</a>
           <div class="transpose-nav-callout">
             <a href="index.html" class="nav-link-button nav-link-button-accent" data-i18n="navTranspose">Transpose</a>
             <img class="transpose-nav-callout-image" src="transpose-callout.gif" alt="Free try callout for Transpose" />
@@ -80,9 +83,9 @@
           </p>
           <div class="download-actions download-actions-stacked">
             <a class="button ghost" href="Chordasy_User_Manual_v1.pdf" download data-i18n="downloadManual">User Manual</a>
-            <button class="button primary play-badge-button" type="button" aria-label="Download on Google Play">
+            <a class="button primary play-badge-button" href="https://play.google.com/store/apps/details?id=com.KaKitGameProduction.Chordasy" aria-label="Download on Google Play">
               <img src="Google-play-badge.png" alt="Get it on Google Play" />
-            </button>
+            </a>
           </div>
         </div>
       </section>
@@ -97,7 +100,7 @@
     <script>
       const translations = {
         en: {
-          navFeatures: "Features",
+          navFeatures: "Quick Start",
           navTranspose: "Transpose",
           navHowTo: "How to",
           navManual: "User Manual",
@@ -117,7 +120,7 @@
           footerPrivacy: "Privacy Policy"
         },
         zh: {
-          navFeatures: "功能",
+          navFeatures: "快速開始",
           navTranspose: "Transpose",
           navHowTo: "教學",
           navManual: "使用手冊",
