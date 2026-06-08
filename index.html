@@ -158,7 +158,7 @@
             <article class="story-card" data-story-card>
               <img class="story-desktop-card" src="feature_card_desktop_1.png" alt="Organise Transpose Sync feature card" width="1024" height="500" loading="eager" fetchpriority="high" decoding="sync" />
               <figure class="story-poster">
-                <img src="store-page-2.png" alt="Organise Transpose Sync poster" width="900" height="1600" loading="eager" fetchpriority="high" decoding="sync" />
+                <img src="store-page-1.png" alt="Chordasy mobile store feature 1" width="900" height="1600" loading="eager" fetchpriority="high" decoding="sync" />
               </figure>
               <div class="story-copy">
                 <p class="story-kicker" data-i18n="story0Kicker">Workflow</p>
@@ -170,7 +170,7 @@
             <article class="story-card" data-story-card>
               <img class="story-desktop-card" src="feature_card_desktop_2.png" alt="Connect your cloud library feature card" width="1024" height="500" loading="lazy" decoding="async" />
               <figure class="story-poster">
-                <img src="store-page-5.png" alt="Connect your cloud library poster" width="900" height="1600" loading="lazy" decoding="async" />
+                <img src="store-page-2.png" alt="Chordasy mobile store feature 2" width="900" height="1600" loading="lazy" decoding="async" />
               </figure>
               <div class="story-copy">
                 <p class="story-kicker" data-i18n="story5Kicker">Cloud</p>
@@ -182,7 +182,7 @@
             <article class="story-card" data-story-card>
               <img class="story-desktop-card" src="feature_card_desktop_3.png" alt="Build setlists fast feature card" width="1024" height="500" loading="lazy" decoding="async" />
               <figure class="story-poster">
-                <img src="store-page-6.png" alt="Build setlist fast poster" width="900" height="1600" loading="lazy" decoding="async" />
+                <img src="store-page-3.png" alt="Chordasy mobile store feature 3" width="900" height="1600" loading="lazy" decoding="async" />
               </figure>
               <div class="story-copy">
                 <p class="story-kicker" data-i18n="story2Kicker">Setlist</p>
@@ -194,7 +194,7 @@
             <article class="story-card" data-story-card>
               <img class="story-desktop-card" src="feature_card_desktop_4.png" alt="Organise your song library feature card" width="1024" height="500" loading="lazy" decoding="async" />
               <figure class="story-poster">
-                <img src="store-page-2.png" alt="Organise your song library poster" width="900" height="1600" loading="lazy" decoding="async" />
+                <img src="store-page-4.png" alt="Chordasy mobile store feature 4" width="900" height="1600" loading="lazy" decoding="async" />
               </figure>
               <div class="story-copy">
                 <p class="story-kicker" data-i18n="story1Kicker">Library</p>
@@ -206,7 +206,7 @@
             <article class="story-card" data-story-card>
               <img class="story-desktop-card" src="feature_card_desktop_5.png" alt="Transpose keys instantly feature card" width="1024" height="500" loading="lazy" decoding="async" />
               <figure class="story-poster">
-                <img src="store-page-3.png" alt="Transpose keys instantly poster" width="900" height="1600" loading="lazy" decoding="async" />
+                <img src="store-page-5.png" alt="Chordasy mobile store feature 5" width="900" height="1600" loading="lazy" decoding="async" />
               </figure>
               <div class="story-copy">
                 <p class="story-kicker" data-i18n="story3Kicker">Transpose</p>
@@ -219,7 +219,7 @@
             <article class="story-card" data-story-card>
               <img class="story-desktop-card" src="feature_card_desktop_6.png" alt="Share chart with the band feature card" width="1024" height="500" loading="lazy" decoding="async" />
               <figure class="story-poster">
-                <img src="store-page-1.png" alt="Share chart with the band poster" width="900" height="1600" loading="lazy" decoding="async" />
+                <img src="store-page-6.png" alt="Chordasy mobile store feature 6" width="900" height="1600" loading="lazy" decoding="async" />
               </figure>
               <div class="story-copy">
                 <p class="story-kicker" data-i18n="story6Kicker">Band Mode</p>
@@ -228,7 +228,7 @@
               </div>
             </article>
 
-            <article class="story-card" data-story-card>
+            <article class="story-card mobile-story-hidden" data-story-card>
               <img class="story-desktop-card" src="feature_card_desktop_7.png" alt="Use it live on stage feature card" width="1024" height="500" loading="lazy" decoding="async" />
               <figure class="story-poster">
                 <img src="store-page-4.png" alt="Use it live on stage poster" width="900" height="1600" loading="lazy" decoding="async" />
@@ -247,7 +247,7 @@
             <button class="story-carousel-dot" type="button" aria-label="Go to feature 4" data-story-dot="3"></button>
             <button class="story-carousel-dot" type="button" aria-label="Go to feature 5" data-story-dot="4"></button>
             <button class="story-carousel-dot" type="button" aria-label="Go to feature 6" data-story-dot="5"></button>
-            <button class="story-carousel-dot" type="button" aria-label="Go to feature 7" data-story-dot="6"></button>
+            <button class="story-carousel-dot mobile-story-hidden" type="button" aria-label="Go to feature 7" data-story-dot="6"></button>
           </div>
         </div>
 
@@ -780,9 +780,9 @@
 
       function initStoryCarousel() {
         const grid = document.querySelector(".hero-story-grid");
-        const cards = Array.from(document.querySelectorAll("[data-story-card]"));
-        const dots = Array.from(document.querySelectorAll("[data-story-dot]"));
-        if (!grid || !cards.length || !dots.length) return;
+        const allCards = Array.from(document.querySelectorAll("[data-story-card]"));
+        const allDots = Array.from(document.querySelectorAll("[data-story-dot]"));
+        if (!grid || !allCards.length || !allDots.length) return;
 
         let activeIndex = 0;
         let rafId = 0;
@@ -790,8 +790,21 @@
         let autoAdvanceStartTimer = 0;
         const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 
+        function visibleItems() {
+          return {
+            cards: allCards.filter((card) => window.getComputedStyle(card).display !== "none"),
+            dots: allDots.filter((dot) => window.getComputedStyle(dot).display !== "none"),
+          };
+        }
+
         function setActiveStory(index) {
+          const { cards, dots } = visibleItems();
+          if (!cards.length || !dots.length) return;
           activeIndex = Math.max(0, Math.min(index, cards.length - 1));
+          allDots.forEach((dot) => {
+            dot.classList.remove("is-active");
+            dot.setAttribute("aria-current", "false");
+          });
           dots.forEach((dot, dotIndex) => {
             const isActive = dotIndex === activeIndex;
             dot.classList.toggle("is-active", isActive);
@@ -800,6 +813,8 @@
         }
 
         function detectActiveStory() {
+          const { cards } = visibleItems();
+          if (!cards.length) return;
           const gridRect = grid.getBoundingClientRect();
           const gridCenter = gridRect.left + gridRect.width / 2;
           let closestIndex = 0;
@@ -822,6 +837,7 @@
         }
 
         function scrollToStory(index) {
+          const { cards } = visibleItems();
           cards[index]?.scrollIntoView({
             behavior: "smooth",
             inline: "center",
@@ -846,14 +862,19 @@
           stopAutoAdvance();
           autoAdvanceStartTimer = window.setTimeout(() => {
             autoAdvanceTimer = window.setInterval(() => {
+              const { cards } = visibleItems();
+              if (!cards.length) return;
               const nextIndex = (activeIndex + 1) % cards.length;
               scrollToStory(nextIndex);
             }, 4200);
           }, 2600);
         }
 
-        dots.forEach((dot, index) => {
+        allDots.forEach((dot) => {
           dot.addEventListener("click", () => {
+            const { dots } = visibleItems();
+            const index = dots.indexOf(dot);
+            if (index < 0) return;
             scrollToStory(index);
             startAutoAdvance();
           });

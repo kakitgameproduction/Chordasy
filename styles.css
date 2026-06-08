@@ -1377,11 +1377,19 @@ main {
   }
 
   .hero-story-grid .story-desktop-card {
-    display: block;
+    display: none;
   }
 
-  .hero-story-grid .story-poster,
   .hero-story-grid .story-copy {
+    display: none;
+  }
+
+  .hero-story-grid .story-poster {
+    display: flex;
+  }
+
+  .hero-story-grid .mobile-story-hidden,
+  .hero-story-dots .mobile-story-hidden {
     display: none;
   }
 
@@ -1430,6 +1438,11 @@ main {
     height: 100%;
     width: 100%;
     scroll-snap-align: center;
+  }
+
+  .hero-story-grid .story-card.mobile-story-hidden,
+  .hero-story-dots .story-carousel-dot.mobile-story-hidden {
+    display: none;
   }
 
   .story-poster {
