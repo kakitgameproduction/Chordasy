@@ -1234,7 +1234,7 @@ main {
   border-radius: 16px;
 }
 
-@media (min-width: 1081px) {
+@media (min-width: 768px) {
   .hero {
     grid-template-columns: 1fr;
     gap: 16px;
@@ -1299,7 +1299,7 @@ main {
   }
 }
 
-@media (max-width: 1080px) {
+@media (max-width: 767px) {
   .hero,
   .split-section,
   .story-grid,
@@ -1331,7 +1331,7 @@ main {
   }
 }
 
-@media (max-width: 900px) {
+@media (max-width: 767px) {
   body::before,
   body::after {
     width: 22px;
@@ -1866,24 +1866,19 @@ main {
 }
 
 
-/* ===== Tablet uses desktop-style hero layout ===== */
-@media (min-width: 721px) and (max-width: 1080px) {
-  .site-header,
-  .hero,
-  .content-section {
-    width: min(1180px, calc(100% - 48px));
-  }
+/* ===== Tablet/Desktop cleanup: hide old hero copy completely ===== */
+.hero-copy-top {
+  display: none !important;
+}
 
+/* Tablet and desktop use desktop feature cards */
+@media (min-width: 768px) {
   .hero {
     grid-template-columns: 1fr !important;
     gap: 16px !important;
     align-items: start !important;
     min-height: auto !important;
     padding-top: 8px !important;
-  }
-
-  .hero-copy-top {
-    display: none !important;
   }
 
   .hero-stage {
@@ -1931,10 +1926,6 @@ main {
     margin: 0 auto !important;
   }
 
-  .mobile-download-button {
-    display: flex !important;
-  }
-
   .hero-story-grid .story-card.mobile-story-hidden,
   .hero-story-dots .story-carousel-dot.mobile-story-hidden {
     display: block !important;
@@ -1942,5 +1933,21 @@ main {
 
   .story-carousel-dots {
     display: flex !important;
+  }
+}
+
+/* Phone keeps mobile card layout */
+@media (max-width: 767px) {
+  .hero-story-grid .story-desktop-card {
+    display: none !important;
+  }
+
+  .hero-story-grid .story-poster {
+    display: flex !important;
+  }
+
+  .hero-story-grid .story-card.mobile-story-hidden,
+  .hero-story-dots .story-carousel-dot.mobile-story-hidden {
+    display: none !important;
   }
 }
