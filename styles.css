@@ -1828,3 +1828,11 @@ main {
     background: linear-gradient(180deg, #defe84, #bce75d);
   }
 }
+
+.hero-download-now{
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 18px auto 16px;
+}
