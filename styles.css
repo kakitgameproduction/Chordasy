@@ -1234,7 +1234,7 @@ main {
   border-radius: 16px;
 }
 
-@media (min-width: 1081px) {
+@media (min-width: 721px) {
   .hero {
     grid-template-columns: 1fr;
     gap: 16px;
@@ -1299,7 +1299,7 @@ main {
   }
 }
 
-@media (max-width: 1080px) {
+@media (max-width: 720px) {
   .hero,
   .split-section,
   .story-grid,
