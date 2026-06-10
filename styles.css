@@ -1836,3 +1836,24 @@ main {
     min-width: 220px;
   }
 }
+
+/* FAQ + Quick Start white cards */
+
+.split-section .panel-block,
+.split-section .panel-block p,
+.split-section .panel-block li {
+    color: #444 !important;
+}
+
+.split-section .panel-block strong {
+    color: #2500b8 !important;
+}
+
+.split-section .panel-block h2,
+.split-section .panel-block h3 {
+    color: #2500b8 !important;
+}
+
+.split-section .faq-mini p strong {
+    color: #2500b8 !important;
+}
