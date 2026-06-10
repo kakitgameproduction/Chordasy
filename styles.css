@@ -1234,7 +1234,7 @@ main {
   border-radius: 16px;
 }
 
-@media (min-width: 721px) {
+@media (min-width: 1081px) {
   .hero {
     grid-template-columns: 1fr;
     gap: 16px;
@@ -1299,7 +1299,7 @@ main {
   }
 }
 
-@media (max-width: 720px) {
+@media (max-width: 1080px) {
   .hero,
   .split-section,
   .story-grid,
@@ -1863,4 +1863,84 @@ main {
 
 .split-section .faq-mini p strong {
     color: #2500b8 !important;
+}
+
+
+/* ===== Tablet uses desktop-style hero layout ===== */
+@media (min-width: 721px) and (max-width: 1080px) {
+  .site-header,
+  .hero,
+  .content-section {
+    width: min(1180px, calc(100% - 48px));
+  }
+
+  .hero {
+    grid-template-columns: 1fr !important;
+    gap: 16px !important;
+    align-items: start !important;
+    min-height: auto !important;
+    padding-top: 8px !important;
+  }
+
+  .hero-copy-top {
+    display: none !important;
+  }
+
+  .hero-stage {
+    grid-column: 1 / -1 !important;
+    grid-row: 1 !important;
+    width: min(1180px, 100%) !important;
+    min-height: auto !important;
+    margin: 0 auto !important;
+    padding-top: 0 !important;
+    align-items: center !important;
+  }
+
+  .hero-story-grid {
+    width: 100% !important;
+    padding: 0 !important;
+  }
+
+  .hero-story-grid .story-card {
+    display: block !important;
+    min-height: auto !important;
+    padding: 0 !important;
+    border: 0 !important;
+    border-radius: 0 !important;
+    background: transparent !important;
+    box-shadow: none !important;
+  }
+
+  .hero-story-grid .story-desktop-card {
+    display: block !important;
+  }
+
+  .hero-story-grid .story-poster,
+  .hero-story-grid .story-copy {
+    display: none !important;
+  }
+
+  .hero-story-dots {
+    margin-top: 10px !important;
+  }
+
+  .hero-copy-bottom {
+    grid-column: 1 / -1 !important;
+    grid-row: 3 !important;
+    width: min(1180px, 100%) !important;
+    margin: 0 auto !important;
+  }
+
+  .mobile-download-button {
+    display: flex !important;
+  }
+
+  .hero-story-grid .story-card.mobile-story-hidden,
+  .hero-story-dots .story-carousel-dot.mobile-story-hidden {
+    display: block !important;
+  }
+
+  .story-carousel-dots {
+    display: flex !important;
+  }
 }
