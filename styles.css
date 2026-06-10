@@ -1775,3 +1775,22 @@ main {
 .hero-story-grid:active {
   cursor: grabbing;
 }
+
+@media (max-width: 720px) {
+
+  .brand img {
+    max-height: 80px !important;
+  }
+
+  .hero {
+    padding-top: 0 !important;
+    gap: 0 !important;
+  }
+
+  .hero-stage {
+    margin-top: -20px !important;
+    padding-top: 0 !important;
+    min-height: auto !important;
+  }
+
+}
