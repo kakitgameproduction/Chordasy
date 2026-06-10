@@ -319,6 +319,13 @@ main {
   margin-top: 14px;
 }
 
+.support-actions {
+  margin-left: auto;
+  width: 340px;
+  align-items: flex-end;
+  justify-content: flex-end;
+}
+
 .hero-actions {
   grid-column: 1 / -1;
   grid-row: 2;
