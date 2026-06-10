@@ -626,6 +626,10 @@ main {
   background: var(--accent);
 }
 
+.mobile-download-button {
+  display: none;
+}
+
 .story-card {
   display: grid;
   grid-template-columns: minmax(200px, 250px) minmax(0, 1fr);
@@ -1765,5 +1769,62 @@ main {
 
   .transpose-preview-frame {
     height: 48vh;
+  }
+}
+
+/* ===== Mobile landing layout ===== */
+
+@media (max-width: 720px) {
+  .site-header {
+    display: none;
+  }
+
+  .hero,
+  .content-section {
+    width: min(100%, calc(100% - 24px));
+  }
+
+  .hero {
+    padding-top: 0;
+    margin-top: 0;
+    gap: 0;
+  }
+
+  .hero-stage {
+    grid-row: 1;
+    margin-top: 0;
+    padding-top: 0;
+    min-height: auto;
+  }
+
+  .hero-story-grid {
+    padding-top: 0;
+  }
+
+  .mobile-download-button {
+    display: flex;
+    justify-content: center;
+    margin-top: 16px;
+    margin-bottom: 10px;
+  }
+
+  .mobile-download-button a {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 220px;
+    min-height: 54px;
+    padding: 14px 24px;
+    border-radius: 999px;
+    color: #071019;
+    font-weight: 900;
+    text-align: center;
+    background: linear-gradient(180deg, #d8ff70, #b7ea53);
+    box-shadow: 0 14px 34px rgba(183, 234, 83, 0.25);
+  }
+
+  .mobile-download-button a:hover,
+  .mobile-download-button a:focus {
+    background: linear-gradient(180deg, #defe84, #bce75d);
   }
 }
