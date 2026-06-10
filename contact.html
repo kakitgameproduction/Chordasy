@@ -1,0 +1,241 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Contact Support | Chordasy</title>
+    <meta name="description" content="Contact Chordasy support for questions about chord charts, setlists, cloud services, Band Mode, transpose, and live performance features." />
+    <link rel="canonical" href="https://chordasy.com/contact.html" />
+    <link rel="icon" href="chordasy_app_icon.png" />
+    <link rel="stylesheet" href="styles.css?v=20260610-contact-1" />
+    <style>
+      .contact-card {
+        width: min(860px, 100%);
+        gap: 22px;
+      }
+
+      .contact-form {
+        display: grid;
+        gap: 16px;
+        width: min(680px, 100%);
+        margin: 0 auto;
+        text-align: left;
+      }
+
+      .contact-form-row {
+        display: grid;
+        gap: 8px;
+      }
+
+      .contact-form label {
+        color: var(--accent-2);
+        font-weight: 900;
+        letter-spacing: 0.04em;
+      }
+
+      .contact-form input,
+      .contact-form textarea {
+        width: 100%;
+        padding: 15px 17px;
+        border: 1px solid rgba(170, 220, 255, 0.22);
+        border-radius: 18px;
+        background: rgba(255, 255, 255, 0.08);
+        color: var(--text);
+        font: inherit;
+        outline: none;
+      }
+
+      .contact-form input::placeholder,
+      .contact-form textarea::placeholder {
+        color: rgba(248, 251, 255, 0.52);
+      }
+
+      .contact-form input:focus,
+      .contact-form textarea:focus {
+        border-color: var(--accent-2);
+        box-shadow: 0 0 0 4px rgba(92, 240, 255, 0.12);
+      }
+
+      .contact-form textarea {
+        min-height: 170px;
+        resize: vertical;
+      }
+
+      .contact-submit {
+        margin-top: 6px;
+        width: 100%;
+        border: 0;
+        cursor: pointer;
+      }
+
+      .contact-note {
+        margin: 0;
+        color: var(--muted);
+        font-size: 0.95rem;
+        text-align: center;
+      }
+
+      .contact-honeypot {
+        display: none;
+      }
+
+      @media (max-width: 560px) {
+        .contact-card {
+          padding: 22px;
+        }
+
+        .contact-form input,
+        .contact-form textarea {
+          padding: 14px;
+          border-radius: 16px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <header class="site-header">
+      <a class="brand" href="index.html" aria-label="Chordasy home">
+        <img src="chordasy_logo_header.png" alt="Chordasy" />
+      </a>
+      <div class="header-controls">
+        <nav class="nav-links" aria-label="Main navigation">
+          <a class="nav-play-badge play-badge-button" href="https://play.google.com/store/apps/details?id=com.KaKitGameProduction.Chordasy" aria-label="Download on Google Play">
+            <img src="Google-play-badge.png" alt="Get it on Google Play" />
+          </a>
+          <a href="index.html#help" data-i18n="navFeatures">Quick Start</a>
+          <a href="download.html" data-i18n="navDownload">Download</a>
+          <div class="transpose-nav-callout">
+            <a href="index.html" class="nav-link-button nav-link-button-accent" data-i18n="navTranspose">Transpose</a>
+            <img class="transpose-nav-callout-image" src="transpose-callout.gif" alt="Free try callout for Transpose" />
+          </div>
+        </nav>
+        <div class="lang-switch" aria-label="Language switcher">
+          <button type="button" class="lang-button" data-lang-button="en">Eng</button>
+          <button type="button" class="lang-button" data-lang-button="zh">Chi</button>
+        </div>
+      </div>
+    </header>
+
+    <main>
+      <section class="content-section download-hero standalone-policy">
+        <div class="download-card contact-card">
+          <div>
+            <p class="eyebrow" data-i18n="contactEyebrow">Contact Support</p>
+            <h1 data-i18n="contactTitle">How can we help?</h1>
+          </div>
+
+          <p class="lead download-pitch" data-i18n="contactPitch">
+            Send us your question about Chordasy, including chart import, cloud services, setlists, transpose, Band Mode, or live performance workflow.
+          </p>
+
+          <form class="contact-form" action="https://api.web3forms.com/submit" method="POST">
+            <input type="hidden" name="access_key" value="b911994f-9c51-4e69-bb9f-02af0619bbe0" />
+            <input type="hidden" name="subject" value="Chordasy Support Request" />
+            <input type="hidden" name="from_name" value="Chordasy Website" />
+            <input type="checkbox" name="botcheck" class="contact-honeypot" tabindex="-1" autocomplete="off" />
+
+            <div class="contact-form-row">
+              <label for="name" data-i18n="contactNameLabel">Your Name</label>
+              <input id="name" type="text" name="name" placeholder="Your name" required data-i18n-placeholder="contactNamePlaceholder" />
+            </div>
+
+            <div class="contact-form-row">
+              <label for="email" data-i18n="contactEmailLabel">Your Email</label>
+              <input id="email" type="email" name="email" placeholder="you@example.com" required data-i18n-placeholder="contactEmailPlaceholder" />
+            </div>
+
+            <div class="contact-form-row">
+              <label for="message" data-i18n="contactMessageLabel">Message</label>
+              <textarea id="message" name="message" placeholder="Tell us what you need help with..." required data-i18n-placeholder="contactMessagePlaceholder"></textarea>
+            </div>
+
+            <button class="button primary contact-submit" type="submit" data-i18n="contactSubmit">Send Message</button>
+          </form>
+
+          <p class="contact-note" data-i18n="contactNote">We’ll reply by email as soon as possible.</p>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <span data-i18n="footerCopy">© 2026 Chordasy</span>
+      <a href="index.html" data-i18n="footerHome">Home</a>
+      <a href="privacy.html" data-i18n="footerPrivacy">Privacy Policy</a>
+    </footer>
+
+    <script>
+      const translations = {
+        en: {
+          navFeatures: "Quick Start",
+          navTranspose: "Transpose",
+          navDownload: "Download",
+          contactEyebrow: "Contact Support",
+          contactTitle: "How can we help?",
+          contactPitch: "Send us your question about Chordasy, including chart import, cloud services, setlists, transpose, Band Mode, or live performance workflow.",
+          contactNameLabel: "Your Name",
+          contactNamePlaceholder: "Your name",
+          contactEmailLabel: "Your Email",
+          contactEmailPlaceholder: "you@example.com",
+          contactMessageLabel: "Message",
+          contactMessagePlaceholder: "Tell us what you need help with...",
+          contactSubmit: "Send Message",
+          contactNote: "We’ll reply by email as soon as possible.",
+          footerCopy: "© 2026 Chordasy",
+          footerHome: "Home",
+          footerPrivacy: "Privacy Policy"
+        },
+        zh: {
+          navFeatures: "快速開始",
+          navTranspose: "Transpose",
+          navDownload: "下載",
+          contactEyebrow: "聯絡支援",
+          contactTitle: "有咩可以幫到你？",
+          contactPitch: "如有任何關於 Chordasy 的問題，包括匯入樂譜、雲端服務、Setlist、移調、Band Mode 或現場使用流程，歡迎傳送訊息給我們。",
+          contactNameLabel: "你的名字",
+          contactNamePlaceholder: "你的名字",
+          contactEmailLabel: "你的電郵",
+          contactEmailPlaceholder: "you@example.com",
+          contactMessageLabel: "訊息",
+          contactMessagePlaceholder: "請簡單描述你需要協助的地方...",
+          contactSubmit: "送出訊息",
+          contactNote: "我們會盡快透過電郵回覆。",
+          footerCopy: "© 2026 Chordasy",
+          footerHome: "主頁",
+          footerPrivacy: "私隱政策"
+        }
+      };
+
+      function applyLanguage(language) {
+        const lang = translations[language] ? language : "en";
+        document.documentElement.lang = lang;
+        localStorage.setItem("chordlab-language", lang);
+
+        document.querySelectorAll("[data-i18n]").forEach((node) => {
+          const key = node.getAttribute("data-i18n");
+          if (translations[lang][key]) {
+            node.textContent = translations[lang][key];
+          }
+        });
+
+        document.querySelectorAll("[data-i18n-placeholder]").forEach((node) => {
+          const key = node.getAttribute("data-i18n-placeholder");
+          if (translations[lang][key]) {
+            node.setAttribute("placeholder", translations[lang][key]);
+          }
+        });
+
+        document.querySelectorAll("[data-lang-button]").forEach((button) => {
+          button.classList.toggle("active", button.getAttribute("data-lang-button") === lang);
+        });
+      }
+
+      const savedLanguage = localStorage.getItem("chordlab-language");
+      const detectedLanguage = navigator.language && navigator.language.toLowerCase().startsWith("zh") ? "zh" : "en";
+      applyLanguage(savedLanguage || detectedLanguage);
+
+      document.querySelectorAll("[data-lang-button]").forEach((button) => {
+        button.addEventListener("click", () => applyLanguage(button.getAttribute("data-lang-button")));
+      });
+    </script>
+  </body>
+</html>
