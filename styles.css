@@ -1,7 +1,8 @@
 :root {
   color-scheme: dark;
   --bg-top: #2008ae;
-  --bg-bottom: #160777;
+  --bg-mid: #2008ae;
+  --bg-bottom: #14006f;
   --surface: rgba(12, 18, 32, 0.78);
   --surface-strong: rgba(12, 18, 32, 0.92);
   --surface-soft: rgba(255, 255, 255, 0.06);
@@ -41,9 +42,7 @@ body {
   min-height: 100vh;
   font-family: var(--ui-font);
   color: var(--text);
-  background:
-    linear-gradient(180deg, rgba(0, 0, 0, 0.04), rgba(0, 0, 0, 0.26)),
-    linear-gradient(180deg, var(--bg-top) 0%, #2008ae 42%, #1b0894 74%, var(--bg-bottom) 100%);
+  background: #2008ae;
 }
 
 a {
@@ -542,7 +541,7 @@ main {
 }
 
 .content-section {
-  padding: 74px 0;
+  padding: 20px 0;
 }
 
 .section-heading {
@@ -1728,4 +1727,51 @@ main {
   .transpose-preview-frame {
     height: 48vh;
   }
+}
+
+
+/* ===== Premium White Cards ===== */
+
+.split-section > * {
+  background: rgba(255,255,255,0.97) !important;
+  backdrop-filter: blur(20px);
+  border: 1px solid #e5ebff !important;
+  box-shadow: 0 24px 60px rgba(0,0,0,0.15);
+}
+
+.split-section .eyebrow,
+.split-section h2,
+.split-section h3,
+.split-section strong {
+  color: #2500b8 !important;
+}
+
+.split-section p,
+.split-section li {
+  color: #4a4a4a !important;
+}
+
+/* Support Section Buttons */
+
+.support-actions .button.ghost {
+  background: #ffffff !important;
+  color: #2500b8 !important;
+  border: 2px solid #2500b8 !important;
+  font-weight: 700;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.12);
+}
+
+.support-actions .button.ghost:hover {
+  background: #2500b8 !important;
+  color: #ffffff !important;
+  transform: translateY(-2px);
+}
+
+
+.hero-story-grid {
+  cursor: pointer;
+}
+
+.hero-story-grid:active {
+  cursor: grabbing;
 }

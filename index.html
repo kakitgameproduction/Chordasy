@@ -18,7 +18,7 @@
     <link rel="canonical" href="https://chordasy.com/" />
     <link rel="icon" href="chordasy_app_icon.png" />
     <link rel="preload" as="image" href="feature_card_desktop_1.png" />
-    <link rel="stylesheet" href="styles.css?v=20260608-feature-cards-1" />
+    <link rel="stylesheet" href="styles.css?v=20260610-bg-2" />
     <script type="application/ld+json">
       {
         "@context": "https://schema.org",
@@ -778,7 +778,7 @@
         heroVideoFrame.src = "";
       }
 
-      function initStoryCarousel() {
+    function initStoryCarousel() {
         const grid = document.querySelector(".hero-story-grid");
         const allCards = Array.from(document.querySelectorAll("[data-story-card]"));
         const allDots = Array.from(document.querySelectorAll("[data-story-dot]"));
@@ -786,9 +786,7 @@
 
         let activeIndex = 0;
         let rafId = 0;
-        let autoAdvanceTimer = 0;
-        let autoAdvanceStartTimer = 0;
-        const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+        let isDragging = false;
 
         function visibleItems() {
           return {
@@ -800,11 +798,14 @@
         function setActiveStory(index) {
           const { cards, dots } = visibleItems();
           if (!cards.length || !dots.length) return;
+
           activeIndex = Math.max(0, Math.min(index, cards.length - 1));
+
           allDots.forEach((dot) => {
             dot.classList.remove("is-active");
             dot.setAttribute("aria-current", "false");
           });
+
           dots.forEach((dot, dotIndex) => {
             const isActive = dotIndex === activeIndex;
             dot.classList.toggle("is-active", isActive);
@@ -815,19 +816,24 @@
         function detectActiveStory() {
           const { cards } = visibleItems();
           if (!cards.length) return;
+
           const gridRect = grid.getBoundingClientRect();
           const gridCenter = gridRect.left + gridRect.width / 2;
+
           let closestIndex = 0;
           let closestDistance = Number.POSITIVE_INFINITY;
+
           cards.forEach((card, index) => {
             const rect = card.getBoundingClientRect();
             const cardCenter = rect.left + rect.width / 2;
             const distance = Math.abs(cardCenter - gridCenter);
+
             if (distance < closestDistance) {
               closestDistance = distance;
               closestIndex = index;
             }
           });
+
           setActiveStory(closestIndex);
         }
 
@@ -838,76 +844,90 @@
 
         function scrollToStory(index) {
           const { cards } = visibleItems();
-          cards[index]?.scrollIntoView({
+          if (!cards.length) return;
+
+          const targetIndex = Math.max(0, Math.min(index, cards.length - 1));
+
+          cards[targetIndex]?.scrollIntoView({
             behavior: "smooth",
             inline: "center",
             block: "nearest",
           });
-          setActiveStory(index);
+
+          setActiveStory(targetIndex);
         }
 
-        function stopAutoAdvance() {
-          if (autoAdvanceStartTimer) {
-            window.clearTimeout(autoAdvanceStartTimer);
-            autoAdvanceStartTimer = 0;
-          }
-          if (autoAdvanceTimer) {
-            window.clearInterval(autoAdvanceTimer);
-            autoAdvanceTimer = 0;
-          }
+        function goToPreviousStory() {
+          const { cards } = visibleItems();
+          if (!cards.length) return;
+
+          const prevIndex = activeIndex <= 0 ? cards.length - 1 : activeIndex - 1;
+          scrollToStory(prevIndex);
         }
 
-        function startAutoAdvance() {
-          if (prefersReducedMotion) return;
-          stopAutoAdvance();
-          autoAdvanceStartTimer = window.setTimeout(() => {
-            autoAdvanceTimer = window.setInterval(() => {
-              const { cards } = visibleItems();
-              if (!cards.length) return;
-              const nextIndex = (activeIndex + 1) % cards.length;
-              scrollToStory(nextIndex);
-            }, 4200);
-          }, 2600);
+        function goToNextStory() {
+          const { cards } = visibleItems();
+          if (!cards.length) return;
+
+          const nextIndex = (activeIndex + 1) % cards.length;
+          scrollToStory(nextIndex);
         }
 
         allDots.forEach((dot) => {
-          dot.addEventListener("click", () => {
+          dot.addEventListener("click", (event) => {
+            event.preventDefault();
+            event.stopPropagation();
+
             const { dots } = visibleItems();
             const index = dots.indexOf(dot);
+
             if (index < 0) return;
             scrollToStory(index);
-            startAutoAdvance();
           });
         });
 
         grid.addEventListener("scroll", onScroll, { passive: true });
-        grid.addEventListener("pointerenter", stopAutoAdvance);
-        grid.addEventListener("pointerleave", startAutoAdvance);
-        grid.addEventListener("focusin", stopAutoAdvance);
-        grid.addEventListener("focusout", startAutoAdvance);
-        grid.addEventListener("touchstart", stopAutoAdvance, { passive: true });
-        grid.addEventListener("touchend", startAutoAdvance, { passive: true });
-        window.addEventListener("resize", detectActiveStory);
-        document.addEventListener("visibilitychange", () => {
-          if (document.hidden) {
-            stopAutoAdvance();
+
+        grid.addEventListener("pointerdown", () => {
+          isDragging = false;
+        });
+
+        grid.addEventListener("pointermove", () => {
+          isDragging = true;
+        });
+
+        grid.addEventListener("click", (event) => {
+          if (isDragging) return;
+          if (event.target.closest("[data-transpose-open]")) return;
+
+          const { cards } = visibleItems();
+          if (!cards.length) return;
+
+          const gridRect = grid.getBoundingClientRect();
+          const clickX = event.clientX - gridRect.left;
+
+          if (clickX < gridRect.width / 2) {
+            goToPreviousStory();
           } else {
-            startAutoAdvance();
+            goToNextStory();
           }
         });
 
+        window.addEventListener("resize", detectActiveStory);
+
         grid.scrollLeft = 0;
         setActiveStory(0);
+
         window.requestAnimationFrame(() => {
           grid.scrollLeft = 0;
           setActiveStory(0);
         });
+
         window.addEventListener(
           "load",
           () => {
             grid.scrollLeft = 0;
             setActiveStory(0);
-            startAutoAdvance();
           },
           { once: true }
         );
