@@ -1,0 +1,181 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Thank You | Chordasy</title>
+    <meta name="description" content="Thank you for contacting Chordasy support." />
+    <link rel="canonical" href="https://chordasy.com/thankyou.html" />
+    <link rel="icon" href="chordasy_app_icon.png" />
+    <link rel="stylesheet" href="styles.css?v=20260610-thankyou-1" />
+    <style>
+      .thankyou-card {
+        width: min(820px, 100%);
+        gap: 24px;
+      }
+
+      .thankyou-icon {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        width: 82px;
+        height: 82px;
+        margin: 0 auto 6px;
+        border-radius: 26px;
+        color: #071019;
+        font-size: 2.4rem;
+        font-weight: 900;
+        background: linear-gradient(180deg, #d8ff70, #b7ea53);
+        box-shadow: 0 18px 42px rgba(183, 234, 83, 0.24);
+      }
+
+      .thankyou-actions {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 14px;
+        width: 100%;
+      }
+
+      .thankyou-actions .button {
+        min-width: 210px;
+      }
+
+      .thankyou-note {
+        max-width: 640px;
+        margin: 0 auto;
+        color: var(--muted);
+        font-size: 0.98rem;
+      }
+
+      @media (max-width: 560px) {
+        .thankyou-card {
+          padding: 22px;
+        }
+
+        .thankyou-actions {
+          display: grid;
+          grid-template-columns: 1fr;
+        }
+
+        .thankyou-actions .button {
+          width: 100%;
+          min-width: 0;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <header class="site-header">
+      <a class="brand" href="index.html" aria-label="Chordasy home">
+        <img src="chordasy_logo_header.png" alt="Chordasy" />
+      </a>
+      <div class="header-controls">
+        <nav class="nav-links" aria-label="Main navigation">
+          <a class="nav-play-badge play-badge-button" href="https://play.google.com/store/apps/details?id=com.KaKitGameProduction.Chordasy" aria-label="Download on Google Play">
+            <img src="Google-play-badge.png" alt="Get it on Google Play" />
+          </a>
+          <a href="index.html#help" data-i18n="navFeatures">Quick Start</a>
+          <a href="contact.html" data-i18n="navContact">Contact</a>
+          <div class="transpose-nav-callout">
+            <a href="index.html" class="nav-link-button nav-link-button-accent" data-i18n="navTranspose">Transpose</a>
+            <img class="transpose-nav-callout-image" src="transpose-callout.gif" alt="Free try callout for Transpose" />
+          </div>
+        </nav>
+        <div class="lang-switch" aria-label="Language switcher">
+          <button type="button" class="lang-button" data-lang-button="en">Eng</button>
+          <button type="button" class="lang-button" data-lang-button="zh">Chi</button>
+        </div>
+      </div>
+    </header>
+
+    <main>
+      <section class="content-section download-hero standalone-policy">
+        <div class="download-card thankyou-card">
+          <div class="thankyou-icon" aria-hidden="true">✓</div>
+          <div>
+            <p class="eyebrow" data-i18n="thankyouEyebrow">Message Sent</p>
+            <h1 data-i18n="thankyouTitle">Thank you for contacting Chordasy.</h1>
+          </div>
+          <p class="lead download-pitch" data-i18n="thankyouPitch">
+            Your message has been received. We’ll review your question and reply by email as soon as possible.
+          </p>
+          <p class="thankyou-note" data-i18n="thankyouNote">
+            While you wait, you can return to the homepage, download the user manual, or explore Chordasy features again.
+          </p>
+          <div class="thankyou-actions">
+            <a class="button primary" href="index.html" data-i18n="thankyouHome">Back to Home</a>
+            <a class="button ghost" href="Chordasy_User_Manual_v1.pdf" download data-i18n="thankyouManual">User Manual</a>
+            <a class="button ghost" href="contact.html" data-i18n="thankyouContact">Send Another Message</a>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <span data-i18n="footerCopy">© 2026 Chordasy</span>
+      <a href="index.html" data-i18n="footerHome">Home</a>
+      <a href="privacy.html" data-i18n="footerPrivacy">Privacy Policy</a>
+    </footer>
+
+    <script>
+      const translations = {
+        en: {
+          navFeatures: "Quick Start",
+          navTranspose: "Transpose",
+          navContact: "Contact",
+          thankyouEyebrow: "Message Sent",
+          thankyouTitle: "Thank you for contacting Chordasy.",
+          thankyouPitch: "Your message has been received. We’ll review your question and reply by email as soon as possible.",
+          thankyouNote: "While you wait, you can return to the homepage, download the user manual, or explore Chordasy features again.",
+          thankyouHome: "Back to Home",
+          thankyouManual: "User Manual",
+          thankyouContact: "Send Another Message",
+          footerCopy: "© 2026 Chordasy",
+          footerHome: "Home",
+          footerPrivacy: "Privacy Policy"
+        },
+        zh: {
+          navFeatures: "快速開始",
+          navTranspose: "Transpose",
+          navContact: "聯絡",
+          thankyouEyebrow: "訊息已送出",
+          thankyouTitle: "多謝你聯絡 Chordasy。",
+          thankyouPitch: "我們已收到你的訊息，會盡快查看你的問題並透過電郵回覆。",
+          thankyouNote: "等待回覆期間，你可以返回主頁、下載使用手冊，或者再次瀏覽 Chordasy 功能。",
+          thankyouHome: "返回主頁",
+          thankyouManual: "使用手冊",
+          thankyouContact: "再傳送訊息",
+          footerCopy: "© 2026 Chordasy",
+          footerHome: "主頁",
+          footerPrivacy: "私隱政策"
+        }
+      };
+
+      function applyLanguage(language) {
+        const lang = translations[language] ? language : "en";
+        document.documentElement.lang = lang;
+        localStorage.setItem("chordlab-language", lang);
+
+        document.querySelectorAll("[data-i18n]").forEach((node) => {
+          const key = node.getAttribute("data-i18n");
+          if (translations[lang][key]) {
+            node.textContent = translations[lang][key];
+          }
+        });
+
+        document.querySelectorAll("[data-lang-button]").forEach((button) => {
+          button.classList.toggle("active", button.getAttribute("data-lang-button") === lang);
+        });
+      }
+
+      const savedLanguage = localStorage.getItem("chordlab-language");
+      const detectedLanguage = navigator.language && navigator.language.toLowerCase().startsWith("zh") ? "zh" : "en";
+      applyLanguage(savedLanguage || detectedLanguage);
+
+      document.querySelectorAll("[data-lang-button]").forEach((button) => {
+        button.addEventListener("click", () => applyLanguage(button.getAttribute("data-lang-button")));
+      });
+    </script>
+  </body>
+</html>
