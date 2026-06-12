@@ -4,6 +4,7 @@ import re
 
 
 SHARP_NOTES = ["C", "C#", "D", "D#", "E", "F", "F#", "G", "G#", "A", "A#", "B"]
+FLAT_NOTES = ["C", "Db", "D", "Eb", "E", "F", "Gb", "G", "Ab", "A", "Bb", "B"]
 FLAT_TO_SHARP = {
     "Db": "C#",
     "Eb": "D#",
@@ -38,13 +39,20 @@ TRAILING_REPEAT_RE = re.compile(r"(?i)((?:\s*[x×]\s*\d+)+)$")
 
 
 def normalize_note(note: str) -> str:
+    """Convert enharmonic flat spellings to their sharp equivalent."""
+
     return FLAT_TO_SHARP.get(note, note)
 
 
 def transpose_note(note: str, semitones: int) -> str:
+    """Transpose a note up/down, preferring sharps when ascending and flats when descending."""
+
+    if semitones == 0:
+        return note
     normalized = normalize_note(note)
     index = SHARP_NOTES.index(normalized)
-    return SHARP_NOTES[(index + semitones) % len(SHARP_NOTES)]
+    notes = FLAT_NOTES if semitones < 0 else SHARP_NOTES
+    return notes[(index + semitones) % len(notes)]
 
 
 def _split_token_shell(token: str) -> tuple[str, str, str]:
