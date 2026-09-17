@@ -19,11 +19,11 @@ const API_BASE =
 
   async function apiFetch(path, options = {}) {
     const response = await fetch(`${API_BASE}${path}`, {
+      ...options,
       headers: {
         "Content-Type": "application/json",
         ...(options.headers || {}),
       },
-      ...options,
     });
     const data = await response.json().catch(() => ({}));
     if (!response.ok) {
@@ -60,10 +60,15 @@ const API_BASE =
       .replaceAll("'", "&#39;");
   }
 
+  function platformName(platform) {
+    return platform === "ios" ? "App Store" : "Google Play";
+  }
+
   async function initRedeemPage() {
     const form = document.getElementById("redeem-form");
     if (!form) return;
     const inviteCode = document.getElementById("invite-code");
+    const platform = document.getElementById("redeem-platform");
     const email = document.getElementById("email");
     const emailRow = document.getElementById("redeem-email-row");
     const statusButton = document.getElementById("check-invite");
@@ -72,110 +77,103 @@ const API_BASE =
     const successCard = document.getElementById("redeem-success");
     const codeValue = document.getElementById("claimed-code");
     const codeMeta = document.getElementById("claimed-meta");
+    const storeLink = document.getElementById("store-redeem-link");
+    const storeHelp = document.getElementById("store-redeem-help");
     const groupLabel = document.getElementById("group-status-value");
     const remainingLabel = document.getElementById("remaining-status-value");
-    let inviteVerified = false;
+    let inviteVerified = false, generation = 0;
 
-    function setInviteAccepted(isAccepted) {
-      inviteVerified = isAccepted;
-      emailRow.classList.toggle("promo-hidden", !isAccepted);
-      submitButton.classList.toggle("promo-hidden", !isAccepted);
-      statusButton.classList.toggle("promo-hidden", isAccepted);
-      email.disabled = !isAccepted;
-      email.required = isAccepted;
-      if (!isAccepted) {
-        email.value = "";
-      }
+    function setInviteAccepted(accepted) {
+      inviteVerified = accepted;
+      emailRow.classList.toggle("promo-hidden", !accepted);
+      submitButton.classList.toggle("promo-hidden", !accepted);
+      statusButton.classList.toggle("promo-hidden", accepted);
+      email.disabled = !accepted;
+      email.required = accepted;
     }
-
-    setInviteAccepted(false);
-
+    function resetInvite() {
+      generation++;
+      setInviteAccepted(false);
+      statusButton.disabled = false;
+      groupLabel.textContent = "Not verified";
+      remainingLabel.textContent = "0";
+      successCard.hidden = true;
+      storeLink.removeAttribute("href");
+      setMessage(statusMessage, "Choose your platform and check your invite code.", "muted");
+    }
+    resetInvite();
     async function checkInvite() {
-      const value = inviteCode.value.trim();
-      if (!value) {
-        setMessage(statusMessage, "Enter your invite code to check access.", "muted");
+      const value = inviteCode.value.trim(), selected = platform.value;
+      if (!value || !selected) {
+        setMessage(statusMessage, "Choose your platform and enter your invite code.", "muted");
         return;
       }
+      const requestGeneration = ++generation;
+      statusButton.disabled = true;
       setMessage(statusMessage, "Checking invite code...", "muted");
       try {
         const data = await apiFetch("/redeem/status", {
-          method: "POST",
-          body: JSON.stringify({ inviteCode: value }),
+          method: "POST", body: JSON.stringify({ inviteCode: value, platform: selected }),
         });
+        if (requestGeneration !== generation) return;
+        if ((data.platform || "android") !== selected) throw new Error("This store is not enabled yet. Please try again later.");
         groupLabel.textContent = data.group.name;
         remainingLabel.textContent = String(data.group.availableCount);
         setInviteAccepted(true);
         email.focus();
-        setMessage(statusMessage, "Invite code accepted. Enter your email to redeem.", "success");
+        setMessage(statusMessage, data.group.availableCount > 0
+          ? `${platformName(selected)} invite accepted. Enter your email to claim your code.`
+          : `No new ${platformName(selected)} codes remain. You can still look up a code already issued to your email.`,
+          data.group.availableCount > 0 ? "success" : "muted");
       } catch (error) {
-        setInviteAccepted(false);
-        groupLabel.textContent = "Not verified";
-        remainingLabel.textContent = "0";
-        successCard.hidden = true;
+        if (requestGeneration !== generation) return;
+        resetInvite();
         setMessage(statusMessage, error.message, "error");
+      } finally {
+        if (requestGeneration === generation) statusButton.disabled = false;
       }
     }
-
     statusButton.addEventListener("click", checkInvite);
-    inviteCode.addEventListener("input", () => {
-      setInviteAccepted(false);
-      groupLabel.textContent = "Not verified";
-      remainingLabel.textContent = "0";
-      successCard.hidden = true;
-      setMessage(statusMessage, "Enter your invite code to check access.", "muted");
-    });
-    inviteCode.addEventListener("blur", () => {
-      if (inviteCode.value.trim()) {
-        checkInvite();
-      }
-    });
-
+    inviteCode.addEventListener("input", resetInvite);
+    platform.addEventListener("change", () => { resetInvite(); if (inviteCode.value.trim()) checkInvite(); });
     form.addEventListener("submit", async (event) => {
       event.preventDefault();
+      if (!inviteVerified) { await checkInvite(); return; }
+      const inviteValue = inviteCode.value.trim(), emailValue = email.value.trim().toLowerCase(), selected = platform.value;
+      if (!isValidEmail(emailValue)) { setMessage(statusMessage, "Enter a valid email address.", "error"); return; }
       successCard.hidden = true;
-
-      const inviteValue = inviteCode.value.trim();
-      const emailValue = email.value.trim().toLowerCase();
-      if (!inviteValue) {
-        setMessage(statusMessage, "Invite code is required.", "error");
-        return;
-      }
-      if (!inviteVerified) {
-        setMessage(statusMessage, "Please check a valid invite code first.", "error");
-        return;
-      }
-      if (!isValidEmail(emailValue)) {
-        setMessage(statusMessage, "Enter a valid email address.", "error");
-        return;
-      }
-
       submitButton.disabled = true;
-      setMessage(statusMessage, "Issuing your Google Play code...", "muted");
+      platform.disabled = inviteCode.disabled = email.disabled = true;
+      setMessage(statusMessage, `Issuing your ${platformName(selected)} code...`, "muted");
       try {
         const data = await apiFetch("/redeem/claim", {
-          method: "POST",
-          body: JSON.stringify({
-            inviteCode: inviteValue,
-            email: emailValue,
-          }),
+          method: "POST", body: JSON.stringify({ inviteCode: inviteValue, email: emailValue, platform: selected }),
         });
+        if ((data.platform || "android") !== selected) throw new Error("The store response did not match your platform. Contact the organiser.");
         groupLabel.textContent = data.group.name;
         remainingLabel.textContent = String(data.group.availableCount);
         codeValue.textContent = data.code;
         codeMeta.textContent = data.reusedClaim
-          ? `This email already claimed a code for ${data.group.name}, so the same code is shown again.`
-          : `Code issued for ${emailValue}. Remaining in this group: ${data.group.availableCount}.`;
+          ? `Your previously issued ${platformName(selected)} code for ${data.group.name}.`
+          : `${platformName(selected)} code issued for ${emailValue}. Remaining: ${data.group.availableCount}.`;
+        if (data.expiresAt) codeMeta.textContent += ` Expires: ${new Date(data.expiresAt).toLocaleString()}.`;
+        // Build a store-owned URL locally; never follow arbitrary API redirect URLs.
+        const link = new URL(selected === "ios" ? "https://apps.apple.com/redeem" : "https://play.google.com/redeem");
+        if (selected === "ios") { link.searchParams.set("ctx", "offercodes"); link.searchParams.set("id", "6791454575"); }
+        link.searchParams.set("code", data.code);
+        storeLink.href = link.href;
+        storeLink.textContent = `Redeem in ${platformName(selected)}`;
+        storeHelp.textContent = selected === "ios"
+          ? "Open this link on your iPhone or iPad and complete redemption in the App Store. Then open Chordasy. If Full Version has not appeared, use Restore Purchase with the same Apple Account."
+          : "Complete redemption in Google Play using the Google Account you use for Chordasy, then reopen the app.";
         successCard.hidden = false;
-        setMessage(statusMessage, "Your code is ready.", "success");
+        setMessage(statusMessage, "Your code is ready. Complete redemption in the store.", "success");
       } catch (error) {
-        if (error.message === "Invite code is not valid.") {
-          setInviteAccepted(false);
-          groupLabel.textContent = "Not verified";
-          remainingLabel.textContent = "0";
-        }
         setMessage(statusMessage, error.message, "error");
       } finally {
         submitButton.disabled = false;
+        platform.disabled = inviteCode.disabled = false;
+        email.disabled = !inviteVerified;
       }
     });
   }
@@ -275,14 +273,14 @@ const API_BASE =
         const row = document.createElement("tr");
         row.innerHTML = `
           <td>
-            <strong>${group.name}</strong><br>
-            <span class="promo-field-hint">${group.slug}</span>
+            <strong>${escapeHtml(group.name)}</strong><br>
+            <span class="promo-field-hint">${escapeHtml(group.slug)}</span>
           </td>
           <td><span class="promo-tag ${group.is_active ? "promo-tag-active" : "promo-tag-inactive"}">${group.is_active ? "Active" : "Disabled"}</span></td>
-          <td>${group.available_count}</td>
+          <td>${Number(group.available_count || 0)}<br><span class="promo-field-hint">Android: ${Number(group.android_available || 0)} · iOS: ${Number(group.ios_available || 0)}</span></td>
           <td>${group.claimed_count}</td>
           <td>${group.total_count}</td>
-          <td>${group.last_imported_at || "-"}</td>
+          <td>${escapeHtml(group.last_imported_at || "-")}</td>
           <td>
             <div class="promo-group-invite-editor">
               <input
@@ -365,18 +363,19 @@ const API_BASE =
       codesTableBody.innerHTML = "";
       if (!codes.length) {
         const row = document.createElement("tr");
-        row.innerHTML = '<td colspan="6">No codes found for this filter.</td>';
+        row.innerHTML = '<td colspan="7">No codes found for this filter.</td>';
         codesTableBody.appendChild(row);
         return;
       }
       codes.forEach((code) => {
         const row = document.createElement("tr");
         row.innerHTML = `
-          <td><code>${code.code}</code></td>
-          <td><span class="promo-tag ${code.status === "available" ? "promo-tag-available" : "promo-tag-claimed"}">${code.status}</span></td>
-          <td>${code.batch_label || "-"}</td>
-          <td>${code.claimed_by_email || "-"}</td>
-          <td>${code.claimed_at || code.added_at || "-"}</td>
+          <td><code>${escapeHtml(code.code)}</code></td>
+          <td>${platformName(code.platform)}</td>
+          <td><span class="promo-tag ${code.status === "available" ? "promo-tag-available" : "promo-tag-claimed"}">${code.expires_at && Date.parse(code.expires_at) <= Date.now() && code.status === "available" ? "expired" : escapeHtml(code.status)}</span></td>
+          <td>${escapeHtml(code.batch_label || "-")}</td>
+          <td>${escapeHtml(code.claimed_by_email || "-")}</td>
+          <td>${escapeHtml(code.claimed_at || code.added_at || "-")}<br><span class="promo-field-hint">Expiry: ${escapeHtml(code.expires_at || "Not set")}</span></td>
           <td>${code.status === "available" ? `<button class="promo-button promo-button-danger" data-delete-code="${code.id}">Delete</button>` : "-"}</td>
         `;
         codesTableBody.appendChild(row);
@@ -404,18 +403,19 @@ const API_BASE =
       claimsTableBody.innerHTML = "";
       if (!claims.length) {
         const row = document.createElement("tr");
-        row.innerHTML = '<td colspan="5">No claims found.</td>';
+        row.innerHTML = '<td colspan="6">No claims found.</td>';
         claimsTableBody.appendChild(row);
         return;
       }
       claims.forEach((claim) => {
         const row = document.createElement("tr");
         row.innerHTML = `
-          <td>${claim.email}</td>
-          <td>${claim.group_name}</td>
-          <td><code>${claim.code}</code></td>
-          <td>${claim.claimed_at}</td>
-          <td>${claim.invite_label || "-"}</td>
+          <td>${escapeHtml(claim.email)}</td>
+          <td>${escapeHtml(claim.group_name)}</td>
+          <td><code>${escapeHtml(claim.code)}</code></td>
+          <td>${platformName(claim.platform)}</td>
+          <td>${escapeHtml(claim.claimed_at)}</td>
+          <td>${escapeHtml(claim.invite_label || "-")}</td>
         `;
         claimsTableBody.appendChild(row);
       });
@@ -432,10 +432,10 @@ const API_BASE =
       entries.forEach((entry) => {
         const row = document.createElement("tr");
         row.innerHTML = `
-          <td>${entry.email}</td>
-          <td>${entry.reason || "-"}</td>
-          <td>${entry.created_at}</td>
-          <td><button class="promo-button promo-button-secondary" data-unblacklist="${entry.email}">Remove</button></td>
+          <td>${escapeHtml(entry.email)}</td>
+          <td>${escapeHtml(entry.reason || "-")}</td>
+          <td>${escapeHtml(entry.created_at)}</td>
+          <td><button class="promo-button promo-button-secondary" data-unblacklist="${escapeHtml(entry.email)}">Remove</button></td>
         `;
         blacklistTableBody.appendChild(row);
       });
@@ -475,12 +475,14 @@ const API_BASE =
       const groupId = document.getElementById("codes-group-id").value;
       const status = document.getElementById("codes-status").value;
       if (!groupId) {
-        codesTableBody.innerHTML = '<tr><td colspan="6">Select a group to inspect codes.</td></tr>';
+        codesTableBody.innerHTML = '<tr><td colspan="7">Select a group to inspect codes.</td></tr>';
         return;
       }
       setMessage(codesMessage, "Loading codes...", "muted");
       const params = new URLSearchParams();
       if (status) params.set("status", status);
+      const platform = document.getElementById("codes-platform").value;
+      if (platform) params.set("platform", platform);
       const data = await adminFetch(`/admin/groups/${groupId}/codes?${params.toString()}`);
       renderCodes(data.codes);
       setMessage(codesMessage, `Showing ${data.codes.length} codes.`, "muted");
@@ -493,6 +495,8 @@ const API_BASE =
       const email = document.getElementById("claims-email").value.trim();
       if (groupId) params.set("groupId", groupId);
       if (email) params.set("email", email);
+      const platform = document.getElementById("claims-platform").value;
+      if (platform) params.set("platform", platform);
       const data = await adminFetch(`/admin/claims?${params.toString()}`);
       renderClaims(data.claims);
       setMessage(claimsMessage, `Showing ${data.claims.length} claim records.`, "muted");
@@ -576,6 +580,18 @@ const API_BASE =
       event.preventDefault();
       const groupId = document.getElementById("import-group-id").value;
       const batchLabel = document.getElementById("batch-label").value.trim();
+      const platform = document.getElementById("import-platform").value;
+      const expiryInput = document.getElementById("codes-expiry").value;
+      if (platform === "ios" && !expiryInput) {
+        setMessage(importMessage, "Enter the Apple batch expiry in UTC before importing iOS codes.", "error");
+        return;
+      }
+      const expiryDate = expiryInput ? new Date(expiryInput + "Z") : null;
+      if (expiryDate && !Number.isFinite(expiryDate.getTime())) {
+        setMessage(importMessage, "Enter a valid expiry date and time in UTC.", "error");
+        return;
+      }
+      const expiresAt = expiryDate ? expiryDate.toISOString() : null;
       const textareaValue = document.getElementById("codes-text").value.trim();
       if (!groupId) {
         setMessage(importMessage, "Choose a group before importing.", "error");
@@ -593,7 +609,7 @@ const API_BASE =
       try {
         const result = await adminFetch(`/admin/groups/${groupId}/codes/import`, {
           method: "POST",
-          body: JSON.stringify({ codesText, batchLabel }),
+          body: JSON.stringify({ codesText, batchLabel, platform, expiresAt }),
         });
         importForm.reset();
         setMessage(importMessage, `Imported ${result.insertedCount} new codes. ${result.skippedCount} duplicate or empty values skipped.`, "success");

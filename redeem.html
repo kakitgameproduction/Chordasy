@@ -4,12 +4,12 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>Promo Code Redeem | Chordasy</title>
-    <meta name="description" content="Claim a Chordasy Google Play promo code with your invite code and email." />
+    <meta name="description" content="Claim a Chordasy Google Play or App Store offer code with your invite code and email." />
     <meta name="robots" content="noindex,nofollow" />
     <link rel="canonical" href="https://chordasy.com/redeem.html" />
     <link rel="icon" href="chordasy_app_icon.png" />
     <link rel="stylesheet" href="styles.css?v=20260718-header-layout-2" />
-    <link rel="stylesheet" href="promo.css?v=20260619-promo-1" />
+    <link rel="stylesheet" href="promo.css?v=20260917-ios-redeem-v2" />
   </head>
   <body data-page="promo-redeem">
     <header class="site-header">
@@ -43,7 +43,7 @@
             <h1>Claim your Chordasy code.</h1>
           </div>
           <p class="promo-lead">
-            This page is for invited testers and friends. Enter your invite code first. Once it is accepted, you can enter your email and redeem a Google Play promo code from the matching group.
+            This page is for invited testers and friends. Choose Android or iOS, then enter your invite code. Once accepted, use your email to claim a code for your chosen store.
           </p>
           <div class="promo-stat-grid">
             <div class="promo-stat-card">
@@ -64,9 +64,17 @@
               <h2>Use your invite details</h2>
             </div>
             <p class="promo-copy">
-              If the same email has already claimed a code from this group, the same code will be shown again instead of issuing a new one.
+              Each email can claim one code per platform in this group. Returning with the same email and platform shows your original code.
             </p>
             <form id="redeem-form" class="promo-form">
+              <div class="promo-form-row">
+                <label for="redeem-platform">Your platform</label>
+                <select id="redeem-platform" name="platform" required>
+                  <option value="">Choose your platform</option>
+                  <option value="android">Android · Google Play</option>
+                  <option value="ios">iOS / iPadOS · App Store</option>
+                </select>
+              </div>
               <div class="promo-form-row">
                 <label for="invite-code">Invite Code</label>
                 <input id="invite-code" type="text" name="inviteCode" autocomplete="off" placeholder="Enter your invite code" required />
@@ -91,10 +99,11 @@
             <div id="redeem-success" class="promo-code-result" hidden>
               <span id="claimed-code" class="promo-code-pill"></span>
               <p id="claimed-meta" class="promo-code-meta"></p>
-              <a class="promo-button promo-button-primary" href="https://play.google.com/redeem" target="_blank" rel="noreferrer">Open Google Play Redeem</a>
+              <a id="store-redeem-link" class="promo-button promo-button-primary" target="_blank" rel="noopener noreferrer">Open store to redeem</a>
+              <p id="store-redeem-help" class="promo-note"></p>
             </div>
             <p class="promo-note">
-              Codes are assigned while stock lasts. If the pool is empty, this page will let you know and no code will be issued.
+              Claiming a code reserves it for you; the store completes redemption. Codes are assigned while stock lasts. If the pool is empty, this page will let you know and no code will be issued.
             </p>
           </section>
         </div>
@@ -143,6 +152,6 @@
   </div>
 </footer>
 
-    <script src="promo.js?v=20260619-promo-1"></script>
+    <script src="promo.js?v=20260917-ios-redeem-v2"></script>
   </body>
 </html>

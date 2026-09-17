@@ -9,7 +9,7 @@
     <link rel="canonical" href="https://chordasy.com/admin.html" />
     <link rel="icon" href="chordasy_app_icon.png" />
     <link rel="stylesheet" href="styles.css?v=20260718-header-layout-2" />
-    <link rel="stylesheet" href="promo.css?v=20260619-promo-1" />
+    <link rel="stylesheet" href="promo.css?v=20260917-ios-redeem-v2" />
   </head>
   <body data-page="promo-admin">
     <header class="site-header">
@@ -129,13 +129,25 @@
                 <select id="import-group-id" required></select>
               </div>
               <div class="promo-form-row">
+                <label for="import-platform">Platform</label>
+                <select id="import-platform" required>
+                  <option value="android">Android · Google Play</option>
+                  <option value="ios">iOS / iPadOS · App Store</option>
+                </select>
+              </div>
+              <div class="promo-form-row">
+                <label for="codes-expiry">Batch expiry (UTC; required for iOS)</label>
+                <input id="codes-expiry" type="datetime-local" />
+                <p class="promo-field-hint">Use the expiry from the store, converted to UTC. Import Apple production one-time-use codes for band_mode_unlock, not Sandbox or shared custom codes. Maximum 1,000 codes per import.</p>
+              </div>
+              <div class="promo-form-row">
                 <label for="batch-label">Batch Label</label>
                 <input id="batch-label" type="text" placeholder="2026-06-round-1" />
               </div>
               <div class="promo-form-row">
                 <label for="codes-text">Codes</label>
                 <textarea id="codes-text" placeholder="Paste one code per line, or paste CSV content here."></textarea>
-                <p class="promo-field-hint">Header rows are ignored. Duplicates are skipped automatically.</p>
+                <p class="promo-field-hint">CSV files can include a Code, Promo Code or Offer Code column. Duplicates are skipped; other columns are not imported as codes.</p>
               </div>
               <div class="promo-form-row">
                 <label for="codes-file">CSV File</label>
@@ -183,6 +195,14 @@
             <form id="codes-explorer-form" class="promo-table-tools">
               <div class="promo-inline-row" style="width: 100%;">
                 <div class="promo-form-row">
+                  <label for="codes-platform">Platform</label>
+                  <select id="codes-platform">
+                    <option value="">All platforms</option>
+                    <option value="android">Android</option>
+                    <option value="ios">iOS / iPadOS</option>
+                  </select>
+                </div>
+                <div class="promo-form-row">
                   <label for="codes-group-id">Group</label>
                   <select id="codes-group-id"></select>
                 </div>
@@ -203,15 +223,16 @@
                 <thead>
                   <tr>
                     <th>Code</th>
+                  <th>Platform</th>
                     <th>Status</th>
                     <th>Batch</th>
                     <th>Claimed By</th>
-                    <th>Timestamp</th>
+                    <th>Timestamp / Expiry</th>
                     <th>Action</th>
                   </tr>
                 </thead>
                 <tbody id="codes-table-body">
-                  <tr><td colspan="6">Select a group to inspect codes.</td></tr>
+                  <tr><td colspan="7">Select a group to inspect codes.</td></tr>
                 </tbody>
               </table>
             </div>
@@ -262,7 +283,15 @@
           <form id="claims-filter-form" class="promo-table-tools">
             <div class="promo-inline-row" style="width: 100%;">
               <div class="promo-form-row">
-                <label for="claims-group-id">Group</label>
+                <label for="claims-platform">Platform</label>
+                  <select id="claims-platform">
+                    <option value="">All platforms</option>
+                    <option value="android">Android</option>
+                    <option value="ios">iOS / iPadOS</option>
+                  </select>
+                </div>
+                <div class="promo-form-row">
+                  <label for="claims-group-id">Group</label>
                 <select id="claims-group-id"></select>
               </div>
               <div class="promo-form-row">
@@ -280,12 +309,13 @@
                   <th>Email</th>
                   <th>Group</th>
                   <th>Code</th>
+                  <th>Platform</th>
                   <th>Claimed At</th>
                   <th>Invite Label</th>
                 </tr>
               </thead>
               <tbody id="claims-table-body">
-                <tr><td colspan="5">No claim records yet.</td></tr>
+                <tr><td colspan="6">No claim records yet.</td></tr>
               </tbody>
             </table>
           </div>
@@ -304,6 +334,6 @@
       <a href="contact.html">Contact</a>
     </footer>
 
-    <script src="promo.js?v=20260619-promo-1"></script>
+    <script src="promo.js?v=20260917-ios-redeem-v2"></script>
   </body>
 </html>
