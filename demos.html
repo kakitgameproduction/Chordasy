@@ -3,13 +3,43 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Chordasy Demo Videos | Number System, Transpose and Live Tools</title>
-    <meta name="description" content="Watch Chordasy demos for Number System transposing, sending annotated charts, chord transpose, cloud libraries, setlists, live mode, and more." />
+    <title>Chordasy Demo Videos | Song Library, Transpose and Live Tools</title>
+    <meta name="description" content="Watch Chordasy demos for replying to Band Mode messages, full-screen song library browsing, song grouping, Number System transposing, cloud charts, setlists and live tools." />
     <link rel="canonical" href="https://chordasy.com/demos.html" />
     <link rel="icon" href="chordasy_app_icon.png" />
     <link rel="stylesheet" href="styles.css?v=20260718-header-layout-2" />
     <script type="application/ld+json">
       [
+        {
+          "@context": "https://schema.org",
+          "@type": "VideoObject",
+          "@id": "https://chordasy.com/demos.html#reply-message-demo",
+          "name": "Chordasy - Reply to Incoming Messages in Band Mode",
+          "description": "Reply directly to the sender of a Band Mode message while keeping your chart visible. Tap Reply, type your message, then choose Send or Close.",
+          "thumbnailUrl": "https://img.youtube.com/vi/3mm_er6SdPs/hqdefault.jpg",
+          "embedUrl": "https://www.youtube.com/embed/3mm_er6SdPs",
+          "url": "https://www.youtube.com/shorts/3mm_er6SdPs",
+          "publisher": {
+            "@type": "Organization",
+            "name": "Chordasy",
+            "url": "https://chordasy.com/"
+          }
+        },
+        {
+          "@context": "https://schema.org",
+          "@type": "VideoObject",
+          "@id": "https://chordasy.com/demos.html#expanded-song-library-demo",
+          "name": "Chordasy - Full-Screen Song Library Browsing & Song Grouping",
+          "description": "Expand the Song Library for easier browsing, group matching song titles, choose a key or version, and switch back to the compact drawer.",
+          "thumbnailUrl": "https://img.youtube.com/vi/waZAs899v5U/hqdefault.jpg",
+          "embedUrl": "https://www.youtube.com/embed/waZAs899v5U",
+          "url": "https://www.youtube.com/shorts/waZAs899v5U",
+          "publisher": {
+            "@type": "Organization",
+            "name": "Chordasy",
+            "url": "https://chordasy.com/"
+          }
+        },
         {
           "@context": "https://schema.org",
           "@type": "VideoObject",
@@ -211,11 +241,47 @@
         <div class="section-heading demos-heading">
           <p class="eyebrow" data-i18n="demosEyebrow">Demo videos</p>
           <h1 data-i18n="demosTitle">Watch Chordasy workflows in action.</h1>
-          <p class="lead" data-i18n="demosLead">Short walkthroughs for setting up cloud libraries, building setlists, and using Chordasy on rehearsal day.</p>
+          <p class="lead" data-i18n="demosLead">Short walkthroughs for Band Mode replies, full-screen library browsing, song grouping, cloud setup, setlists, and live performance.</p>
         </div>
 
         <div class="demo-video-layout">
-          <article class="demo-video-card demo-video-featured">
+          <article id="reply-message-demo" class="demo-video-card demo-video-featured">
+            <div class="demo-video-frame demo-video-frame-short">
+              <iframe
+                src="https://www.youtube.com/embed/3mm_er6SdPs?rel=0&amp;playsinline=1"
+                title="Chordasy - Reply to Incoming Messages in Band Mode"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                allowfullscreen
+                loading="lazy"
+              ></iframe>
+            </div>
+            <div class="demo-video-copy">
+              <p class="eyebrow" data-i18n="replyDemoEyebrow">Band Mode</p>
+              <h2 data-i18n="replyDemoTitle">Reply to Incoming Messages</h2>
+              <p data-i18n="replyDemoBody">Keep rehearsal communication flowing. When a Band Mode message arrives, tap Reply to respond directly to the sender. Type your message, then choose Send or Close. The reply stays in the message area so your chart remains visible.</p>
+              <a class="demo-video-link" href="https://youtube.com/shorts/3mm_er6SdPs?feature=share" target="_blank" rel="noopener noreferrer" data-i18n="replyDemoFallback">Watch on YouTube</a>
+            </div>
+          </article>
+
+          <article id="expanded-song-library-demo" class="demo-video-card">
+            <div class="demo-video-frame demo-video-frame-short">
+              <iframe
+                src="https://www.youtube.com/embed/waZAs899v5U?rel=0&amp;playsinline=1"
+                title="Chordasy - Full-Screen Song Library Browsing and Song Grouping"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                allowfullscreen
+                loading="lazy"
+              ></iframe>
+            </div>
+            <div class="demo-video-copy">
+              <p class="eyebrow" data-i18n="expandedLibraryDemoEyebrow">Song Library</p>
+              <h2 data-i18n="expandedLibraryDemoTitle">Full-Screen Song Library &amp; Song Grouping</h2>
+              <p data-i18n="expandedLibraryDemoBody">See more songs with full-screen browsing. Turn on Grouping to show matching song titles once, then tap to choose a key or version. Filter by key, jump with A–Z navigation, and switch back to the compact drawer whenever you need.</p>
+              <a class="demo-video-link" href="https://youtube.com/shorts/waZAs899v5U?feature=share" target="_blank" rel="noopener noreferrer" data-i18n="expandedLibraryDemoFallback">Watch on YouTube</a>
+            </div>
+          </article>
+
+          <article class="demo-video-card">
             <div class="demo-video-frame demo-video-frame-short">
               <iframe
                 src="https://www.youtube.com/embed/c2kQwyxRVl0?rel=0&playsinline=1"
@@ -472,7 +538,15 @@
           navTranspose: "Transpose",
           demosEyebrow: "Demo videos",
           demosTitle: "Watch Chordasy workflows in action.",
-          demosLead: "Short walkthroughs for setting up cloud libraries, building setlists, and using Chordasy on rehearsal day.",
+          demosLead: "Short walkthroughs for Band Mode replies, full-screen library browsing, song grouping, cloud setup, setlists, and live performance.",
+          replyDemoEyebrow: "Band Mode",
+          replyDemoTitle: "Reply to Incoming Messages",
+          replyDemoBody: "Keep rehearsal communication flowing. When a Band Mode message arrives, tap Reply to respond directly to the sender. Type your message, then choose Send or Close. The reply stays in the message area so your chart remains visible.",
+          replyDemoFallback: "Watch on YouTube",
+          expandedLibraryDemoEyebrow: "Song Library",
+          expandedLibraryDemoTitle: "Full-Screen Song Library & Song Grouping",
+          expandedLibraryDemoBody: "See more songs with full-screen browsing. Turn on Grouping to show matching song titles once, then tap to choose a key or version. Filter by key, jump with A–Z navigation, and switch back to the compact drawer whenever you need.",
+          expandedLibraryDemoFallback: "Watch on YouTube",
           cloudDemoEyebrow: "Cloud library",
           cloudDemoTitle: "Connect to Your Cloud Drive",
           cloudDemoBody:
@@ -546,7 +620,15 @@
           navTranspose: "Transpose",
           demosEyebrow: "示範影片",
           demosTitle: "觀看 Chordasy 實際操作流程。",
-          demosLead: "用短片快速了解如何設定雲端資料庫、建立 setlist，以及在排練或敬拜當日使用 Chordasy。",
+          demosLead: "用短片快速了解 Band Mode 訊息回覆、全螢幕歌曲庫、歌曲分組、雲端設定、setlist，以及現場演出流程。",
+          replyDemoEyebrow: "Band Mode",
+          replyDemoTitle: "回覆收到的訊息",
+          replyDemoBody: "排練時輕鬆保持溝通。收到 Band Mode 訊息後，撳 Reply 就可以直接回覆原本嘅發送者。輸入訊息後撳 Send 傳送，或者撳 Close 關閉。回覆介面會留喺原本訊息位置，讓你繼續睇到份譜。",
+          replyDemoFallback: "在 YouTube 觀看",
+          expandedLibraryDemoEyebrow: "歌曲庫",
+          expandedLibraryDemoTitle: "全螢幕歌曲庫與歌曲分組",
+          expandedLibraryDemoBody: "將歌曲庫展開至全螢幕，一次睇到更多歌曲。開啟 Grouping 後，同名歌曲只會顯示一次，撳入去再揀 Key 或版本。亦可按 Key 篩選、用 A–Z 快速跳到歌曲，隨時縮返做 drawer 模式。",
+          expandedLibraryDemoFallback: "在 YouTube 觀看",
           cloudDemoEyebrow: "雲端資料庫",
           cloudDemoTitle: "連接你的雲端硬碟",
           cloudDemoBody:
